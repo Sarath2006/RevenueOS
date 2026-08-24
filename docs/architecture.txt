@@ -1,0 +1,93 @@
+                         ┌─────────────────────────────┐
+                         │        MERCHANT             │
+                         │ Razorpay Account             │
+                         └──────────────┬──────────────┘
+                                        │
+                           OAuth / credentials
+                                        │
+                                        ▼
+┌────────────────────────────────────────────────────────────────┐
+│                    RAZORPAY ADAPTER                            │
+│                                                                │
+│             TEST MODE       ↔       LIVE MODE                  │
+│                                                                │
+│      Same application code / different credentials             │
+└───────────────────────────┬────────────────────────────────────┘
+                            │
+                      Webhooks / APIs
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────────────┐
+│                     NODE.JS BACKEND                            │
+│                       EXPRESS + TS                             │
+│                                                                │
+│ Auth                                                          │
+│ Merchant Management                                            │
+│ Razorpay Integration                                           │
+│ Webhooks                                                       │
+│ Payments                                                       │
+│ Recovery                                                       │
+│ Policies                                                       │
+│ Actions                                                        │
+│ Analytics                                                      │
+│ Audit                                                          │
+│ Voice                                                          │
+└───────────────────────────┬────────────────────────────────────┘
+                            │
+                            ▼
+                     ┌───────────────┐
+                     │     REDIS     │
+                     │               │
+                     │ BullMQ        │
+                     │ queues        │
+                     │ locks         │
+                     │ realtime     │
+                     └───────┬───────┘
+                             │
+              ┌──────────────┴──────────────┐
+              ▼                             ▼
+       AI WORKER                       RECOVERY WORKER
+              │                             │
+              ▼                             ▼
+┌─────────────────────────┐       ┌──────────────────────────┐
+│       PYTHON AI         │       │     RAZORPAY ACTIONS     │
+│                         │       │                          │
+│ Risk Engine             │       │ Payment retry            │
+│ Diagnosis Engine        │       │ Recovery communication   │
+│ Recovery Probability    │       │ Subscription retry       │
+│ Decision Engine         │       │ Payment link             │
+│ Planner                 │       │ Promise-to-pay            │
+│ Explanation Engine      │       │ Escalation               │
+│ Voice Engine            │       │ Stop action              │
+└────────────┬────────────┘       └──────────────┬───────────┘
+             │                                   │
+             └────────────────┬──────────────────┘
+                              ▼
+                    ┌─────────────────────┐
+                    │    PostgreSQL       │
+                    │                     │
+                    │ merchants           │
+                    │ customers           │
+                    │ payments            │
+                    │ recovery_cases      │
+                    │ actions             │
+                    │ decisions           │
+                    │ audit_logs          │
+                    │ events              │
+                    │ policies             │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   REACT DASHBOARD   │
+                    │                     │
+                    │ Revenue at Risk     │
+                    │ Money Recovered     │
+                    │ AI Decisions        │
+                    │ Recovery Cases      │
+                    │ Live Activity       │
+                    │ Voice Recovery      │
+                    │ Audit Trail         │
+                    │ Policies            │
+                    │ Agent ON/OFF        │
+                    └─────────────────────┘

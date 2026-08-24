@@ -1,0 +1,30 @@
+M1 — Project setup
+Node.js
+Express
+TypeScript
+Python AI service
+React frontend
+Docker
+Git
+M2 — Database
+PostgreSQL
+Prisma
+Recovery lifecycle schema
+
+Now we proceed:
+
+Milestone	What we build
+M3	Backend foundation + Redis + BullMQ (In Progress)
+M4	Razorpay Test/Live integration
+M5	Webhook ingestion + event synchronization
+M6	AI diagnosis/risk/decision engine
+M7	Recovery orchestration + bounded actions
+M8	Automatic agent loop + stopping rules
+M9	Hinglish voice recovery
+M10	Batch recovery + dynamic simulation
+M11	Merchant dashboard
+M12	Real-time dashboard
+M13	Security, audit, idempotency, edge cases
+M14	Test-mode demonstration
+M15	Live-mode integration
+M16	Deployment + final buildathon demo
