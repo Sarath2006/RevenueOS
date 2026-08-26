@@ -1,0 +1,14 @@
+(All in D:\Razorpay Revenue Recovery Agent(RevenueOS)\backend:)
+
+Stoped Working(Stop Docker Services) : 
+    |_> D:\Razorpay Revenue Recovery Agent(RevenueOS)\backend: docker compose -f ..\infra\docker-compose.yaml down
+
+Started Working : 
+    |_> Start PostgreSQL + Redis:
+        -> D:\Razorpay Revenue Recovery Agent(RevenueOS)\backend: docker compose -f ..\infra\docker-compose.yaml up -d
+        -> Check both containers: docker ps
+        -> Check PostgreSQL: docker exec -it revenueos-postgres pg_isready -U postgres
+        -> Check Redis: docker exec -it revenueos-redis redis-cli ping
+            -> Expected output: PONG
+        -> Prisma Studio DASHBOARD: npx prisma studio
+    |_> Start backend: npm run dev
