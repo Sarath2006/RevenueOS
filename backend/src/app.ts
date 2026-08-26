@@ -11,6 +11,7 @@ import healthRoutes from "./routes/health.routes";
 
 import { notFoundHandler } from "./middleware/not-found.middleware";
 import { errorHandler } from "./middleware/error.middleware";
+import razorpayRoutes from "./modules/razorpay/razorpay.routes";
 
 const app = express();
 
@@ -56,6 +57,11 @@ app.get("/", (_req, res) => {
 app.use(
   "/api/health",
   healthRoutes
+);
+
+app.use(
+  "/api/razorpay",
+  razorpayRoutes
 );
 
 app.use(notFoundHandler);

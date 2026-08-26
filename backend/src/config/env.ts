@@ -20,19 +20,28 @@ const envSchema = z.object({
     .enum(["test", "live"])
     .default("test"),
 
-  RAZORPAY_TEST_KEY_ID: z.string().optional(),
+  RAZORPAY_TEST_KEY_ID:
+    z.string().optional(),
 
-  RAZORPAY_TEST_KEY_SECRET: z.string().optional(),
+  RAZORPAY_TEST_KEY_SECRET:
+    z.string().optional(),
 
-  RAZORPAY_LIVE_KEY_ID: z.string().optional(),
+  RAZORPAY_LIVE_KEY_ID:
+    z.string().optional(),
 
-  RAZORPAY_LIVE_KEY_SECRET: z.string().optional(),
+  RAZORPAY_LIVE_KEY_SECRET:
+    z.string().optional(),
 
-  RAZORPAY_TEST_WEBHOOK_SECRET: z.string().optional(),
+  RAZORPAY_TEST_WEBHOOK_SECRET:
+    z.string().optional(),
 
-  RAZORPAY_LIVE_WEBHOOK_SECRET: z.string().optional(),
+  RAZORPAY_LIVE_WEBHOOK_SECRET:
+    z.string().optional(),
 
-  JWT_SECRET: z.string().optional(),
+  JWT_SECRET:
+    z.string().optional(),
 });
 
-export const env = envSchema.parse(process.env);
+export const env = envSchema.parse(
+  process.env
+);
