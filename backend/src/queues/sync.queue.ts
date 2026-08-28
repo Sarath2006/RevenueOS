@@ -3,7 +3,33 @@ import { createQueueConnection } from "./connection";
 
 export const SYNC_QUEUE_NAME = "razorpay-sync";
 
-export const syncQueue = new Queue(
+export interface SyncJob {
+  merchantId: string;
+
+  mode: "test" | "live";
+
+  /**
+   * RevenueOS internal WebhookEvent ID
+   */
+  eventId: string;
+
+  /**
+   * Razorpay event ID
+   */
+  razorpayEventId?: string;
+
+  /**
+   * Razorpay event name
+   */
+  eventType: string;
+
+  /**
+   * Original Razorpay webhook payload
+   */
+  payload: any;
+}
+
+export const syncQueue = new Queue<SyncJob>(
   SYNC_QUEUE_NAME,
   {
     connection: createQueueConnection(),
@@ -13,12 +39,17 @@ export const syncQueue = new Queue(
 
       backoff: {
         type: "exponential",
-        delay: 5000,
+        delay: 1000,
       },
 
-      removeOnComplete: 100,
+      removeOnComplete: {
+        age: 3600,
+        count: 1000,
+      },
 
-      removeOnFail: 500,
+      removeOnFail: {
+        age: 86400,
+      },
     },
   }
 );

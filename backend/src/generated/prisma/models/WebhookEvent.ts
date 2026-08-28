@@ -27,6 +27,7 @@ export type AggregateWebhookEvent = {
 export type WebhookEventMinAggregateOutputType = {
   id: string | null
   merchantId: string | null
+  subscriptionId: string | null
   razorpayEventId: string | null
   eventType: string | null
   environment: $Enums.Environment | null
@@ -35,11 +36,13 @@ export type WebhookEventMinAggregateOutputType = {
   processedAt: Date | null
   errorMessage: string | null
   paymentId: string | null
+  orderId: string | null
 }
 
 export type WebhookEventMaxAggregateOutputType = {
   id: string | null
   merchantId: string | null
+  subscriptionId: string | null
   razorpayEventId: string | null
   eventType: string | null
   environment: $Enums.Environment | null
@@ -48,11 +51,13 @@ export type WebhookEventMaxAggregateOutputType = {
   processedAt: Date | null
   errorMessage: string | null
   paymentId: string | null
+  orderId: string | null
 }
 
 export type WebhookEventCountAggregateOutputType = {
   id: number
   merchantId: number
+  subscriptionId: number
   razorpayEventId: number
   eventType: number
   environment: number
@@ -62,6 +67,7 @@ export type WebhookEventCountAggregateOutputType = {
   processedAt: number
   errorMessage: number
   paymentId: number
+  orderId: number
   _all: number
 }
 
@@ -69,6 +75,7 @@ export type WebhookEventCountAggregateOutputType = {
 export type WebhookEventMinAggregateInputType = {
   id?: true
   merchantId?: true
+  subscriptionId?: true
   razorpayEventId?: true
   eventType?: true
   environment?: true
@@ -77,11 +84,13 @@ export type WebhookEventMinAggregateInputType = {
   processedAt?: true
   errorMessage?: true
   paymentId?: true
+  orderId?: true
 }
 
 export type WebhookEventMaxAggregateInputType = {
   id?: true
   merchantId?: true
+  subscriptionId?: true
   razorpayEventId?: true
   eventType?: true
   environment?: true
@@ -90,11 +99,13 @@ export type WebhookEventMaxAggregateInputType = {
   processedAt?: true
   errorMessage?: true
   paymentId?: true
+  orderId?: true
 }
 
 export type WebhookEventCountAggregateInputType = {
   id?: true
   merchantId?: true
+  subscriptionId?: true
   razorpayEventId?: true
   eventType?: true
   environment?: true
@@ -104,6 +115,7 @@ export type WebhookEventCountAggregateInputType = {
   processedAt?: true
   errorMessage?: true
   paymentId?: true
+  orderId?: true
   _all?: true
 }
 
@@ -182,6 +194,7 @@ export type WebhookEventGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type WebhookEventGroupByOutputType = {
   id: string
   merchantId: string
+  subscriptionId: string | null
   razorpayEventId: string | null
   eventType: string
   environment: $Enums.Environment
@@ -191,6 +204,7 @@ export type WebhookEventGroupByOutputType = {
   processedAt: Date | null
   errorMessage: string | null
   paymentId: string | null
+  orderId: string | null
   _count: WebhookEventCountAggregateOutputType | null
   _min: WebhookEventMinAggregateOutputType | null
   _max: WebhookEventMaxAggregateOutputType | null
@@ -217,6 +231,7 @@ export type WebhookEventWhereInput = {
   NOT?: Prisma.WebhookEventWhereInput | Prisma.WebhookEventWhereInput[]
   id?: Prisma.StringFilter<"WebhookEvent"> | string
   merchantId?: Prisma.StringFilter<"WebhookEvent"> | string
+  subscriptionId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   razorpayEventId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   eventType?: Prisma.StringFilter<"WebhookEvent"> | string
   environment?: Prisma.EnumEnvironmentFilter<"WebhookEvent"> | $Enums.Environment
@@ -226,13 +241,17 @@ export type WebhookEventWhereInput = {
   processedAt?: Prisma.DateTimeNullableFilter<"WebhookEvent"> | Date | string | null
   errorMessage?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   paymentId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
+  orderId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
+  subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
   payment?: Prisma.XOR<Prisma.PaymentNullableScalarRelationFilter, Prisma.PaymentWhereInput> | null
+  order?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
 }
 
 export type WebhookEventOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
+  subscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   razorpayEventId?: Prisma.SortOrderInput | Prisma.SortOrder
   eventType?: Prisma.SortOrder
   environment?: Prisma.SortOrder
@@ -242,8 +261,11 @@ export type WebhookEventOrderByWithRelationInput = {
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   errorMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
+  orderId?: Prisma.SortOrderInput | Prisma.SortOrder
   merchant?: Prisma.MerchantOrderByWithRelationInput
+  subscription?: Prisma.SubscriptionOrderByWithRelationInput
   payment?: Prisma.PaymentOrderByWithRelationInput
+  order?: Prisma.OrderOrderByWithRelationInput
 }
 
 export type WebhookEventWhereUniqueInput = Prisma.AtLeast<{
@@ -252,6 +274,7 @@ export type WebhookEventWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.WebhookEventWhereInput[]
   NOT?: Prisma.WebhookEventWhereInput | Prisma.WebhookEventWhereInput[]
   merchantId?: Prisma.StringFilter<"WebhookEvent"> | string
+  subscriptionId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   razorpayEventId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   eventType?: Prisma.StringFilter<"WebhookEvent"> | string
   environment?: Prisma.EnumEnvironmentFilter<"WebhookEvent"> | $Enums.Environment
@@ -261,13 +284,17 @@ export type WebhookEventWhereUniqueInput = Prisma.AtLeast<{
   processedAt?: Prisma.DateTimeNullableFilter<"WebhookEvent"> | Date | string | null
   errorMessage?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   paymentId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
+  orderId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
+  subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
   payment?: Prisma.XOR<Prisma.PaymentNullableScalarRelationFilter, Prisma.PaymentWhereInput> | null
+  order?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
 }, "id">
 
 export type WebhookEventOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
+  subscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   razorpayEventId?: Prisma.SortOrderInput | Prisma.SortOrder
   eventType?: Prisma.SortOrder
   environment?: Prisma.SortOrder
@@ -277,6 +304,7 @@ export type WebhookEventOrderByWithAggregationInput = {
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   errorMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
+  orderId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.WebhookEventCountOrderByAggregateInput
   _max?: Prisma.WebhookEventMaxOrderByAggregateInput
   _min?: Prisma.WebhookEventMinOrderByAggregateInput
@@ -288,6 +316,7 @@ export type WebhookEventScalarWhereWithAggregatesInput = {
   NOT?: Prisma.WebhookEventScalarWhereWithAggregatesInput | Prisma.WebhookEventScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"WebhookEvent"> | string
   merchantId?: Prisma.StringWithAggregatesFilter<"WebhookEvent"> | string
+  subscriptionId?: Prisma.StringNullableWithAggregatesFilter<"WebhookEvent"> | string | null
   razorpayEventId?: Prisma.StringNullableWithAggregatesFilter<"WebhookEvent"> | string | null
   eventType?: Prisma.StringWithAggregatesFilter<"WebhookEvent"> | string
   environment?: Prisma.EnumEnvironmentWithAggregatesFilter<"WebhookEvent"> | $Enums.Environment
@@ -297,6 +326,7 @@ export type WebhookEventScalarWhereWithAggregatesInput = {
   processedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WebhookEvent"> | Date | string | null
   errorMessage?: Prisma.StringNullableWithAggregatesFilter<"WebhookEvent"> | string | null
   paymentId?: Prisma.StringNullableWithAggregatesFilter<"WebhookEvent"> | string | null
+  orderId?: Prisma.StringNullableWithAggregatesFilter<"WebhookEvent"> | string | null
 }
 
 export type WebhookEventCreateInput = {
@@ -310,12 +340,15 @@ export type WebhookEventCreateInput = {
   processedAt?: Date | string | null
   errorMessage?: string | null
   merchant: Prisma.MerchantCreateNestedOneWithoutWebhookEventsInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutWebhookEventsInput
   payment?: Prisma.PaymentCreateNestedOneWithoutWebhookEventsInput
+  order?: Prisma.OrderCreateNestedOneWithoutWebhookEventsInput
 }
 
 export type WebhookEventUncheckedCreateInput = {
   id?: string
   merchantId: string
+  subscriptionId?: string | null
   razorpayEventId?: string | null
   eventType: string
   environment: $Enums.Environment
@@ -325,6 +358,7 @@ export type WebhookEventUncheckedCreateInput = {
   processedAt?: Date | string | null
   errorMessage?: string | null
   paymentId?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventUpdateInput = {
@@ -338,12 +372,15 @@ export type WebhookEventUpdateInput = {
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutWebhookEventsNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutWebhookEventsNestedInput
   payment?: Prisma.PaymentUpdateOneWithoutWebhookEventsNestedInput
+  order?: Prisma.OrderUpdateOneWithoutWebhookEventsNestedInput
 }
 
 export type WebhookEventUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   eventType?: Prisma.StringFieldUpdateOperationsInput | string
   environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
@@ -353,11 +390,13 @@ export type WebhookEventUncheckedUpdateInput = {
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type WebhookEventCreateManyInput = {
   id?: string
   merchantId: string
+  subscriptionId?: string | null
   razorpayEventId?: string | null
   eventType: string
   environment: $Enums.Environment
@@ -367,6 +406,7 @@ export type WebhookEventCreateManyInput = {
   processedAt?: Date | string | null
   errorMessage?: string | null
   paymentId?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventUpdateManyMutationInput = {
@@ -384,6 +424,7 @@ export type WebhookEventUpdateManyMutationInput = {
 export type WebhookEventUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   eventType?: Prisma.StringFieldUpdateOperationsInput | string
   environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
@@ -393,6 +434,7 @@ export type WebhookEventUncheckedUpdateManyInput = {
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type WebhookEventListRelationFilter = {
@@ -408,6 +450,7 @@ export type WebhookEventOrderByRelationAggregateInput = {
 export type WebhookEventCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
+  subscriptionId?: Prisma.SortOrder
   razorpayEventId?: Prisma.SortOrder
   eventType?: Prisma.SortOrder
   environment?: Prisma.SortOrder
@@ -417,11 +460,13 @@ export type WebhookEventCountOrderByAggregateInput = {
   processedAt?: Prisma.SortOrder
   errorMessage?: Prisma.SortOrder
   paymentId?: Prisma.SortOrder
+  orderId?: Prisma.SortOrder
 }
 
 export type WebhookEventMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
+  subscriptionId?: Prisma.SortOrder
   razorpayEventId?: Prisma.SortOrder
   eventType?: Prisma.SortOrder
   environment?: Prisma.SortOrder
@@ -430,11 +475,13 @@ export type WebhookEventMaxOrderByAggregateInput = {
   processedAt?: Prisma.SortOrder
   errorMessage?: Prisma.SortOrder
   paymentId?: Prisma.SortOrder
+  orderId?: Prisma.SortOrder
 }
 
 export type WebhookEventMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
+  subscriptionId?: Prisma.SortOrder
   razorpayEventId?: Prisma.SortOrder
   eventType?: Prisma.SortOrder
   environment?: Prisma.SortOrder
@@ -443,6 +490,7 @@ export type WebhookEventMinOrderByAggregateInput = {
   processedAt?: Prisma.SortOrder
   errorMessage?: Prisma.SortOrder
   paymentId?: Prisma.SortOrder
+  orderId?: Prisma.SortOrder
 }
 
 export type WebhookEventCreateNestedManyWithoutMerchantInput = {
@@ -484,6 +532,48 @@ export type WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput = {
   connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
   update?: Prisma.WebhookEventUpdateWithWhereUniqueWithoutMerchantInput | Prisma.WebhookEventUpdateWithWhereUniqueWithoutMerchantInput[]
   updateMany?: Prisma.WebhookEventUpdateManyWithWhereWithoutMerchantInput | Prisma.WebhookEventUpdateManyWithWhereWithoutMerchantInput[]
+  deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
+}
+
+export type WebhookEventCreateNestedManyWithoutOrderInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput> | Prisma.WebhookEventCreateWithoutOrderInput[] | Prisma.WebhookEventUncheckedCreateWithoutOrderInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutOrderInput | Prisma.WebhookEventCreateOrConnectWithoutOrderInput[]
+  createMany?: Prisma.WebhookEventCreateManyOrderInputEnvelope
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+}
+
+export type WebhookEventUncheckedCreateNestedManyWithoutOrderInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput> | Prisma.WebhookEventCreateWithoutOrderInput[] | Prisma.WebhookEventUncheckedCreateWithoutOrderInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutOrderInput | Prisma.WebhookEventCreateOrConnectWithoutOrderInput[]
+  createMany?: Prisma.WebhookEventCreateManyOrderInputEnvelope
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+}
+
+export type WebhookEventUpdateManyWithoutOrderNestedInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput> | Prisma.WebhookEventCreateWithoutOrderInput[] | Prisma.WebhookEventUncheckedCreateWithoutOrderInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutOrderInput | Prisma.WebhookEventCreateOrConnectWithoutOrderInput[]
+  upsert?: Prisma.WebhookEventUpsertWithWhereUniqueWithoutOrderInput | Prisma.WebhookEventUpsertWithWhereUniqueWithoutOrderInput[]
+  createMany?: Prisma.WebhookEventCreateManyOrderInputEnvelope
+  set?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  disconnect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  delete?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  update?: Prisma.WebhookEventUpdateWithWhereUniqueWithoutOrderInput | Prisma.WebhookEventUpdateWithWhereUniqueWithoutOrderInput[]
+  updateMany?: Prisma.WebhookEventUpdateManyWithWhereWithoutOrderInput | Prisma.WebhookEventUpdateManyWithWhereWithoutOrderInput[]
+  deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
+}
+
+export type WebhookEventUncheckedUpdateManyWithoutOrderNestedInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput> | Prisma.WebhookEventCreateWithoutOrderInput[] | Prisma.WebhookEventUncheckedCreateWithoutOrderInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutOrderInput | Prisma.WebhookEventCreateOrConnectWithoutOrderInput[]
+  upsert?: Prisma.WebhookEventUpsertWithWhereUniqueWithoutOrderInput | Prisma.WebhookEventUpsertWithWhereUniqueWithoutOrderInput[]
+  createMany?: Prisma.WebhookEventCreateManyOrderInputEnvelope
+  set?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  disconnect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  delete?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  update?: Prisma.WebhookEventUpdateWithWhereUniqueWithoutOrderInput | Prisma.WebhookEventUpdateWithWhereUniqueWithoutOrderInput[]
+  updateMany?: Prisma.WebhookEventUpdateManyWithWhereWithoutOrderInput | Prisma.WebhookEventUpdateManyWithWhereWithoutOrderInput[]
   deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
 }
 
@@ -529,6 +619,48 @@ export type WebhookEventUncheckedUpdateManyWithoutPaymentNestedInput = {
   deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
 }
 
+export type WebhookEventCreateNestedManyWithoutSubscriptionInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput> | Prisma.WebhookEventCreateWithoutSubscriptionInput[] | Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput | Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput[]
+  createMany?: Prisma.WebhookEventCreateManySubscriptionInputEnvelope
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+}
+
+export type WebhookEventUncheckedCreateNestedManyWithoutSubscriptionInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput> | Prisma.WebhookEventCreateWithoutSubscriptionInput[] | Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput | Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput[]
+  createMany?: Prisma.WebhookEventCreateManySubscriptionInputEnvelope
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+}
+
+export type WebhookEventUpdateManyWithoutSubscriptionNestedInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput> | Prisma.WebhookEventCreateWithoutSubscriptionInput[] | Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput | Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput[]
+  upsert?: Prisma.WebhookEventUpsertWithWhereUniqueWithoutSubscriptionInput | Prisma.WebhookEventUpsertWithWhereUniqueWithoutSubscriptionInput[]
+  createMany?: Prisma.WebhookEventCreateManySubscriptionInputEnvelope
+  set?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  disconnect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  delete?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  update?: Prisma.WebhookEventUpdateWithWhereUniqueWithoutSubscriptionInput | Prisma.WebhookEventUpdateWithWhereUniqueWithoutSubscriptionInput[]
+  updateMany?: Prisma.WebhookEventUpdateManyWithWhereWithoutSubscriptionInput | Prisma.WebhookEventUpdateManyWithWhereWithoutSubscriptionInput[]
+  deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
+}
+
+export type WebhookEventUncheckedUpdateManyWithoutSubscriptionNestedInput = {
+  create?: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput> | Prisma.WebhookEventCreateWithoutSubscriptionInput[] | Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput[]
+  connectOrCreate?: Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput | Prisma.WebhookEventCreateOrConnectWithoutSubscriptionInput[]
+  upsert?: Prisma.WebhookEventUpsertWithWhereUniqueWithoutSubscriptionInput | Prisma.WebhookEventUpsertWithWhereUniqueWithoutSubscriptionInput[]
+  createMany?: Prisma.WebhookEventCreateManySubscriptionInputEnvelope
+  set?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  disconnect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  delete?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  connect?: Prisma.WebhookEventWhereUniqueInput | Prisma.WebhookEventWhereUniqueInput[]
+  update?: Prisma.WebhookEventUpdateWithWhereUniqueWithoutSubscriptionInput | Prisma.WebhookEventUpdateWithWhereUniqueWithoutSubscriptionInput[]
+  updateMany?: Prisma.WebhookEventUpdateManyWithWhereWithoutSubscriptionInput | Prisma.WebhookEventUpdateManyWithWhereWithoutSubscriptionInput[]
+  deleteMany?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
+}
+
 export type EnumWebhookStatusFieldUpdateOperationsInput = {
   set?: $Enums.WebhookStatus
 }
@@ -543,11 +675,14 @@ export type WebhookEventCreateWithoutMerchantInput = {
   receivedAt?: Date | string
   processedAt?: Date | string | null
   errorMessage?: string | null
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutWebhookEventsInput
   payment?: Prisma.PaymentCreateNestedOneWithoutWebhookEventsInput
+  order?: Prisma.OrderCreateNestedOneWithoutWebhookEventsInput
 }
 
 export type WebhookEventUncheckedCreateWithoutMerchantInput = {
   id?: string
+  subscriptionId?: string | null
   razorpayEventId?: string | null
   eventType: string
   environment: $Enums.Environment
@@ -557,6 +692,7 @@ export type WebhookEventUncheckedCreateWithoutMerchantInput = {
   processedAt?: Date | string | null
   errorMessage?: string | null
   paymentId?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventCreateOrConnectWithoutMerchantInput = {
@@ -591,6 +727,7 @@ export type WebhookEventScalarWhereInput = {
   NOT?: Prisma.WebhookEventScalarWhereInput | Prisma.WebhookEventScalarWhereInput[]
   id?: Prisma.StringFilter<"WebhookEvent"> | string
   merchantId?: Prisma.StringFilter<"WebhookEvent"> | string
+  subscriptionId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   razorpayEventId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   eventType?: Prisma.StringFilter<"WebhookEvent"> | string
   environment?: Prisma.EnumEnvironmentFilter<"WebhookEvent"> | $Enums.Environment
@@ -600,6 +737,63 @@ export type WebhookEventScalarWhereInput = {
   processedAt?: Prisma.DateTimeNullableFilter<"WebhookEvent"> | Date | string | null
   errorMessage?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
   paymentId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
+  orderId?: Prisma.StringNullableFilter<"WebhookEvent"> | string | null
+}
+
+export type WebhookEventCreateWithoutOrderInput = {
+  id?: string
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
+  merchant: Prisma.MerchantCreateNestedOneWithoutWebhookEventsInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutWebhookEventsInput
+  payment?: Prisma.PaymentCreateNestedOneWithoutWebhookEventsInput
+}
+
+export type WebhookEventUncheckedCreateWithoutOrderInput = {
+  id?: string
+  merchantId: string
+  subscriptionId?: string | null
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
+  paymentId?: string | null
+}
+
+export type WebhookEventCreateOrConnectWithoutOrderInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  create: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput>
+}
+
+export type WebhookEventCreateManyOrderInputEnvelope = {
+  data: Prisma.WebhookEventCreateManyOrderInput | Prisma.WebhookEventCreateManyOrderInput[]
+  skipDuplicates?: boolean
+}
+
+export type WebhookEventUpsertWithWhereUniqueWithoutOrderInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  update: Prisma.XOR<Prisma.WebhookEventUpdateWithoutOrderInput, Prisma.WebhookEventUncheckedUpdateWithoutOrderInput>
+  create: Prisma.XOR<Prisma.WebhookEventCreateWithoutOrderInput, Prisma.WebhookEventUncheckedCreateWithoutOrderInput>
+}
+
+export type WebhookEventUpdateWithWhereUniqueWithoutOrderInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  data: Prisma.XOR<Prisma.WebhookEventUpdateWithoutOrderInput, Prisma.WebhookEventUncheckedUpdateWithoutOrderInput>
+}
+
+export type WebhookEventUpdateManyWithWhereWithoutOrderInput = {
+  where: Prisma.WebhookEventScalarWhereInput
+  data: Prisma.XOR<Prisma.WebhookEventUpdateManyMutationInput, Prisma.WebhookEventUncheckedUpdateManyWithoutOrderInput>
 }
 
 export type WebhookEventCreateWithoutPaymentInput = {
@@ -613,11 +807,14 @@ export type WebhookEventCreateWithoutPaymentInput = {
   processedAt?: Date | string | null
   errorMessage?: string | null
   merchant: Prisma.MerchantCreateNestedOneWithoutWebhookEventsInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutWebhookEventsInput
+  order?: Prisma.OrderCreateNestedOneWithoutWebhookEventsInput
 }
 
 export type WebhookEventUncheckedCreateWithoutPaymentInput = {
   id?: string
   merchantId: string
+  subscriptionId?: string | null
   razorpayEventId?: string | null
   eventType: string
   environment: $Enums.Environment
@@ -626,6 +823,7 @@ export type WebhookEventUncheckedCreateWithoutPaymentInput = {
   receivedAt?: Date | string
   processedAt?: Date | string | null
   errorMessage?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventCreateOrConnectWithoutPaymentInput = {
@@ -654,7 +852,7 @@ export type WebhookEventUpdateManyWithWhereWithoutPaymentInput = {
   data: Prisma.XOR<Prisma.WebhookEventUpdateManyMutationInput, Prisma.WebhookEventUncheckedUpdateManyWithoutPaymentInput>
 }
 
-export type WebhookEventCreateManyMerchantInput = {
+export type WebhookEventCreateWithoutSubscriptionInput = {
   id?: string
   razorpayEventId?: string | null
   eventType: string
@@ -664,7 +862,65 @@ export type WebhookEventCreateManyMerchantInput = {
   receivedAt?: Date | string
   processedAt?: Date | string | null
   errorMessage?: string | null
+  merchant: Prisma.MerchantCreateNestedOneWithoutWebhookEventsInput
+  payment?: Prisma.PaymentCreateNestedOneWithoutWebhookEventsInput
+  order?: Prisma.OrderCreateNestedOneWithoutWebhookEventsInput
+}
+
+export type WebhookEventUncheckedCreateWithoutSubscriptionInput = {
+  id?: string
+  merchantId: string
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
   paymentId?: string | null
+  orderId?: string | null
+}
+
+export type WebhookEventCreateOrConnectWithoutSubscriptionInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  create: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput>
+}
+
+export type WebhookEventCreateManySubscriptionInputEnvelope = {
+  data: Prisma.WebhookEventCreateManySubscriptionInput | Prisma.WebhookEventCreateManySubscriptionInput[]
+  skipDuplicates?: boolean
+}
+
+export type WebhookEventUpsertWithWhereUniqueWithoutSubscriptionInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  update: Prisma.XOR<Prisma.WebhookEventUpdateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedUpdateWithoutSubscriptionInput>
+  create: Prisma.XOR<Prisma.WebhookEventCreateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedCreateWithoutSubscriptionInput>
+}
+
+export type WebhookEventUpdateWithWhereUniqueWithoutSubscriptionInput = {
+  where: Prisma.WebhookEventWhereUniqueInput
+  data: Prisma.XOR<Prisma.WebhookEventUpdateWithoutSubscriptionInput, Prisma.WebhookEventUncheckedUpdateWithoutSubscriptionInput>
+}
+
+export type WebhookEventUpdateManyWithWhereWithoutSubscriptionInput = {
+  where: Prisma.WebhookEventScalarWhereInput
+  data: Prisma.XOR<Prisma.WebhookEventUpdateManyMutationInput, Prisma.WebhookEventUncheckedUpdateManyWithoutSubscriptionInput>
+}
+
+export type WebhookEventCreateManyMerchantInput = {
+  id?: string
+  subscriptionId?: string | null
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
+  paymentId?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventUpdateWithoutMerchantInput = {
@@ -677,11 +933,75 @@ export type WebhookEventUpdateWithoutMerchantInput = {
   receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subscription?: Prisma.SubscriptionUpdateOneWithoutWebhookEventsNestedInput
   payment?: Prisma.PaymentUpdateOneWithoutWebhookEventsNestedInput
+  order?: Prisma.OrderUpdateOneWithoutWebhookEventsNestedInput
 }
 
 export type WebhookEventUncheckedUpdateWithoutMerchantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type WebhookEventUncheckedUpdateManyWithoutMerchantInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type WebhookEventCreateManyOrderInput = {
+  id?: string
+  merchantId: string
+  subscriptionId?: string | null
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
+  paymentId?: string | null
+}
+
+export type WebhookEventUpdateWithoutOrderInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutWebhookEventsNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutWebhookEventsNestedInput
+  payment?: Prisma.PaymentUpdateOneWithoutWebhookEventsNestedInput
+}
+
+export type WebhookEventUncheckedUpdateWithoutOrderInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   eventType?: Prisma.StringFieldUpdateOperationsInput | string
   environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
@@ -693,8 +1013,10 @@ export type WebhookEventUncheckedUpdateWithoutMerchantInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type WebhookEventUncheckedUpdateManyWithoutMerchantInput = {
+export type WebhookEventUncheckedUpdateManyWithoutOrderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   eventType?: Prisma.StringFieldUpdateOperationsInput | string
   environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
@@ -709,6 +1031,7 @@ export type WebhookEventUncheckedUpdateManyWithoutMerchantInput = {
 export type WebhookEventCreateManyPaymentInput = {
   id?: string
   merchantId: string
+  subscriptionId?: string | null
   razorpayEventId?: string | null
   eventType: string
   environment: $Enums.Environment
@@ -717,6 +1040,7 @@ export type WebhookEventCreateManyPaymentInput = {
   receivedAt?: Date | string
   processedAt?: Date | string | null
   errorMessage?: string | null
+  orderId?: string | null
 }
 
 export type WebhookEventUpdateWithoutPaymentInput = {
@@ -730,11 +1054,14 @@ export type WebhookEventUpdateWithoutPaymentInput = {
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutWebhookEventsNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutWebhookEventsNestedInput
+  order?: Prisma.OrderUpdateOneWithoutWebhookEventsNestedInput
 }
 
 export type WebhookEventUncheckedUpdateWithoutPaymentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   eventType?: Prisma.StringFieldUpdateOperationsInput | string
   environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
@@ -743,9 +1070,55 @@ export type WebhookEventUncheckedUpdateWithoutPaymentInput = {
   receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type WebhookEventUncheckedUpdateManyWithoutPaymentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type WebhookEventCreateManySubscriptionInput = {
+  id?: string
+  merchantId: string
+  razorpayEventId?: string | null
+  eventType: string
+  environment: $Enums.Environment
+  payload: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.WebhookStatus
+  receivedAt?: Date | string
+  processedAt?: Date | string | null
+  errorMessage?: string | null
+  paymentId?: string | null
+  orderId?: string | null
+}
+
+export type WebhookEventUpdateWithoutSubscriptionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutWebhookEventsNestedInput
+  payment?: Prisma.PaymentUpdateOneWithoutWebhookEventsNestedInput
+  order?: Prisma.OrderUpdateOneWithoutWebhookEventsNestedInput
+}
+
+export type WebhookEventUncheckedUpdateWithoutSubscriptionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
   razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -756,6 +1129,23 @@ export type WebhookEventUncheckedUpdateManyWithoutPaymentInput = {
   receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type WebhookEventUncheckedUpdateManyWithoutSubscriptionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  razorpayEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eventType?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  payload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumWebhookStatusFieldUpdateOperationsInput | $Enums.WebhookStatus
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  errorMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -763,6 +1153,7 @@ export type WebhookEventUncheckedUpdateManyWithoutPaymentInput = {
 export type WebhookEventSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   merchantId?: boolean
+  subscriptionId?: boolean
   razorpayEventId?: boolean
   eventType?: boolean
   environment?: boolean
@@ -772,13 +1163,17 @@ export type WebhookEventSelect<ExtArgs extends runtime.Types.Extensions.Internal
   processedAt?: boolean
   errorMessage?: boolean
   paymentId?: boolean
+  orderId?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }, ExtArgs["result"]["webhookEvent"]>
 
 export type WebhookEventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   merchantId?: boolean
+  subscriptionId?: boolean
   razorpayEventId?: boolean
   eventType?: boolean
   environment?: boolean
@@ -788,13 +1183,17 @@ export type WebhookEventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   processedAt?: boolean
   errorMessage?: boolean
   paymentId?: boolean
+  orderId?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }, ExtArgs["result"]["webhookEvent"]>
 
 export type WebhookEventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   merchantId?: boolean
+  subscriptionId?: boolean
   razorpayEventId?: boolean
   eventType?: boolean
   environment?: boolean
@@ -804,13 +1203,17 @@ export type WebhookEventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   processedAt?: boolean
   errorMessage?: boolean
   paymentId?: boolean
+  orderId?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }, ExtArgs["result"]["webhookEvent"]>
 
 export type WebhookEventSelectScalar = {
   id?: boolean
   merchantId?: boolean
+  subscriptionId?: boolean
   razorpayEventId?: boolean
   eventType?: boolean
   environment?: boolean
@@ -820,31 +1223,41 @@ export type WebhookEventSelectScalar = {
   processedAt?: boolean
   errorMessage?: boolean
   paymentId?: boolean
+  orderId?: boolean
 }
 
-export type WebhookEventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "merchantId" | "razorpayEventId" | "eventType" | "environment" | "payload" | "status" | "receivedAt" | "processedAt" | "errorMessage" | "paymentId", ExtArgs["result"]["webhookEvent"]>
+export type WebhookEventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "merchantId" | "subscriptionId" | "razorpayEventId" | "eventType" | "environment" | "payload" | "status" | "receivedAt" | "processedAt" | "errorMessage" | "paymentId" | "orderId", ExtArgs["result"]["webhookEvent"]>
 export type WebhookEventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }
 export type WebhookEventIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }
 export type WebhookEventIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
+  subscription?: boolean | Prisma.WebhookEvent$subscriptionArgs<ExtArgs>
   payment?: boolean | Prisma.WebhookEvent$paymentArgs<ExtArgs>
+  order?: boolean | Prisma.WebhookEvent$orderArgs<ExtArgs>
 }
 
 export type $WebhookEventPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "WebhookEvent"
   objects: {
     merchant: Prisma.$MerchantPayload<ExtArgs>
+    subscription: Prisma.$SubscriptionPayload<ExtArgs> | null
     payment: Prisma.$PaymentPayload<ExtArgs> | null
+    order: Prisma.$OrderPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     merchantId: string
+    subscriptionId: string | null
     razorpayEventId: string | null
     eventType: string
     environment: $Enums.Environment
@@ -854,6 +1267,7 @@ export type $WebhookEventPayload<ExtArgs extends runtime.Types.Extensions.Intern
     processedAt: Date | null
     errorMessage: string | null
     paymentId: string | null
+    orderId: string | null
   }, ExtArgs["result"]["webhookEvent"]>
   composites: {}
 }
@@ -1249,7 +1663,9 @@ readonly fields: WebhookEventFieldRefs;
 export interface Prisma__WebhookEventClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   merchant<T extends Prisma.MerchantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MerchantDefaultArgs<ExtArgs>>): Prisma.Prisma__MerchantClient<runtime.Types.Result.GetResult<Prisma.$MerchantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  subscription<T extends Prisma.WebhookEvent$subscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WebhookEvent$subscriptionArgs<ExtArgs>>): Prisma.Prisma__SubscriptionClient<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   payment<T extends Prisma.WebhookEvent$paymentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WebhookEvent$paymentArgs<ExtArgs>>): Prisma.Prisma__PaymentClient<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  order<T extends Prisma.WebhookEvent$orderArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WebhookEvent$orderArgs<ExtArgs>>): Prisma.Prisma__OrderClient<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1281,6 +1697,7 @@ export interface Prisma__WebhookEventClient<T, Null = never, ExtArgs extends run
 export interface WebhookEventFieldRefs {
   readonly id: Prisma.FieldRef<"WebhookEvent", 'String'>
   readonly merchantId: Prisma.FieldRef<"WebhookEvent", 'String'>
+  readonly subscriptionId: Prisma.FieldRef<"WebhookEvent", 'String'>
   readonly razorpayEventId: Prisma.FieldRef<"WebhookEvent", 'String'>
   readonly eventType: Prisma.FieldRef<"WebhookEvent", 'String'>
   readonly environment: Prisma.FieldRef<"WebhookEvent", 'Environment'>
@@ -1290,6 +1707,7 @@ export interface WebhookEventFieldRefs {
   readonly processedAt: Prisma.FieldRef<"WebhookEvent", 'DateTime'>
   readonly errorMessage: Prisma.FieldRef<"WebhookEvent", 'String'>
   readonly paymentId: Prisma.FieldRef<"WebhookEvent", 'String'>
+  readonly orderId: Prisma.FieldRef<"WebhookEvent", 'String'>
 }
     
 
@@ -1691,6 +2109,25 @@ export type WebhookEventDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
+ * WebhookEvent.subscription
+ */
+export type WebhookEvent$subscriptionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Subscription
+   */
+  select?: Prisma.SubscriptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Subscription
+   */
+  omit?: Prisma.SubscriptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SubscriptionInclude<ExtArgs> | null
+  where?: Prisma.SubscriptionWhereInput
+}
+
+/**
  * WebhookEvent.payment
  */
 export type WebhookEvent$paymentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1707,6 +2144,25 @@ export type WebhookEvent$paymentArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   include?: Prisma.PaymentInclude<ExtArgs> | null
   where?: Prisma.PaymentWhereInput
+}
+
+/**
+ * WebhookEvent.order
+ */
+export type WebhookEvent$orderArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Order
+   */
+  select?: Prisma.OrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Order
+   */
+  omit?: Prisma.OrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderInclude<ExtArgs> | null
+  where?: Prisma.OrderWhereInput
 }
 
 /**

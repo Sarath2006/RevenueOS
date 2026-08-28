@@ -217,9 +217,11 @@ export type MerchantWhereInput = {
   users?: Prisma.MerchantUserListRelationFilter
   connections?: Prisma.RazorpayConnectionListRelationFilter
   payments?: Prisma.PaymentListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
   customers?: Prisma.CustomerListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
   invoices?: Prisma.InvoiceListRelationFilter
+  paymentLinks?: Prisma.PaymentLinkListRelationFilter
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
   recoveryActions?: Prisma.RecoveryActionListRelationFilter
   decisions?: Prisma.AIDecisionListRelationFilter
@@ -243,9 +245,11 @@ export type MerchantOrderByWithRelationInput = {
   users?: Prisma.MerchantUserOrderByRelationAggregateInput
   connections?: Prisma.RazorpayConnectionOrderByRelationAggregateInput
   payments?: Prisma.PaymentOrderByRelationAggregateInput
+  orders?: Prisma.OrderOrderByRelationAggregateInput
   customers?: Prisma.CustomerOrderByRelationAggregateInput
   subscriptions?: Prisma.SubscriptionOrderByRelationAggregateInput
   invoices?: Prisma.InvoiceOrderByRelationAggregateInput
+  paymentLinks?: Prisma.PaymentLinkOrderByRelationAggregateInput
   recoveryCases?: Prisma.RecoveryCaseOrderByRelationAggregateInput
   recoveryActions?: Prisma.RecoveryActionOrderByRelationAggregateInput
   decisions?: Prisma.AIDecisionOrderByRelationAggregateInput
@@ -272,9 +276,11 @@ export type MerchantWhereUniqueInput = Prisma.AtLeast<{
   users?: Prisma.MerchantUserListRelationFilter
   connections?: Prisma.RazorpayConnectionListRelationFilter
   payments?: Prisma.PaymentListRelationFilter
+  orders?: Prisma.OrderListRelationFilter
   customers?: Prisma.CustomerListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
   invoices?: Prisma.InvoiceListRelationFilter
+  paymentLinks?: Prisma.PaymentLinkListRelationFilter
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
   recoveryActions?: Prisma.RecoveryActionListRelationFilter
   decisions?: Prisma.AIDecisionListRelationFilter
@@ -328,9 +334,11 @@ export type MerchantCreateInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -354,9 +362,11 @@ export type MerchantUncheckedCreateInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -380,9 +390,11 @@ export type MerchantUpdateInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -406,9 +418,11 @@ export type MerchantUncheckedUpdateInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -551,6 +565,20 @@ export type MerchantUpdateOneRequiredWithoutCustomersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutCustomersInput, Prisma.MerchantUpdateWithoutCustomersInput>, Prisma.MerchantUncheckedUpdateWithoutCustomersInput>
 }
 
+export type MerchantCreateNestedOneWithoutOrdersInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutOrdersInput, Prisma.MerchantUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutOrdersInput
+  connect?: Prisma.MerchantWhereUniqueInput
+}
+
+export type MerchantUpdateOneRequiredWithoutOrdersNestedInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutOrdersInput, Prisma.MerchantUncheckedCreateWithoutOrdersInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutOrdersInput
+  upsert?: Prisma.MerchantUpsertWithoutOrdersInput
+  connect?: Prisma.MerchantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutOrdersInput, Prisma.MerchantUpdateWithoutOrdersInput>, Prisma.MerchantUncheckedUpdateWithoutOrdersInput>
+}
+
 export type MerchantCreateNestedOneWithoutPaymentsInput = {
   create?: Prisma.XOR<Prisma.MerchantCreateWithoutPaymentsInput, Prisma.MerchantUncheckedCreateWithoutPaymentsInput>
   connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutPaymentsInput
@@ -577,6 +605,20 @@ export type MerchantUpdateOneRequiredWithoutSubscriptionsNestedInput = {
   upsert?: Prisma.MerchantUpsertWithoutSubscriptionsInput
   connect?: Prisma.MerchantWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutSubscriptionsInput, Prisma.MerchantUpdateWithoutSubscriptionsInput>, Prisma.MerchantUncheckedUpdateWithoutSubscriptionsInput>
+}
+
+export type MerchantCreateNestedOneWithoutPaymentLinksInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutPaymentLinksInput, Prisma.MerchantUncheckedCreateWithoutPaymentLinksInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutPaymentLinksInput
+  connect?: Prisma.MerchantWhereUniqueInput
+}
+
+export type MerchantUpdateOneRequiredWithoutPaymentLinksNestedInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutPaymentLinksInput, Prisma.MerchantUncheckedCreateWithoutPaymentLinksInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutPaymentLinksInput
+  upsert?: Prisma.MerchantUpsertWithoutPaymentLinksInput
+  connect?: Prisma.MerchantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutPaymentLinksInput, Prisma.MerchantUpdateWithoutPaymentLinksInput>, Prisma.MerchantUncheckedUpdateWithoutPaymentLinksInput>
 }
 
 export type MerchantCreateNestedOneWithoutInvoicesInput = {
@@ -719,9 +761,11 @@ export type MerchantCreateWithoutUsersInput = {
   updatedAt?: Date | string
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -744,9 +788,11 @@ export type MerchantUncheckedCreateWithoutUsersInput = {
   updatedAt?: Date | string
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -785,9 +831,11 @@ export type MerchantUpdateWithoutUsersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -810,9 +858,11 @@ export type MerchantUncheckedUpdateWithoutUsersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -835,9 +885,11 @@ export type MerchantCreateWithoutConnectionsInput = {
   updatedAt?: Date | string
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -860,9 +912,11 @@ export type MerchantUncheckedCreateWithoutConnectionsInput = {
   updatedAt?: Date | string
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -901,9 +955,11 @@ export type MerchantUpdateWithoutConnectionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -926,9 +982,11 @@ export type MerchantUncheckedUpdateWithoutConnectionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -952,8 +1010,10 @@ export type MerchantCreateWithoutCustomersInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -977,8 +1037,10 @@ export type MerchantUncheckedCreateWithoutCustomersInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1018,8 +1080,10 @@ export type MerchantUpdateWithoutCustomersInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1043,8 +1107,134 @@ export type MerchantUncheckedUpdateWithoutCustomersInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantCreateWithoutOrdersInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantUncheckedCreateWithoutOrdersInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantCreateOrConnectWithoutOrdersInput = {
+  where: Prisma.MerchantWhereUniqueInput
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutOrdersInput, Prisma.MerchantUncheckedCreateWithoutOrdersInput>
+}
+
+export type MerchantUpsertWithoutOrdersInput = {
+  update: Prisma.XOR<Prisma.MerchantUpdateWithoutOrdersInput, Prisma.MerchantUncheckedUpdateWithoutOrdersInput>
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutOrdersInput, Prisma.MerchantUncheckedCreateWithoutOrdersInput>
+  where?: Prisma.MerchantWhereInput
+}
+
+export type MerchantUpdateToOneWithWhereWithoutOrdersInput = {
+  where?: Prisma.MerchantWhereInput
+  data: Prisma.XOR<Prisma.MerchantUpdateWithoutOrdersInput, Prisma.MerchantUncheckedUpdateWithoutOrdersInput>
+}
+
+export type MerchantUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantUncheckedUpdateWithoutOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1067,9 +1257,11 @@ export type MerchantCreateWithoutPaymentsInput = {
   updatedAt?: Date | string
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -1092,9 +1284,11 @@ export type MerchantUncheckedCreateWithoutPaymentsInput = {
   updatedAt?: Date | string
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1133,9 +1327,11 @@ export type MerchantUpdateWithoutPaymentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1158,9 +1354,11 @@ export type MerchantUncheckedUpdateWithoutPaymentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1184,8 +1382,10 @@ export type MerchantCreateWithoutSubscriptionsInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -1209,8 +1409,10 @@ export type MerchantUncheckedCreateWithoutSubscriptionsInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1250,8 +1452,10 @@ export type MerchantUpdateWithoutSubscriptionsInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1275,7 +1479,133 @@ export type MerchantUncheckedUpdateWithoutSubscriptionsInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantCreateWithoutPaymentLinksInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantUncheckedCreateWithoutPaymentLinksInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantCreateOrConnectWithoutPaymentLinksInput = {
+  where: Prisma.MerchantWhereUniqueInput
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutPaymentLinksInput, Prisma.MerchantUncheckedCreateWithoutPaymentLinksInput>
+}
+
+export type MerchantUpsertWithoutPaymentLinksInput = {
+  update: Prisma.XOR<Prisma.MerchantUpdateWithoutPaymentLinksInput, Prisma.MerchantUncheckedUpdateWithoutPaymentLinksInput>
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutPaymentLinksInput, Prisma.MerchantUncheckedCreateWithoutPaymentLinksInput>
+  where?: Prisma.MerchantWhereInput
+}
+
+export type MerchantUpdateToOneWithWhereWithoutPaymentLinksInput = {
+  where?: Prisma.MerchantWhereInput
+  data: Prisma.XOR<Prisma.MerchantUpdateWithoutPaymentLinksInput, Prisma.MerchantUncheckedUpdateWithoutPaymentLinksInput>
+}
+
+export type MerchantUpdateWithoutPaymentLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantUncheckedUpdateWithoutPaymentLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1300,8 +1630,10 @@ export type MerchantCreateWithoutInvoicesInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -1325,8 +1657,10 @@ export type MerchantUncheckedCreateWithoutInvoicesInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1366,8 +1700,10 @@ export type MerchantUpdateWithoutInvoicesInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1391,8 +1727,10 @@ export type MerchantUncheckedUpdateWithoutInvoicesInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1416,9 +1754,11 @@ export type MerchantCreateWithoutRecoveryCasesInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
@@ -1441,9 +1781,11 @@ export type MerchantUncheckedCreateWithoutRecoveryCasesInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
@@ -1482,9 +1824,11 @@ export type MerchantUpdateWithoutRecoveryCasesInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
@@ -1507,9 +1851,11 @@ export type MerchantUncheckedUpdateWithoutRecoveryCasesInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1532,9 +1878,11 @@ export type MerchantCreateWithoutDecisionsInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
@@ -1557,9 +1905,11 @@ export type MerchantUncheckedCreateWithoutDecisionsInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
@@ -1598,9 +1948,11 @@ export type MerchantUpdateWithoutDecisionsInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
@@ -1623,9 +1975,11 @@ export type MerchantUncheckedUpdateWithoutDecisionsInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1648,9 +2002,11 @@ export type MerchantCreateWithoutRecoveryActionsInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
@@ -1673,9 +2029,11 @@ export type MerchantUncheckedCreateWithoutRecoveryActionsInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
@@ -1714,9 +2072,11 @@ export type MerchantUpdateWithoutRecoveryActionsInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
@@ -1739,9 +2099,11 @@ export type MerchantUncheckedUpdateWithoutRecoveryActionsInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1764,9 +2126,11 @@ export type MerchantCreateWithoutPoliciesInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -1789,9 +2153,11 @@ export type MerchantUncheckedCreateWithoutPoliciesInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1830,9 +2196,11 @@ export type MerchantUpdateWithoutPoliciesInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1855,9 +2223,11 @@ export type MerchantUncheckedUpdateWithoutPoliciesInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1880,9 +2250,11 @@ export type MerchantCreateWithoutBatchesInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -1905,9 +2277,11 @@ export type MerchantUncheckedCreateWithoutBatchesInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -1946,9 +2320,11 @@ export type MerchantUpdateWithoutBatchesInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -1971,9 +2347,11 @@ export type MerchantUncheckedUpdateWithoutBatchesInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -1996,9 +2374,11 @@ export type MerchantCreateWithoutPromisesInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -2021,9 +2401,11 @@ export type MerchantUncheckedCreateWithoutPromisesInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -2062,9 +2444,11 @@ export type MerchantUpdateWithoutPromisesInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -2087,9 +2471,11 @@ export type MerchantUncheckedUpdateWithoutPromisesInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -2112,9 +2498,11 @@ export type MerchantCreateWithoutWebhookEventsInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -2137,9 +2525,11 @@ export type MerchantUncheckedCreateWithoutWebhookEventsInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -2178,9 +2568,11 @@ export type MerchantUpdateWithoutWebhookEventsInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -2203,9 +2595,11 @@ export type MerchantUncheckedUpdateWithoutWebhookEventsInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -2228,9 +2622,11 @@ export type MerchantCreateWithoutAuditLogsInput = {
   users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
@@ -2253,9 +2649,11 @@ export type MerchantUncheckedCreateWithoutAuditLogsInput = {
   users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
   connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
   customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
   recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
@@ -2294,9 +2692,11 @@ export type MerchantUpdateWithoutAuditLogsInput = {
   users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
@@ -2319,9 +2719,11 @@ export type MerchantUncheckedUpdateWithoutAuditLogsInput = {
   users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
   connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
   customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
@@ -2340,9 +2742,11 @@ export type MerchantCountOutputType = {
   users: number
   connections: number
   payments: number
+  orders: number
   customers: number
   subscriptions: number
   invoices: number
+  paymentLinks: number
   recoveryCases: number
   recoveryActions: number
   decisions: number
@@ -2357,9 +2761,11 @@ export type MerchantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   users?: boolean | MerchantCountOutputTypeCountUsersArgs
   connections?: boolean | MerchantCountOutputTypeCountConnectionsArgs
   payments?: boolean | MerchantCountOutputTypeCountPaymentsArgs
+  orders?: boolean | MerchantCountOutputTypeCountOrdersArgs
   customers?: boolean | MerchantCountOutputTypeCountCustomersArgs
   subscriptions?: boolean | MerchantCountOutputTypeCountSubscriptionsArgs
   invoices?: boolean | MerchantCountOutputTypeCountInvoicesArgs
+  paymentLinks?: boolean | MerchantCountOutputTypeCountPaymentLinksArgs
   recoveryCases?: boolean | MerchantCountOutputTypeCountRecoveryCasesArgs
   recoveryActions?: boolean | MerchantCountOutputTypeCountRecoveryActionsArgs
   decisions?: boolean | MerchantCountOutputTypeCountDecisionsArgs
@@ -2404,6 +2810,13 @@ export type MerchantCountOutputTypeCountPaymentsArgs<ExtArgs extends runtime.Typ
 /**
  * MerchantCountOutputType without action
  */
+export type MerchantCountOutputTypeCountOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderWhereInput
+}
+
+/**
+ * MerchantCountOutputType without action
+ */
 export type MerchantCountOutputTypeCountCustomersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CustomerWhereInput
 }
@@ -2420,6 +2833,13 @@ export type MerchantCountOutputTypeCountSubscriptionsArgs<ExtArgs extends runtim
  */
 export type MerchantCountOutputTypeCountInvoicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.InvoiceWhereInput
+}
+
+/**
+ * MerchantCountOutputType without action
+ */
+export type MerchantCountOutputTypeCountPaymentLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PaymentLinkWhereInput
 }
 
 /**
@@ -2492,9 +2912,11 @@ export type MerchantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   users?: boolean | Prisma.Merchant$usersArgs<ExtArgs>
   connections?: boolean | Prisma.Merchant$connectionsArgs<ExtArgs>
   payments?: boolean | Prisma.Merchant$paymentsArgs<ExtArgs>
+  orders?: boolean | Prisma.Merchant$ordersArgs<ExtArgs>
   customers?: boolean | Prisma.Merchant$customersArgs<ExtArgs>
   subscriptions?: boolean | Prisma.Merchant$subscriptionsArgs<ExtArgs>
   invoices?: boolean | Prisma.Merchant$invoicesArgs<ExtArgs>
+  paymentLinks?: boolean | Prisma.Merchant$paymentLinksArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Merchant$recoveryCasesArgs<ExtArgs>
   recoveryActions?: boolean | Prisma.Merchant$recoveryActionsArgs<ExtArgs>
   decisions?: boolean | Prisma.Merchant$decisionsArgs<ExtArgs>
@@ -2547,9 +2969,11 @@ export type MerchantInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   users?: boolean | Prisma.Merchant$usersArgs<ExtArgs>
   connections?: boolean | Prisma.Merchant$connectionsArgs<ExtArgs>
   payments?: boolean | Prisma.Merchant$paymentsArgs<ExtArgs>
+  orders?: boolean | Prisma.Merchant$ordersArgs<ExtArgs>
   customers?: boolean | Prisma.Merchant$customersArgs<ExtArgs>
   subscriptions?: boolean | Prisma.Merchant$subscriptionsArgs<ExtArgs>
   invoices?: boolean | Prisma.Merchant$invoicesArgs<ExtArgs>
+  paymentLinks?: boolean | Prisma.Merchant$paymentLinksArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Merchant$recoveryCasesArgs<ExtArgs>
   recoveryActions?: boolean | Prisma.Merchant$recoveryActionsArgs<ExtArgs>
   decisions?: boolean | Prisma.Merchant$decisionsArgs<ExtArgs>
@@ -2569,9 +2993,11 @@ export type $MerchantPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     users: Prisma.$MerchantUserPayload<ExtArgs>[]
     connections: Prisma.$RazorpayConnectionPayload<ExtArgs>[]
     payments: Prisma.$PaymentPayload<ExtArgs>[]
+    orders: Prisma.$OrderPayload<ExtArgs>[]
     customers: Prisma.$CustomerPayload<ExtArgs>[]
     subscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
     invoices: Prisma.$InvoicePayload<ExtArgs>[]
+    paymentLinks: Prisma.$PaymentLinkPayload<ExtArgs>[]
     recoveryCases: Prisma.$RecoveryCasePayload<ExtArgs>[]
     recoveryActions: Prisma.$RecoveryActionPayload<ExtArgs>[]
     decisions: Prisma.$AIDecisionPayload<ExtArgs>[]
@@ -2988,9 +3414,11 @@ export interface Prisma__MerchantClient<T, Null = never, ExtArgs extends runtime
   users<T extends Prisma.Merchant$usersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$usersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MerchantUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   connections<T extends Prisma.Merchant$connectionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$connectionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RazorpayConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   payments<T extends Prisma.Merchant$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orders<T extends Prisma.Merchant$ordersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   customers<T extends Prisma.Merchant$customersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$customersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   subscriptions<T extends Prisma.Merchant$subscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invoices<T extends Prisma.Merchant$invoicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  paymentLinks<T extends Prisma.Merchant$paymentLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$paymentLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   recoveryCases<T extends Prisma.Merchant$recoveryCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$recoveryCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   recoveryActions<T extends Prisma.Merchant$recoveryActionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$recoveryActionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   decisions<T extends Prisma.Merchant$decisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$decisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AIDecisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3502,6 +3930,30 @@ export type Merchant$paymentsArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Merchant.orders
+ */
+export type Merchant$ordersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Order
+   */
+  select?: Prisma.OrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Order
+   */
+  omit?: Prisma.OrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderInclude<ExtArgs> | null
+  where?: Prisma.OrderWhereInput
+  orderBy?: Prisma.OrderOrderByWithRelationInput | Prisma.OrderOrderByWithRelationInput[]
+  cursor?: Prisma.OrderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
+}
+
+/**
  * Merchant.customers
  */
 export type Merchant$customersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3571,6 +4023,30 @@ export type Merchant$invoicesArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.InvoiceScalarFieldEnum | Prisma.InvoiceScalarFieldEnum[]
+}
+
+/**
+ * Merchant.paymentLinks
+ */
+export type Merchant$paymentLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PaymentLink
+   */
+  select?: Prisma.PaymentLinkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PaymentLink
+   */
+  omit?: Prisma.PaymentLinkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PaymentLinkInclude<ExtArgs> | null
+  where?: Prisma.PaymentLinkWhereInput
+  orderBy?: Prisma.PaymentLinkOrderByWithRelationInput | Prisma.PaymentLinkOrderByWithRelationInput[]
+  cursor?: Prisma.PaymentLinkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PaymentLinkScalarFieldEnum | Prisma.PaymentLinkScalarFieldEnum[]
 }
 
 /**

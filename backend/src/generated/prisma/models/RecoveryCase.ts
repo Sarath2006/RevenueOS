@@ -45,6 +45,7 @@ export type RecoveryCaseMinAggregateOutputType = {
   paymentId: string | null
   subscriptionId: string | null
   invoiceId: string | null
+  paymentLinkId: string | null
   type: $Enums.RecoveryCaseType | null
   status: $Enums.RecoveryCaseStatus | null
   riskLevel: $Enums.RiskLevel | null
@@ -65,6 +66,7 @@ export type RecoveryCaseMaxAggregateOutputType = {
   paymentId: string | null
   subscriptionId: string | null
   invoiceId: string | null
+  paymentLinkId: string | null
   type: $Enums.RecoveryCaseType | null
   status: $Enums.RecoveryCaseStatus | null
   riskLevel: $Enums.RiskLevel | null
@@ -85,6 +87,7 @@ export type RecoveryCaseCountAggregateOutputType = {
   paymentId: number
   subscriptionId: number
   invoiceId: number
+  paymentLinkId: number
   type: number
   status: number
   riskLevel: number
@@ -120,6 +123,7 @@ export type RecoveryCaseMinAggregateInputType = {
   paymentId?: true
   subscriptionId?: true
   invoiceId?: true
+  paymentLinkId?: true
   type?: true
   status?: true
   riskLevel?: true
@@ -140,6 +144,7 @@ export type RecoveryCaseMaxAggregateInputType = {
   paymentId?: true
   subscriptionId?: true
   invoiceId?: true
+  paymentLinkId?: true
   type?: true
   status?: true
   riskLevel?: true
@@ -160,6 +165,7 @@ export type RecoveryCaseCountAggregateInputType = {
   paymentId?: true
   subscriptionId?: true
   invoiceId?: true
+  paymentLinkId?: true
   type?: true
   status?: true
   riskLevel?: true
@@ -268,6 +274,7 @@ export type RecoveryCaseGroupByOutputType = {
   paymentId: string | null
   subscriptionId: string | null
   invoiceId: string | null
+  paymentLinkId: string | null
   type: $Enums.RecoveryCaseType
   status: $Enums.RecoveryCaseStatus
   riskLevel: $Enums.RiskLevel
@@ -312,6 +319,7 @@ export type RecoveryCaseWhereInput = {
   paymentId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   subscriptionId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
+  paymentLinkId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   type?: Prisma.EnumRecoveryCaseTypeFilter<"RecoveryCase"> | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFilter<"RecoveryCase"> | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFilter<"RecoveryCase"> | $Enums.RiskLevel
@@ -329,6 +337,7 @@ export type RecoveryCaseWhereInput = {
   payment?: Prisma.XOR<Prisma.PaymentNullableScalarRelationFilter, Prisma.PaymentWhereInput> | null
   subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
   invoice?: Prisma.XOR<Prisma.InvoiceNullableScalarRelationFilter, Prisma.InvoiceWhereInput> | null
+  paymentLink?: Prisma.XOR<Prisma.PaymentLinkNullableScalarRelationFilter, Prisma.PaymentLinkWhereInput> | null
   decisions?: Prisma.AIDecisionListRelationFilter
   actions?: Prisma.RecoveryActionListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
@@ -342,6 +351,7 @@ export type RecoveryCaseOrderByWithRelationInput = {
   paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
   subscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceId?: Prisma.SortOrderInput | Prisma.SortOrder
+  paymentLinkId?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskLevel?: Prisma.SortOrder
@@ -359,6 +369,7 @@ export type RecoveryCaseOrderByWithRelationInput = {
   payment?: Prisma.PaymentOrderByWithRelationInput
   subscription?: Prisma.SubscriptionOrderByWithRelationInput
   invoice?: Prisma.InvoiceOrderByWithRelationInput
+  paymentLink?: Prisma.PaymentLinkOrderByWithRelationInput
   decisions?: Prisma.AIDecisionOrderByRelationAggregateInput
   actions?: Prisma.RecoveryActionOrderByRelationAggregateInput
   promises?: Prisma.PromiseToPayOrderByRelationAggregateInput
@@ -375,6 +386,7 @@ export type RecoveryCaseWhereUniqueInput = Prisma.AtLeast<{
   paymentId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   subscriptionId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
+  paymentLinkId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   type?: Prisma.EnumRecoveryCaseTypeFilter<"RecoveryCase"> | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFilter<"RecoveryCase"> | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFilter<"RecoveryCase"> | $Enums.RiskLevel
@@ -392,6 +404,7 @@ export type RecoveryCaseWhereUniqueInput = Prisma.AtLeast<{
   payment?: Prisma.XOR<Prisma.PaymentNullableScalarRelationFilter, Prisma.PaymentWhereInput> | null
   subscription?: Prisma.XOR<Prisma.SubscriptionNullableScalarRelationFilter, Prisma.SubscriptionWhereInput> | null
   invoice?: Prisma.XOR<Prisma.InvoiceNullableScalarRelationFilter, Prisma.InvoiceWhereInput> | null
+  paymentLink?: Prisma.XOR<Prisma.PaymentLinkNullableScalarRelationFilter, Prisma.PaymentLinkWhereInput> | null
   decisions?: Prisma.AIDecisionListRelationFilter
   actions?: Prisma.RecoveryActionListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
@@ -405,6 +418,7 @@ export type RecoveryCaseOrderByWithAggregationInput = {
   paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
   subscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceId?: Prisma.SortOrderInput | Prisma.SortOrder
+  paymentLinkId?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskLevel?: Prisma.SortOrder
@@ -434,6 +448,7 @@ export type RecoveryCaseScalarWhereWithAggregatesInput = {
   paymentId?: Prisma.StringNullableWithAggregatesFilter<"RecoveryCase"> | string | null
   subscriptionId?: Prisma.StringNullableWithAggregatesFilter<"RecoveryCase"> | string | null
   invoiceId?: Prisma.StringNullableWithAggregatesFilter<"RecoveryCase"> | string | null
+  paymentLinkId?: Prisma.StringNullableWithAggregatesFilter<"RecoveryCase"> | string | null
   type?: Prisma.EnumRecoveryCaseTypeWithAggregatesFilter<"RecoveryCase"> | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusWithAggregatesFilter<"RecoveryCase"> | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelWithAggregatesFilter<"RecoveryCase"> | $Enums.RiskLevel
@@ -467,6 +482,7 @@ export type RecoveryCaseCreateInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -480,6 +496,7 @@ export type RecoveryCaseUncheckedCreateInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -517,6 +534,7 @@ export type RecoveryCaseUpdateInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -530,6 +548,7 @@ export type RecoveryCaseUncheckedUpdateInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -555,6 +574,7 @@ export type RecoveryCaseCreateManyInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -592,6 +612,7 @@ export type RecoveryCaseUncheckedUpdateManyInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -623,6 +644,7 @@ export type RecoveryCaseCountOrderByAggregateInput = {
   paymentId?: Prisma.SortOrder
   subscriptionId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  paymentLinkId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskLevel?: Prisma.SortOrder
@@ -650,6 +672,7 @@ export type RecoveryCaseMaxOrderByAggregateInput = {
   paymentId?: Prisma.SortOrder
   subscriptionId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  paymentLinkId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskLevel?: Prisma.SortOrder
@@ -670,6 +693,7 @@ export type RecoveryCaseMinOrderByAggregateInput = {
   paymentId?: Prisma.SortOrder
   subscriptionId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  paymentLinkId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskLevel?: Prisma.SortOrder
@@ -867,6 +891,48 @@ export type RecoveryCaseUncheckedUpdateManyWithoutSubscriptionNestedInput = {
   deleteMany?: Prisma.RecoveryCaseScalarWhereInput | Prisma.RecoveryCaseScalarWhereInput[]
 }
 
+export type RecoveryCaseCreateNestedManyWithoutPaymentLinkInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput> | Prisma.RecoveryCaseCreateWithoutPaymentLinkInput[] | Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput[]
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput | Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput[]
+  createMany?: Prisma.RecoveryCaseCreateManyPaymentLinkInputEnvelope
+  connect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+}
+
+export type RecoveryCaseUncheckedCreateNestedManyWithoutPaymentLinkInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput> | Prisma.RecoveryCaseCreateWithoutPaymentLinkInput[] | Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput[]
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput | Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput[]
+  createMany?: Prisma.RecoveryCaseCreateManyPaymentLinkInputEnvelope
+  connect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+}
+
+export type RecoveryCaseUpdateManyWithoutPaymentLinkNestedInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput> | Prisma.RecoveryCaseCreateWithoutPaymentLinkInput[] | Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput[]
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput | Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput[]
+  upsert?: Prisma.RecoveryCaseUpsertWithWhereUniqueWithoutPaymentLinkInput | Prisma.RecoveryCaseUpsertWithWhereUniqueWithoutPaymentLinkInput[]
+  createMany?: Prisma.RecoveryCaseCreateManyPaymentLinkInputEnvelope
+  set?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  disconnect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  delete?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  connect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  update?: Prisma.RecoveryCaseUpdateWithWhereUniqueWithoutPaymentLinkInput | Prisma.RecoveryCaseUpdateWithWhereUniqueWithoutPaymentLinkInput[]
+  updateMany?: Prisma.RecoveryCaseUpdateManyWithWhereWithoutPaymentLinkInput | Prisma.RecoveryCaseUpdateManyWithWhereWithoutPaymentLinkInput[]
+  deleteMany?: Prisma.RecoveryCaseScalarWhereInput | Prisma.RecoveryCaseScalarWhereInput[]
+}
+
+export type RecoveryCaseUncheckedUpdateManyWithoutPaymentLinkNestedInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput> | Prisma.RecoveryCaseCreateWithoutPaymentLinkInput[] | Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput[]
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput | Prisma.RecoveryCaseCreateOrConnectWithoutPaymentLinkInput[]
+  upsert?: Prisma.RecoveryCaseUpsertWithWhereUniqueWithoutPaymentLinkInput | Prisma.RecoveryCaseUpsertWithWhereUniqueWithoutPaymentLinkInput[]
+  createMany?: Prisma.RecoveryCaseCreateManyPaymentLinkInputEnvelope
+  set?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  disconnect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  delete?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  connect?: Prisma.RecoveryCaseWhereUniqueInput | Prisma.RecoveryCaseWhereUniqueInput[]
+  update?: Prisma.RecoveryCaseUpdateWithWhereUniqueWithoutPaymentLinkInput | Prisma.RecoveryCaseUpdateWithWhereUniqueWithoutPaymentLinkInput[]
+  updateMany?: Prisma.RecoveryCaseUpdateManyWithWhereWithoutPaymentLinkInput | Prisma.RecoveryCaseUpdateManyWithWhereWithoutPaymentLinkInput[]
+  deleteMany?: Prisma.RecoveryCaseScalarWhereInput | Prisma.RecoveryCaseScalarWhereInput[]
+}
+
 export type RecoveryCaseCreateNestedManyWithoutInvoiceInput = {
   create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutInvoiceInput, Prisma.RecoveryCaseUncheckedCreateWithoutInvoiceInput> | Prisma.RecoveryCaseCreateWithoutInvoiceInput[] | Prisma.RecoveryCaseUncheckedCreateWithoutInvoiceInput[]
   connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutInvoiceInput | Prisma.RecoveryCaseCreateOrConnectWithoutInvoiceInput[]
@@ -997,6 +1063,7 @@ export type RecoveryCaseCreateWithoutMerchantInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1009,6 +1076,7 @@ export type RecoveryCaseUncheckedCreateWithoutMerchantInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1063,6 +1131,7 @@ export type RecoveryCaseScalarWhereInput = {
   paymentId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   subscriptionId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
+  paymentLinkId?: Prisma.StringNullableFilter<"RecoveryCase"> | string | null
   type?: Prisma.EnumRecoveryCaseTypeFilter<"RecoveryCase"> | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFilter<"RecoveryCase"> | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFilter<"RecoveryCase"> | $Enums.RiskLevel
@@ -1095,6 +1164,7 @@ export type RecoveryCaseCreateWithoutCustomerInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1107,6 +1177,7 @@ export type RecoveryCaseUncheckedCreateWithoutCustomerInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1169,6 +1240,7 @@ export type RecoveryCaseCreateWithoutPaymentInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1181,6 +1253,7 @@ export type RecoveryCaseUncheckedCreateWithoutPaymentInput = {
   customerId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1243,6 +1316,7 @@ export type RecoveryCaseCreateWithoutSubscriptionInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutRecoveryCasesInput
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1255,6 +1329,7 @@ export type RecoveryCaseUncheckedCreateWithoutSubscriptionInput = {
   customerId?: string | null
   paymentId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1299,6 +1374,82 @@ export type RecoveryCaseUpdateManyWithWhereWithoutSubscriptionInput = {
   data: Prisma.XOR<Prisma.RecoveryCaseUpdateManyMutationInput, Prisma.RecoveryCaseUncheckedUpdateManyWithoutSubscriptionInput>
 }
 
+export type RecoveryCaseCreateWithoutPaymentLinkInput = {
+  id?: string
+  type: $Enums.RecoveryCaseType
+  status?: $Enums.RecoveryCaseStatus
+  riskLevel?: $Enums.RiskLevel
+  amountAtRisk: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Date | string
+  lastActionAt?: Date | string | null
+  recoveredAt?: Date | string | null
+  stoppedAt?: Date | string | null
+  merchant: Prisma.MerchantCreateNestedOneWithoutRecoveryCasesInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutRecoveryCasesInput
+  payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
+  invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
+  actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
+}
+
+export type RecoveryCaseUncheckedCreateWithoutPaymentLinkInput = {
+  id?: string
+  merchantId: string
+  customerId?: string | null
+  paymentId?: string | null
+  subscriptionId?: string | null
+  invoiceId?: string | null
+  type: $Enums.RecoveryCaseType
+  status?: $Enums.RecoveryCaseStatus
+  riskLevel?: $Enums.RiskLevel
+  amountAtRisk: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Date | string
+  lastActionAt?: Date | string | null
+  recoveredAt?: Date | string | null
+  stoppedAt?: Date | string | null
+  decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
+}
+
+export type RecoveryCaseCreateOrConnectWithoutPaymentLinkInput = {
+  where: Prisma.RecoveryCaseWhereUniqueInput
+  create: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput>
+}
+
+export type RecoveryCaseCreateManyPaymentLinkInputEnvelope = {
+  data: Prisma.RecoveryCaseCreateManyPaymentLinkInput | Prisma.RecoveryCaseCreateManyPaymentLinkInput[]
+  skipDuplicates?: boolean
+}
+
+export type RecoveryCaseUpsertWithWhereUniqueWithoutPaymentLinkInput = {
+  where: Prisma.RecoveryCaseWhereUniqueInput
+  update: Prisma.XOR<Prisma.RecoveryCaseUpdateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedUpdateWithoutPaymentLinkInput>
+  create: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedCreateWithoutPaymentLinkInput>
+}
+
+export type RecoveryCaseUpdateWithWhereUniqueWithoutPaymentLinkInput = {
+  where: Prisma.RecoveryCaseWhereUniqueInput
+  data: Prisma.XOR<Prisma.RecoveryCaseUpdateWithoutPaymentLinkInput, Prisma.RecoveryCaseUncheckedUpdateWithoutPaymentLinkInput>
+}
+
+export type RecoveryCaseUpdateManyWithWhereWithoutPaymentLinkInput = {
+  where: Prisma.RecoveryCaseScalarWhereInput
+  data: Prisma.XOR<Prisma.RecoveryCaseUpdateManyMutationInput, Prisma.RecoveryCaseUncheckedUpdateManyWithoutPaymentLinkInput>
+}
+
 export type RecoveryCaseCreateWithoutInvoiceInput = {
   id?: string
   type: $Enums.RecoveryCaseType
@@ -1317,6 +1468,7 @@ export type RecoveryCaseCreateWithoutInvoiceInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutRecoveryCasesInput
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1329,6 +1481,7 @@ export type RecoveryCaseUncheckedCreateWithoutInvoiceInput = {
   customerId?: string | null
   paymentId?: string | null
   subscriptionId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1392,6 +1545,7 @@ export type RecoveryCaseCreateWithoutDecisionsInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
@@ -1404,6 +1558,7 @@ export type RecoveryCaseUncheckedCreateWithoutDecisionsInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1456,6 +1611,7 @@ export type RecoveryCaseUpdateWithoutDecisionsInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
@@ -1468,6 +1624,7 @@ export type RecoveryCaseUncheckedUpdateWithoutDecisionsInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1504,6 +1661,7 @@ export type RecoveryCaseCreateWithoutActionsInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
@@ -1516,6 +1674,7 @@ export type RecoveryCaseUncheckedCreateWithoutActionsInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1568,6 +1727,7 @@ export type RecoveryCaseUpdateWithoutActionsInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
@@ -1580,6 +1740,7 @@ export type RecoveryCaseUncheckedUpdateWithoutActionsInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1616,6 +1777,7 @@ export type RecoveryCaseCreateWithoutPromisesInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
@@ -1628,6 +1790,7 @@ export type RecoveryCaseUncheckedCreateWithoutPromisesInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1680,6 +1843,7 @@ export type RecoveryCaseUpdateWithoutPromisesInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
@@ -1692,6 +1856,7 @@ export type RecoveryCaseUncheckedUpdateWithoutPromisesInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1728,6 +1893,7 @@ export type RecoveryCaseCreateWithoutVoiceRecoveriesInput = {
   payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
   subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
   invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
@@ -1740,6 +1906,7 @@ export type RecoveryCaseUncheckedCreateWithoutVoiceRecoveriesInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1792,6 +1959,7 @@ export type RecoveryCaseUpdateWithoutVoiceRecoveriesInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -1804,6 +1972,7 @@ export type RecoveryCaseUncheckedUpdateWithoutVoiceRecoveriesInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1827,6 +1996,7 @@ export type RecoveryCaseCreateManyMerchantInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1859,6 +2029,7 @@ export type RecoveryCaseUpdateWithoutMerchantInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -1871,6 +2042,7 @@ export type RecoveryCaseUncheckedUpdateWithoutMerchantInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1895,6 +2067,7 @@ export type RecoveryCaseUncheckedUpdateManyWithoutMerchantInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1915,6 +2088,7 @@ export type RecoveryCaseCreateManyCustomerInput = {
   paymentId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -1947,6 +2121,7 @@ export type RecoveryCaseUpdateWithoutCustomerInput = {
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -1959,6 +2134,7 @@ export type RecoveryCaseUncheckedUpdateWithoutCustomerInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -1983,6 +2159,7 @@ export type RecoveryCaseUncheckedUpdateManyWithoutCustomerInput = {
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2003,6 +2180,7 @@ export type RecoveryCaseCreateManyPaymentInput = {
   customerId?: string | null
   subscriptionId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -2035,6 +2213,7 @@ export type RecoveryCaseUpdateWithoutPaymentInput = {
   customer?: Prisma.CustomerUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -2047,6 +2226,7 @@ export type RecoveryCaseUncheckedUpdateWithoutPaymentInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2071,6 +2251,7 @@ export type RecoveryCaseUncheckedUpdateManyWithoutPaymentInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2091,6 +2272,7 @@ export type RecoveryCaseCreateManySubscriptionInput = {
   customerId?: string | null
   paymentId?: string | null
   invoiceId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -2123,6 +2305,7 @@ export type RecoveryCaseUpdateWithoutSubscriptionInput = {
   customer?: Prisma.CustomerUpdateOneWithoutRecoveryCasesNestedInput
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -2135,6 +2318,7 @@ export type RecoveryCaseUncheckedUpdateWithoutSubscriptionInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2159,6 +2343,99 @@ export type RecoveryCaseUncheckedUpdateManyWithoutSubscriptionInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
+  status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
+  riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+  amountAtRisk?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lastActionAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type RecoveryCaseCreateManyPaymentLinkInput = {
+  id?: string
+  merchantId: string
+  customerId?: string | null
+  paymentId?: string | null
+  subscriptionId?: string | null
+  invoiceId?: string | null
+  type: $Enums.RecoveryCaseType
+  status?: $Enums.RecoveryCaseStatus
+  riskLevel?: $Enums.RiskLevel
+  amountAtRisk: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Date | string
+  lastActionAt?: Date | string | null
+  recoveredAt?: Date | string | null
+  stoppedAt?: Date | string | null
+}
+
+export type RecoveryCaseUpdateWithoutPaymentLinkInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
+  status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
+  riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+  amountAtRisk?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lastActionAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutRecoveryCasesNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutRecoveryCasesNestedInput
+  payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
+  invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
+  actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
+}
+
+export type RecoveryCaseUncheckedUpdateWithoutPaymentLinkInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
+  status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
+  riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+  amountAtRisk?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lastActionAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+}
+
+export type RecoveryCaseUncheckedUpdateManyWithoutPaymentLinkInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2179,6 +2456,7 @@ export type RecoveryCaseCreateManyInvoiceInput = {
   customerId?: string | null
   paymentId?: string | null
   subscriptionId?: string | null
+  paymentLinkId?: string | null
   type: $Enums.RecoveryCaseType
   status?: $Enums.RecoveryCaseStatus
   riskLevel?: $Enums.RiskLevel
@@ -2211,6 +2489,7 @@ export type RecoveryCaseUpdateWithoutInvoiceInput = {
   customer?: Prisma.CustomerUpdateOneWithoutRecoveryCasesNestedInput
   payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
   subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
@@ -2223,6 +2502,7 @@ export type RecoveryCaseUncheckedUpdateWithoutInvoiceInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2247,6 +2527,7 @@ export type RecoveryCaseUncheckedUpdateManyWithoutInvoiceInput = {
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
   status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
   riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
@@ -2326,6 +2607,7 @@ export type RecoveryCaseSelect<ExtArgs extends runtime.Types.Extensions.Internal
   paymentId?: boolean
   subscriptionId?: boolean
   invoiceId?: boolean
+  paymentLinkId?: boolean
   type?: boolean
   status?: boolean
   riskLevel?: boolean
@@ -2343,6 +2625,7 @@ export type RecoveryCaseSelect<ExtArgs extends runtime.Types.Extensions.Internal
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
   decisions?: boolean | Prisma.RecoveryCase$decisionsArgs<ExtArgs>
   actions?: boolean | Prisma.RecoveryCase$actionsArgs<ExtArgs>
   promises?: boolean | Prisma.RecoveryCase$promisesArgs<ExtArgs>
@@ -2357,6 +2640,7 @@ export type RecoveryCaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   paymentId?: boolean
   subscriptionId?: boolean
   invoiceId?: boolean
+  paymentLinkId?: boolean
   type?: boolean
   status?: boolean
   riskLevel?: boolean
@@ -2374,6 +2658,7 @@ export type RecoveryCaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
 }, ExtArgs["result"]["recoveryCase"]>
 
 export type RecoveryCaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2383,6 +2668,7 @@ export type RecoveryCaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   paymentId?: boolean
   subscriptionId?: boolean
   invoiceId?: boolean
+  paymentLinkId?: boolean
   type?: boolean
   status?: boolean
   riskLevel?: boolean
@@ -2400,6 +2686,7 @@ export type RecoveryCaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
 }, ExtArgs["result"]["recoveryCase"]>
 
 export type RecoveryCaseSelectScalar = {
@@ -2409,6 +2696,7 @@ export type RecoveryCaseSelectScalar = {
   paymentId?: boolean
   subscriptionId?: boolean
   invoiceId?: boolean
+  paymentLinkId?: boolean
   type?: boolean
   status?: boolean
   riskLevel?: boolean
@@ -2423,13 +2711,14 @@ export type RecoveryCaseSelectScalar = {
   stoppedAt?: boolean
 }
 
-export type RecoveryCaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "merchantId" | "customerId" | "paymentId" | "subscriptionId" | "invoiceId" | "type" | "status" | "riskLevel" | "amountAtRisk" | "recoveredAmount" | "recoveryProbability" | "reason" | "diagnosis" | "openedAt" | "lastActionAt" | "recoveredAt" | "stoppedAt", ExtArgs["result"]["recoveryCase"]>
+export type RecoveryCaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "merchantId" | "customerId" | "paymentId" | "subscriptionId" | "invoiceId" | "paymentLinkId" | "type" | "status" | "riskLevel" | "amountAtRisk" | "recoveredAmount" | "recoveryProbability" | "reason" | "diagnosis" | "openedAt" | "lastActionAt" | "recoveredAt" | "stoppedAt", ExtArgs["result"]["recoveryCase"]>
 export type RecoveryCaseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.RecoveryCase$customerArgs<ExtArgs>
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
   decisions?: boolean | Prisma.RecoveryCase$decisionsArgs<ExtArgs>
   actions?: boolean | Prisma.RecoveryCase$actionsArgs<ExtArgs>
   promises?: boolean | Prisma.RecoveryCase$promisesArgs<ExtArgs>
@@ -2442,6 +2731,7 @@ export type RecoveryCaseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
 }
 export type RecoveryCaseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
@@ -2449,6 +2739,7 @@ export type RecoveryCaseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types
   payment?: boolean | Prisma.RecoveryCase$paymentArgs<ExtArgs>
   subscription?: boolean | Prisma.RecoveryCase$subscriptionArgs<ExtArgs>
   invoice?: boolean | Prisma.RecoveryCase$invoiceArgs<ExtArgs>
+  paymentLink?: boolean | Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>
 }
 
 export type $RecoveryCasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2459,6 +2750,7 @@ export type $RecoveryCasePayload<ExtArgs extends runtime.Types.Extensions.Intern
     payment: Prisma.$PaymentPayload<ExtArgs> | null
     subscription: Prisma.$SubscriptionPayload<ExtArgs> | null
     invoice: Prisma.$InvoicePayload<ExtArgs> | null
+    paymentLink: Prisma.$PaymentLinkPayload<ExtArgs> | null
     decisions: Prisma.$AIDecisionPayload<ExtArgs>[]
     actions: Prisma.$RecoveryActionPayload<ExtArgs>[]
     promises: Prisma.$PromiseToPayPayload<ExtArgs>[]
@@ -2471,6 +2763,7 @@ export type $RecoveryCasePayload<ExtArgs extends runtime.Types.Extensions.Intern
     paymentId: string | null
     subscriptionId: string | null
     invoiceId: string | null
+    paymentLinkId: string | null
     type: $Enums.RecoveryCaseType
     status: $Enums.RecoveryCaseStatus
     riskLevel: $Enums.RiskLevel
@@ -2882,6 +3175,7 @@ export interface Prisma__RecoveryCaseClient<T, Null = never, ExtArgs extends run
   payment<T extends Prisma.RecoveryCase$paymentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$paymentArgs<ExtArgs>>): Prisma.Prisma__PaymentClient<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   subscription<T extends Prisma.RecoveryCase$subscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$subscriptionArgs<ExtArgs>>): Prisma.Prisma__SubscriptionClient<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   invoice<T extends Prisma.RecoveryCase$invoiceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$invoiceArgs<ExtArgs>>): Prisma.Prisma__InvoiceClient<runtime.Types.Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  paymentLink<T extends Prisma.RecoveryCase$paymentLinkArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$paymentLinkArgs<ExtArgs>>): Prisma.Prisma__PaymentLinkClient<runtime.Types.Result.GetResult<Prisma.$PaymentLinkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   decisions<T extends Prisma.RecoveryCase$decisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$decisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AIDecisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   actions<T extends Prisma.RecoveryCase$actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   promises<T extends Prisma.RecoveryCase$promisesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$promisesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PromiseToPayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2921,6 +3215,7 @@ export interface RecoveryCaseFieldRefs {
   readonly paymentId: Prisma.FieldRef<"RecoveryCase", 'String'>
   readonly subscriptionId: Prisma.FieldRef<"RecoveryCase", 'String'>
   readonly invoiceId: Prisma.FieldRef<"RecoveryCase", 'String'>
+  readonly paymentLinkId: Prisma.FieldRef<"RecoveryCase", 'String'>
   readonly type: Prisma.FieldRef<"RecoveryCase", 'RecoveryCaseType'>
   readonly status: Prisma.FieldRef<"RecoveryCase", 'RecoveryCaseStatus'>
   readonly riskLevel: Prisma.FieldRef<"RecoveryCase", 'RiskLevel'>
@@ -3407,6 +3702,25 @@ export type RecoveryCase$invoiceArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   include?: Prisma.InvoiceInclude<ExtArgs> | null
   where?: Prisma.InvoiceWhereInput
+}
+
+/**
+ * RecoveryCase.paymentLink
+ */
+export type RecoveryCase$paymentLinkArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PaymentLink
+   */
+  select?: Prisma.PaymentLinkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PaymentLink
+   */
+  omit?: Prisma.PaymentLinkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PaymentLinkInclude<ExtArgs> | null
+  where?: Prisma.PaymentLinkWhereInput
 }
 
 /**

@@ -295,6 +295,7 @@ export type SubscriptionWhereInput = {
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
   customer?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
+  webhookEvents?: Prisma.WebhookEventListRelationFilter
 }
 
 export type SubscriptionOrderByWithRelationInput = {
@@ -315,6 +316,7 @@ export type SubscriptionOrderByWithRelationInput = {
   merchant?: Prisma.MerchantOrderByWithRelationInput
   customer?: Prisma.CustomerOrderByWithRelationInput
   recoveryCases?: Prisma.RecoveryCaseOrderByRelationAggregateInput
+  webhookEvents?: Prisma.WebhookEventOrderByRelationAggregateInput
 }
 
 export type SubscriptionWhereUniqueInput = Prisma.AtLeast<{
@@ -339,6 +341,7 @@ export type SubscriptionWhereUniqueInput = Prisma.AtLeast<{
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
   customer?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
+  webhookEvents?: Prisma.WebhookEventListRelationFilter
 }, "id" | "merchantId_razorpaySubscriptionId">
 
 export type SubscriptionOrderByWithAggregationInput = {
@@ -399,6 +402,7 @@ export type SubscriptionCreateInput = {
   merchant: Prisma.MerchantCreateNestedOneWithoutSubscriptionsInput
   customer?: Prisma.CustomerCreateNestedOneWithoutSubscriptionsInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionUncheckedCreateInput = {
@@ -417,6 +421,7 @@ export type SubscriptionUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionUpdateInput = {
@@ -435,6 +440,7 @@ export type SubscriptionUpdateInput = {
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutSubscriptionsNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutSubscriptionsNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateInput = {
@@ -453,6 +459,7 @@ export type SubscriptionUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionCreateManyInput = {
@@ -681,14 +688,6 @@ export type NullableDecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type SubscriptionCreateNestedOneWithoutRecoveryCasesInput = {
   create?: Prisma.XOR<Prisma.SubscriptionCreateWithoutRecoveryCasesInput, Prisma.SubscriptionUncheckedCreateWithoutRecoveryCasesInput>
   connectOrCreate?: Prisma.SubscriptionCreateOrConnectWithoutRecoveryCasesInput
@@ -703,6 +702,22 @@ export type SubscriptionUpdateOneWithoutRecoveryCasesNestedInput = {
   delete?: Prisma.SubscriptionWhereInput | boolean
   connect?: Prisma.SubscriptionWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.SubscriptionUpdateToOneWithWhereWithoutRecoveryCasesInput, Prisma.SubscriptionUpdateWithoutRecoveryCasesInput>, Prisma.SubscriptionUncheckedUpdateWithoutRecoveryCasesInput>
+}
+
+export type SubscriptionCreateNestedOneWithoutWebhookEventsInput = {
+  create?: Prisma.XOR<Prisma.SubscriptionCreateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedCreateWithoutWebhookEventsInput>
+  connectOrCreate?: Prisma.SubscriptionCreateOrConnectWithoutWebhookEventsInput
+  connect?: Prisma.SubscriptionWhereUniqueInput
+}
+
+export type SubscriptionUpdateOneWithoutWebhookEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.SubscriptionCreateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedCreateWithoutWebhookEventsInput>
+  connectOrCreate?: Prisma.SubscriptionCreateOrConnectWithoutWebhookEventsInput
+  upsert?: Prisma.SubscriptionUpsertWithoutWebhookEventsInput
+  disconnect?: Prisma.SubscriptionWhereInput | boolean
+  delete?: Prisma.SubscriptionWhereInput | boolean
+  connect?: Prisma.SubscriptionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SubscriptionUpdateToOneWithWhereWithoutWebhookEventsInput, Prisma.SubscriptionUpdateWithoutWebhookEventsInput>, Prisma.SubscriptionUncheckedUpdateWithoutWebhookEventsInput>
 }
 
 export type SubscriptionCreateWithoutMerchantInput = {
@@ -720,6 +735,7 @@ export type SubscriptionCreateWithoutMerchantInput = {
   updatedAt?: Date | string
   customer?: Prisma.CustomerCreateNestedOneWithoutSubscriptionsInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionUncheckedCreateWithoutMerchantInput = {
@@ -737,6 +753,7 @@ export type SubscriptionUncheckedCreateWithoutMerchantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionCreateOrConnectWithoutMerchantInput = {
@@ -800,6 +817,7 @@ export type SubscriptionCreateWithoutCustomerInput = {
   updatedAt?: Date | string
   merchant: Prisma.MerchantCreateNestedOneWithoutSubscriptionsInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionUncheckedCreateWithoutCustomerInput = {
@@ -817,6 +835,7 @@ export type SubscriptionUncheckedCreateWithoutCustomerInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutSubscriptionInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionCreateOrConnectWithoutCustomerInput = {
@@ -860,6 +879,7 @@ export type SubscriptionCreateWithoutRecoveryCasesInput = {
   updatedAt?: Date | string
   merchant: Prisma.MerchantCreateNestedOneWithoutSubscriptionsInput
   customer?: Prisma.CustomerCreateNestedOneWithoutSubscriptionsInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionUncheckedCreateWithoutRecoveryCasesInput = {
@@ -877,6 +897,7 @@ export type SubscriptionUncheckedCreateWithoutRecoveryCasesInput = {
   failedAttempts?: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutSubscriptionInput
 }
 
 export type SubscriptionCreateOrConnectWithoutRecoveryCasesInput = {
@@ -910,6 +931,7 @@ export type SubscriptionUpdateWithoutRecoveryCasesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutSubscriptionsNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutSubscriptionsNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateWithoutRecoveryCasesInput = {
@@ -927,6 +949,95 @@ export type SubscriptionUncheckedUpdateWithoutRecoveryCasesInput = {
   failedAttempts?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutSubscriptionNestedInput
+}
+
+export type SubscriptionCreateWithoutWebhookEventsInput = {
+  id?: string
+  razorpaySubscriptionId: string
+  environment: $Enums.Environment
+  status: $Enums.SubscriptionStatus
+  planId?: string | null
+  amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: string
+  currentPeriodStart?: Date | string | null
+  currentPeriodEnd?: Date | string | null
+  failedAttempts?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  merchant: Prisma.MerchantCreateNestedOneWithoutSubscriptionsInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutSubscriptionsInput
+  recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutSubscriptionInput
+}
+
+export type SubscriptionUncheckedCreateWithoutWebhookEventsInput = {
+  id?: string
+  merchantId: string
+  customerId?: string | null
+  razorpaySubscriptionId: string
+  environment: $Enums.Environment
+  status: $Enums.SubscriptionStatus
+  planId?: string | null
+  amount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: string
+  currentPeriodStart?: Date | string | null
+  currentPeriodEnd?: Date | string | null
+  failedAttempts?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutSubscriptionInput
+}
+
+export type SubscriptionCreateOrConnectWithoutWebhookEventsInput = {
+  where: Prisma.SubscriptionWhereUniqueInput
+  create: Prisma.XOR<Prisma.SubscriptionCreateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedCreateWithoutWebhookEventsInput>
+}
+
+export type SubscriptionUpsertWithoutWebhookEventsInput = {
+  update: Prisma.XOR<Prisma.SubscriptionUpdateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedUpdateWithoutWebhookEventsInput>
+  create: Prisma.XOR<Prisma.SubscriptionCreateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedCreateWithoutWebhookEventsInput>
+  where?: Prisma.SubscriptionWhereInput
+}
+
+export type SubscriptionUpdateToOneWithWhereWithoutWebhookEventsInput = {
+  where?: Prisma.SubscriptionWhereInput
+  data: Prisma.XOR<Prisma.SubscriptionUpdateWithoutWebhookEventsInput, Prisma.SubscriptionUncheckedUpdateWithoutWebhookEventsInput>
+}
+
+export type SubscriptionUpdateWithoutWebhookEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  razorpaySubscriptionId?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  status?: Prisma.EnumSubscriptionStatusFieldUpdateOperationsInput | $Enums.SubscriptionStatus
+  planId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  currentPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currentPeriodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  failedAttempts?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutSubscriptionsNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutSubscriptionsNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutSubscriptionNestedInput
+}
+
+export type SubscriptionUncheckedUpdateWithoutWebhookEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razorpaySubscriptionId?: Prisma.StringFieldUpdateOperationsInput | string
+  environment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  status?: Prisma.EnumSubscriptionStatusFieldUpdateOperationsInput | $Enums.SubscriptionStatus
+  planId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  amount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  currentPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currentPeriodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  failedAttempts?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionCreateManyMerchantInput = {
@@ -960,6 +1071,7 @@ export type SubscriptionUpdateWithoutMerchantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customer?: Prisma.CustomerUpdateOneWithoutSubscriptionsNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateWithoutMerchantInput = {
@@ -977,6 +1089,7 @@ export type SubscriptionUncheckedUpdateWithoutMerchantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateManyWithoutMerchantInput = {
@@ -1026,6 +1139,7 @@ export type SubscriptionUpdateWithoutCustomerInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutSubscriptionsNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateWithoutCustomerInput = {
@@ -1043,6 +1157,7 @@ export type SubscriptionUncheckedUpdateWithoutCustomerInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutSubscriptionNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutSubscriptionNestedInput
 }
 
 export type SubscriptionUncheckedUpdateManyWithoutCustomerInput = {
@@ -1068,10 +1183,12 @@ export type SubscriptionUncheckedUpdateManyWithoutCustomerInput = {
 
 export type SubscriptionCountOutputType = {
   recoveryCases: number
+  webhookEvents: number
 }
 
 export type SubscriptionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   recoveryCases?: boolean | SubscriptionCountOutputTypeCountRecoveryCasesArgs
+  webhookEvents?: boolean | SubscriptionCountOutputTypeCountWebhookEventsArgs
 }
 
 /**
@@ -1089,6 +1206,13 @@ export type SubscriptionCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types
  */
 export type SubscriptionCountOutputTypeCountRecoveryCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.RecoveryCaseWhereInput
+}
+
+/**
+ * SubscriptionCountOutputType without action
+ */
+export type SubscriptionCountOutputTypeCountWebhookEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WebhookEventWhereInput
 }
 
 
@@ -1110,6 +1234,7 @@ export type SubscriptionSelect<ExtArgs extends runtime.Types.Extensions.Internal
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.Subscription$customerArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Subscription$recoveryCasesArgs<ExtArgs>
+  webhookEvents?: boolean | Prisma.Subscription$webhookEventsArgs<ExtArgs>
   _count?: boolean | Prisma.SubscriptionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["subscription"]>
 
@@ -1173,6 +1298,7 @@ export type SubscriptionInclude<ExtArgs extends runtime.Types.Extensions.Interna
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.Subscription$customerArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Subscription$recoveryCasesArgs<ExtArgs>
+  webhookEvents?: boolean | Prisma.Subscription$webhookEventsArgs<ExtArgs>
   _count?: boolean | Prisma.SubscriptionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SubscriptionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1190,6 +1316,7 @@ export type $SubscriptionPayload<ExtArgs extends runtime.Types.Extensions.Intern
     merchant: Prisma.$MerchantPayload<ExtArgs>
     customer: Prisma.$CustomerPayload<ExtArgs> | null
     recoveryCases: Prisma.$RecoveryCasePayload<ExtArgs>[]
+    webhookEvents: Prisma.$WebhookEventPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1603,6 +1730,7 @@ export interface Prisma__SubscriptionClient<T, Null = never, ExtArgs extends run
   merchant<T extends Prisma.MerchantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MerchantDefaultArgs<ExtArgs>>): Prisma.Prisma__MerchantClient<runtime.Types.Result.GetResult<Prisma.$MerchantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   customer<T extends Prisma.Subscription$customerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subscription$customerArgs<ExtArgs>>): Prisma.Prisma__CustomerClient<runtime.Types.Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   recoveryCases<T extends Prisma.Subscription$recoveryCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subscription$recoveryCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  webhookEvents<T extends Prisma.Subscription$webhookEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subscription$webhookEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WebhookEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2087,6 +2215,30 @@ export type Subscription$recoveryCasesArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.RecoveryCaseScalarFieldEnum | Prisma.RecoveryCaseScalarFieldEnum[]
+}
+
+/**
+ * Subscription.webhookEvents
+ */
+export type Subscription$webhookEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WebhookEvent
+   */
+  select?: Prisma.WebhookEventSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WebhookEvent
+   */
+  omit?: Prisma.WebhookEventOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WebhookEventInclude<ExtArgs> | null
+  where?: Prisma.WebhookEventWhereInput
+  orderBy?: Prisma.WebhookEventOrderByWithRelationInput | Prisma.WebhookEventOrderByWithRelationInput[]
+  cursor?: Prisma.WebhookEventWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WebhookEventScalarFieldEnum | Prisma.WebhookEventScalarFieldEnum[]
 }
 
 /**

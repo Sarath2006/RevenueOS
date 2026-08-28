@@ -43,6 +43,11 @@ export type RazorpayConnection = Prisma.RazorpayConnectionModel
  */
 export type Customer = Prisma.CustomerModel
 /**
+ * Model Order
+ * 
+ */
+export type Order = Prisma.OrderModel
+/**
  * Model Payment
  * 
  */
@@ -52,6 +57,11 @@ export type Payment = Prisma.PaymentModel
  * 
  */
 export type Subscription = Prisma.SubscriptionModel
+/**
+ * Model PaymentLink
+ * 
+ */
+export type PaymentLink = Prisma.PaymentLinkModel
 /**
  * Model Invoice
  * 

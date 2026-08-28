@@ -229,6 +229,17 @@ export const SubscriptionStatus = {
 export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus]
 
 
+export const PaymentLinkStatus = {
+  CREATED: 'CREATED',
+  PARTIALLY_PAID: 'PARTIALLY_PAID',
+  PAID: 'PAID',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type PaymentLinkStatus = (typeof PaymentLinkStatus)[keyof typeof PaymentLinkStatus]
+
+
 export const InvoiceStatus = {
   PENDING: 'PENDING',
   PARTIALLY_PAID: 'PARTIALLY_PAID',

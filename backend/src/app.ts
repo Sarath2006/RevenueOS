@@ -9,11 +9,29 @@ import { env } from "./config/env";
 
 import healthRoutes from "./routes/health.routes";
 
-import { notFoundHandler } from "./middleware/not-found.middleware";
-import { errorHandler } from "./middleware/error.middleware";
-import razorpayRoutes from "./modules/razorpay/razorpay.routes";
+import {
+  notFoundHandler,
+} from "./middleware/not-found.middleware";
+
+import {
+  errorHandler,
+} from "./middleware/error.middleware";
+
+import razorpayRoutes
+  from "./modules/razorpay/razorpay.routes";
+
+import razorpayWebhookRouter
+  from "./modules/webhooks/razorpay/razorpay-webhook.routes";
+
 
 const app = express();
+
+
+/*
+ * =====================================================
+ * SECURITY
+ * =====================================================
+ */
 
 app.use(
   helmet({
@@ -21,12 +39,20 @@ app.use(
   })
 );
 
+
 app.use(
   cors({
     origin: env.FRONTEND_URL,
     credentials: true,
   })
 );
+
+
+/*
+ * =====================================================
+ * GENERAL MIDDLEWARE
+ * =====================================================
+ */
 
 app.use(compression());
 
@@ -39,13 +65,50 @@ app.use(
   })
 );
 
-app.use(express.json());
+
+/*
+ * =====================================================
+ * RAZORPAY WEBHOOK
+ *
+ * IMPORTANT:
+ * MUST COME BEFORE express.json()
+ * =====================================================
+ */
+
+app.use(
+  "/api/webhooks",
+  express.raw({
+    type: "application/json",
+    limit: "2mb",
+  }),
+  razorpayWebhookRouter
+);
+
+
+/*
+ * =====================================================
+ * NORMAL JSON APIs
+ * =====================================================
+ */
+
+app.use(
+  express.json({
+    limit: "1mb",
+  })
+);
 
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
+
+
+/*
+ * =====================================================
+ * ROOT
+ * =====================================================
+ */
 
 app.get("/", (_req, res) => {
   res.json({
@@ -54,18 +117,47 @@ app.get("/", (_req, res) => {
   });
 });
 
+
+/*
+ * =====================================================
+ * HEALTH
+ * =====================================================
+ */
+
 app.use(
   "/api/health",
   healthRoutes
 );
+
+
+/*
+ * =====================================================
+ * RAZORPAY
+ * =====================================================
+ */
 
 app.use(
   "/api/razorpay",
   razorpayRoutes
 );
 
+
+/*
+ * =====================================================
+ * 404
+ * =====================================================
+ */
+
 app.use(notFoundHandler);
 
+
+/*
+ * =====================================================
+ * ERROR HANDLER
+ * =====================================================
+ */
+
 app.use(errorHandler);
+
 
 export default app;

@@ -292,6 +292,7 @@ export type CustomerWhereInput = {
   payments?: Prisma.PaymentListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
   invoices?: Prisma.InvoiceListRelationFilter
+  paymentLinks?: Prisma.PaymentLinkListRelationFilter
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
 }
@@ -314,6 +315,7 @@ export type CustomerOrderByWithRelationInput = {
   payments?: Prisma.PaymentOrderByRelationAggregateInput
   subscriptions?: Prisma.SubscriptionOrderByRelationAggregateInput
   invoices?: Prisma.InvoiceOrderByRelationAggregateInput
+  paymentLinks?: Prisma.PaymentLinkOrderByRelationAggregateInput
   recoveryCases?: Prisma.RecoveryCaseOrderByRelationAggregateInput
   promises?: Prisma.PromiseToPayOrderByRelationAggregateInput
 }
@@ -339,6 +341,7 @@ export type CustomerWhereUniqueInput = Prisma.AtLeast<{
   payments?: Prisma.PaymentListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
   invoices?: Prisma.InvoiceListRelationFilter
+  paymentLinks?: Prisma.PaymentLinkListRelationFilter
   recoveryCases?: Prisma.RecoveryCaseListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
 }, "id">
@@ -400,6 +403,7 @@ export type CustomerCreateInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
@@ -421,6 +425,7 @@ export type CustomerUncheckedCreateInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
@@ -442,6 +447,7 @@ export type CustomerUpdateInput = {
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
@@ -463,6 +469,7 @@ export type CustomerUncheckedUpdateInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
 }
@@ -675,6 +682,22 @@ export type CustomerUpdateOneWithoutSubscriptionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CustomerUpdateToOneWithWhereWithoutSubscriptionsInput, Prisma.CustomerUpdateWithoutSubscriptionsInput>, Prisma.CustomerUncheckedUpdateWithoutSubscriptionsInput>
 }
 
+export type CustomerCreateNestedOneWithoutPaymentLinksInput = {
+  create?: Prisma.XOR<Prisma.CustomerCreateWithoutPaymentLinksInput, Prisma.CustomerUncheckedCreateWithoutPaymentLinksInput>
+  connectOrCreate?: Prisma.CustomerCreateOrConnectWithoutPaymentLinksInput
+  connect?: Prisma.CustomerWhereUniqueInput
+}
+
+export type CustomerUpdateOneWithoutPaymentLinksNestedInput = {
+  create?: Prisma.XOR<Prisma.CustomerCreateWithoutPaymentLinksInput, Prisma.CustomerUncheckedCreateWithoutPaymentLinksInput>
+  connectOrCreate?: Prisma.CustomerCreateOrConnectWithoutPaymentLinksInput
+  upsert?: Prisma.CustomerUpsertWithoutPaymentLinksInput
+  disconnect?: Prisma.CustomerWhereInput | boolean
+  delete?: Prisma.CustomerWhereInput | boolean
+  connect?: Prisma.CustomerWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CustomerUpdateToOneWithWhereWithoutPaymentLinksInput, Prisma.CustomerUpdateWithoutPaymentLinksInput>, Prisma.CustomerUncheckedUpdateWithoutPaymentLinksInput>
+}
+
 export type CustomerCreateNestedOneWithoutInvoicesInput = {
   create?: Prisma.XOR<Prisma.CustomerCreateWithoutInvoicesInput, Prisma.CustomerUncheckedCreateWithoutInvoicesInput>
   connectOrCreate?: Prisma.CustomerCreateOrConnectWithoutInvoicesInput
@@ -739,6 +762,7 @@ export type CustomerCreateWithoutMerchantInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
@@ -759,6 +783,7 @@ export type CustomerUncheckedCreateWithoutMerchantInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
@@ -824,6 +849,7 @@ export type CustomerCreateWithoutPaymentsInput = {
   merchant: Prisma.MerchantCreateNestedOneWithoutCustomersInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
@@ -844,6 +870,7 @@ export type CustomerUncheckedCreateWithoutPaymentsInput = {
   updatedAt?: Date | string
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
@@ -880,6 +907,7 @@ export type CustomerUpdateWithoutPaymentsInput = {
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutCustomersNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
@@ -900,6 +928,7 @@ export type CustomerUncheckedUpdateWithoutPaymentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
 }
@@ -920,6 +949,7 @@ export type CustomerCreateWithoutSubscriptionsInput = {
   merchant: Prisma.MerchantCreateNestedOneWithoutCustomersInput
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
@@ -940,6 +970,7 @@ export type CustomerUncheckedCreateWithoutSubscriptionsInput = {
   updatedAt?: Date | string
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
@@ -976,6 +1007,7 @@ export type CustomerUpdateWithoutSubscriptionsInput = {
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutCustomersNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
@@ -995,6 +1027,107 @@ export type CustomerUncheckedUpdateWithoutSubscriptionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
+  invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
+}
+
+export type CustomerCreateWithoutPaymentLinksInput = {
+  id?: string
+  externalId?: string | null
+  name?: string | null
+  email?: string | null
+  phone?: string | null
+  language?: string | null
+  preferredChannel?: $Enums.Channel | null
+  totalPaid?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalFailed?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalRecovered?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  merchant: Prisma.MerchantCreateNestedOneWithoutCustomersInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
+  invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
+}
+
+export type CustomerUncheckedCreateWithoutPaymentLinksInput = {
+  id?: string
+  merchantId: string
+  externalId?: string | null
+  name?: string | null
+  email?: string | null
+  phone?: string | null
+  language?: string | null
+  preferredChannel?: $Enums.Channel | null
+  totalPaid?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalFailed?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalRecovered?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
+  invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
+}
+
+export type CustomerCreateOrConnectWithoutPaymentLinksInput = {
+  where: Prisma.CustomerWhereUniqueInput
+  create: Prisma.XOR<Prisma.CustomerCreateWithoutPaymentLinksInput, Prisma.CustomerUncheckedCreateWithoutPaymentLinksInput>
+}
+
+export type CustomerUpsertWithoutPaymentLinksInput = {
+  update: Prisma.XOR<Prisma.CustomerUpdateWithoutPaymentLinksInput, Prisma.CustomerUncheckedUpdateWithoutPaymentLinksInput>
+  create: Prisma.XOR<Prisma.CustomerCreateWithoutPaymentLinksInput, Prisma.CustomerUncheckedCreateWithoutPaymentLinksInput>
+  where?: Prisma.CustomerWhereInput
+}
+
+export type CustomerUpdateToOneWithWhereWithoutPaymentLinksInput = {
+  where?: Prisma.CustomerWhereInput
+  data: Prisma.XOR<Prisma.CustomerUpdateWithoutPaymentLinksInput, Prisma.CustomerUncheckedUpdateWithoutPaymentLinksInput>
+}
+
+export type CustomerUpdateWithoutPaymentLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  language?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannel?: Prisma.NullableEnumChannelFieldUpdateOperationsInput | $Enums.Channel | null
+  totalPaid?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalFailed?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalRecovered?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutCustomersNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
+  invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
+}
+
+export type CustomerUncheckedUpdateWithoutPaymentLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  language?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannel?: Prisma.NullableEnumChannelFieldUpdateOperationsInput | $Enums.Channel | null
+  totalPaid?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalFailed?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalRecovered?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
@@ -1016,6 +1149,7 @@ export type CustomerCreateWithoutInvoicesInput = {
   merchant: Prisma.MerchantCreateNestedOneWithoutCustomersInput
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
@@ -1036,6 +1170,7 @@ export type CustomerUncheckedCreateWithoutInvoicesInput = {
   updatedAt?: Date | string
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
@@ -1072,6 +1207,7 @@ export type CustomerUpdateWithoutInvoicesInput = {
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutCustomersNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
@@ -1092,6 +1228,7 @@ export type CustomerUncheckedUpdateWithoutInvoicesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
 }
@@ -1113,6 +1250,7 @@ export type CustomerCreateWithoutRecoveryCasesInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutCustomerInput
 }
 
@@ -1133,6 +1271,7 @@ export type CustomerUncheckedCreateWithoutRecoveryCasesInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutCustomerInput
 }
 
@@ -1169,6 +1308,7 @@ export type CustomerUpdateWithoutRecoveryCasesInput = {
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
 
@@ -1189,6 +1329,7 @@ export type CustomerUncheckedUpdateWithoutRecoveryCasesInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
 }
 
@@ -1209,6 +1350,7 @@ export type CustomerCreateWithoutPromisesInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutCustomerInput
 }
 
@@ -1229,6 +1371,7 @@ export type CustomerUncheckedCreateWithoutPromisesInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutCustomerInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutCustomerInput
   invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutCustomerInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutCustomerInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutCustomerInput
 }
 
@@ -1265,6 +1408,7 @@ export type CustomerUpdateWithoutPromisesInput = {
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
 }
 
@@ -1285,6 +1429,7 @@ export type CustomerUncheckedUpdateWithoutPromisesInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
 }
 
@@ -1319,6 +1464,7 @@ export type CustomerUpdateWithoutMerchantInput = {
   payments?: Prisma.PaymentUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutCustomerNestedInput
 }
@@ -1339,6 +1485,7 @@ export type CustomerUncheckedUpdateWithoutMerchantInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutCustomerNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutCustomerNestedInput
   invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutCustomerNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutCustomerNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutCustomerNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutCustomerNestedInput
 }
@@ -1367,6 +1514,7 @@ export type CustomerCountOutputType = {
   payments: number
   subscriptions: number
   invoices: number
+  paymentLinks: number
   recoveryCases: number
   promises: number
 }
@@ -1375,6 +1523,7 @@ export type CustomerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   payments?: boolean | CustomerCountOutputTypeCountPaymentsArgs
   subscriptions?: boolean | CustomerCountOutputTypeCountSubscriptionsArgs
   invoices?: boolean | CustomerCountOutputTypeCountInvoicesArgs
+  paymentLinks?: boolean | CustomerCountOutputTypeCountPaymentLinksArgs
   recoveryCases?: boolean | CustomerCountOutputTypeCountRecoveryCasesArgs
   promises?: boolean | CustomerCountOutputTypeCountPromisesArgs
 }
@@ -1413,6 +1562,13 @@ export type CustomerCountOutputTypeCountInvoicesArgs<ExtArgs extends runtime.Typ
 /**
  * CustomerCountOutputType without action
  */
+export type CustomerCountOutputTypeCountPaymentLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PaymentLinkWhereInput
+}
+
+/**
+ * CustomerCountOutputType without action
+ */
 export type CustomerCountOutputTypeCountRecoveryCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.RecoveryCaseWhereInput
 }
@@ -1443,6 +1599,7 @@ export type CustomerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   payments?: boolean | Prisma.Customer$paymentsArgs<ExtArgs>
   subscriptions?: boolean | Prisma.Customer$subscriptionsArgs<ExtArgs>
   invoices?: boolean | Prisma.Customer$invoicesArgs<ExtArgs>
+  paymentLinks?: boolean | Prisma.Customer$paymentLinksArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Customer$recoveryCasesArgs<ExtArgs>
   promises?: boolean | Prisma.Customer$promisesArgs<ExtArgs>
   _count?: boolean | Prisma.CustomerCountOutputTypeDefaultArgs<ExtArgs>
@@ -1504,6 +1661,7 @@ export type CustomerInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   payments?: boolean | Prisma.Customer$paymentsArgs<ExtArgs>
   subscriptions?: boolean | Prisma.Customer$subscriptionsArgs<ExtArgs>
   invoices?: boolean | Prisma.Customer$invoicesArgs<ExtArgs>
+  paymentLinks?: boolean | Prisma.Customer$paymentLinksArgs<ExtArgs>
   recoveryCases?: boolean | Prisma.Customer$recoveryCasesArgs<ExtArgs>
   promises?: boolean | Prisma.Customer$promisesArgs<ExtArgs>
   _count?: boolean | Prisma.CustomerCountOutputTypeDefaultArgs<ExtArgs>
@@ -1522,6 +1680,7 @@ export type $CustomerPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     payments: Prisma.$PaymentPayload<ExtArgs>[]
     subscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
     invoices: Prisma.$InvoicePayload<ExtArgs>[]
+    paymentLinks: Prisma.$PaymentLinkPayload<ExtArgs>[]
     recoveryCases: Prisma.$RecoveryCasePayload<ExtArgs>[]
     promises: Prisma.$PromiseToPayPayload<ExtArgs>[]
   }
@@ -1937,6 +2096,7 @@ export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends runtime
   payments<T extends Prisma.Customer$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   subscriptions<T extends Prisma.Customer$subscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invoices<T extends Prisma.Customer$invoicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  paymentLinks<T extends Prisma.Customer$paymentLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$paymentLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   recoveryCases<T extends Prisma.Customer$recoveryCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$recoveryCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   promises<T extends Prisma.Customer$promisesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Customer$promisesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PromiseToPayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -2451,6 +2611,30 @@ export type Customer$invoicesArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.InvoiceScalarFieldEnum | Prisma.InvoiceScalarFieldEnum[]
+}
+
+/**
+ * Customer.paymentLinks
+ */
+export type Customer$paymentLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PaymentLink
+   */
+  select?: Prisma.PaymentLinkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PaymentLink
+   */
+  omit?: Prisma.PaymentLinkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PaymentLinkInclude<ExtArgs> | null
+  where?: Prisma.PaymentLinkWhereInput
+  orderBy?: Prisma.PaymentLinkOrderByWithRelationInput | Prisma.PaymentLinkOrderByWithRelationInput[]
+  cursor?: Prisma.PaymentLinkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PaymentLinkScalarFieldEnum | Prisma.PaymentLinkScalarFieldEnum[]
 }
 
 /**

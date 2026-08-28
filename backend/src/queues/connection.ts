@@ -1,8 +1,13 @@
 import IORedis from "ioredis";
-import { env } from "../config/env";
 
 export function createQueueConnection() {
-  return new IORedis(env.REDIS_URL, {
-    maxRetriesPerRequest: null,
-  });
+  return new IORedis(
+    process.env.REDIS_URL ??
+      "redis://localhost:6379",
+    {
+      maxRetriesPerRequest: null,
+
+      enableReadyCheck: false,
+    }
+  );
 }

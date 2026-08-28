@@ -183,6 +183,14 @@ enum SubscriptionStatus {
   EXPIRED
 }
 
+enum PaymentLinkStatus {
+  CREATED
+  PARTIALLY_PAID
+  PAID
+  CANCELLED
+  EXPIRED
+}
+
 enum InvoiceStatus {
   PENDING
   PARTIALLY_PAID
@@ -219,8 +227,7 @@ model User {
  */
 
 model Merchant {
-  id String @id @default(cuid())
-
+  id           String  @id @default(cuid())
   name         String
   email        String?
   phone        String?
@@ -236,9 +243,11 @@ model Merchant {
   users           MerchantUser[]
   connections     RazorpayConnection[]
   payments        Payment[]
+  orders          Order[]
   customers       Customer[]
   subscriptions   Subscription[]
   invoices        Invoice[]
+  paymentLinks    PaymentLink[]
   recoveryCases   RecoveryCase[]
   recoveryActions RecoveryAction[]
   decisions       AIDecision[]
@@ -326,12 +335,56 @@ model Customer {
   payments      Payment[]
   subscriptions Subscription[]
   invoices      Invoice[]
+  paymentLinks  PaymentLink[]
   recoveryCases RecoveryCase[]
   promises      PromiseToPay[]
 
   @@index([merchantId])
   @@index([email])
   @@index([phone])
+}
+
+/**
+ * =========================================================
+ * ORDERS
+ * =========================================================
+ */
+
+model Order {
+  id String @id @default(cuid())
+
+  merchantId String
+
+  razorpayOrderId String
+
+  environment Environment
+
+  amount   Decimal @db.Decimal(18, 2)
+  currency String  @default("INR")
+
+  status String @default("CREATED")
+
+  amountPaid Decimal @default(0) @db.Decimal(18, 2)
+  amountDue  Decimal @default(0) @db.Decimal(18, 2)
+
+  attempts Int @default(0)
+
+  receipt String?
+
+  notes Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+
+  payments Payment[]
+
+  webhookEvents WebhookEvent[]
+
+  @@unique([merchantId, razorpayOrderId])
+  @@index([merchantId, status])
+  @@index([merchantId, createdAt])
 }
 
 /**
@@ -345,6 +398,7 @@ model Payment {
 
   merchantId String
   customerId String?
+  orderId    String?
 
   razorpayPaymentId String
   razorpayOrderId   String?
@@ -373,12 +427,15 @@ model Payment {
   merchant Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
   customer Customer? @relation(fields: [customerId], references: [id])
 
+  order Order? @relation(fields: [orderId], references: [id])
+
   recoveryCases RecoveryCase[]
   webhookEvents WebhookEvent[]
 
   @@unique([merchantId, razorpayPaymentId])
   @@index([merchantId, status])
   @@index([customerId])
+  @@index([orderId])
   @@index([createdAt])
 }
 
@@ -416,9 +473,71 @@ model Subscription {
   customer Customer? @relation(fields: [customerId], references: [id])
 
   recoveryCases RecoveryCase[]
+  webhookEvents WebhookEvent[]
 
   @@unique([merchantId, razorpaySubscriptionId])
   @@index([merchantId, status])
+}
+
+/**
+ * =========================================================
+ * PAYMENT LINKS
+ * =========================================================
+ */
+
+model PaymentLink {
+  id String @id @default(cuid())
+
+  merchantId String
+  customerId String?
+
+  razorpayPaymentLinkId String
+
+  razorpayOrderId String?
+
+  environment Environment
+
+  amount     Decimal @db.Decimal(18, 2)
+  amountPaid Decimal @default(0) @db.Decimal(18, 2)
+
+  currency String @default("INR")
+
+  status PaymentLinkStatus
+
+  acceptPartial Boolean @default(false)
+
+  firstMinPartialAmount Decimal? @db.Decimal(18, 2)
+
+  referenceId String?
+  description String?
+
+  shortUrl String?
+
+  expireBy    DateTime?
+  expiredAt   DateTime?
+  cancelledAt DateTime?
+
+  reminderEnable Boolean?
+
+  upiLink      Boolean?
+  whatsappLink Boolean?
+
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  merchant Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  recoveryCases RecoveryCase[]
+
+  @@unique([merchantId, razorpayPaymentLinkId])
+  @@index([merchantId, status])
+  @@index([customerId])
+  @@index([razorpayOrderId])
+  @@index([referenceId])
+  @@index([createdAt])
 }
 
 /**
@@ -471,6 +590,7 @@ model RecoveryCase {
   paymentId      String?
   subscriptionId String?
   invoiceId      String?
+  paymentLinkId  String?
 
   type   RecoveryCaseType
   status RecoveryCaseStatus @default(OPEN)
@@ -496,6 +616,7 @@ model RecoveryCase {
   payment      Payment?      @relation(fields: [paymentId], references: [id])
   subscription Subscription? @relation(fields: [subscriptionId], references: [id])
   invoice      Invoice?      @relation(fields: [invoiceId], references: [id])
+  paymentLink  PaymentLink?  @relation(fields: [paymentLinkId], references: [id])
 
   decisions AIDecision[]
   actions   RecoveryAction[]
@@ -698,6 +819,8 @@ model WebhookEvent {
 
   merchantId String
 
+  subscriptionId String?
+
   razorpayEventId String?
   eventType       String
 
@@ -713,13 +836,21 @@ model WebhookEvent {
   errorMessage String?
 
   paymentId String?
+  orderId   String?
 
   merchant Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
-  payment  Payment? @relation(fields: [paymentId], references: [id])
+
+  subscription Subscription? @relation(fields: [subscriptionId], references: [id])
+
+  payment Payment? @relation(fields: [paymentId], references: [id])
+
+  order Order? @relation(fields: [orderId], references: [id])
 
   @@index([merchantId, eventType])
   @@index([receivedAt])
   @@index([razorpayEventId])
+  @@index([subscriptionId])
+  @@index([orderId])
 }
 
 /**

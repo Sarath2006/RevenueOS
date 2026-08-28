@@ -37,6 +37,9 @@ const envSchema = z.object({
 
   RAZORPAY_LIVE_WEBHOOK_SECRET:
     z.string().optional(),
+  
+  RAZORPAY_TEST_MERCHANT_ID:
+  z.string().min(1).optional(),
 
   JWT_SECRET:
     z.string().optional(),

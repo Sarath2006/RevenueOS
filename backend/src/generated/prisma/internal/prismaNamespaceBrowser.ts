@@ -56,8 +56,10 @@ export const ModelName = {
   MerchantUser: 'MerchantUser',
   RazorpayConnection: 'RazorpayConnection',
   Customer: 'Customer',
+  Order: 'Order',
   Payment: 'Payment',
   Subscription: 'Subscription',
+  PaymentLink: 'PaymentLink',
   Invoice: 'Invoice',
   RecoveryCase: 'RecoveryCase',
   AIDecision: 'AIDecision',
@@ -159,10 +161,31 @@ export const CustomerScalarFieldEnum = {
 export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
 
 
+export const OrderScalarFieldEnum = {
+  id: 'id',
+  merchantId: 'merchantId',
+  razorpayOrderId: 'razorpayOrderId',
+  environment: 'environment',
+  amount: 'amount',
+  currency: 'currency',
+  status: 'status',
+  amountPaid: 'amountPaid',
+  amountDue: 'amountDue',
+  attempts: 'attempts',
+  receipt: 'receipt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
+
+
 export const PaymentScalarFieldEnum = {
   id: 'id',
   merchantId: 'merchantId',
   customerId: 'customerId',
+  orderId: 'orderId',
   razorpayPaymentId: 'razorpayPaymentId',
   razorpayOrderId: 'razorpayOrderId',
   razorpayInvoiceId: 'razorpayInvoiceId',
@@ -204,6 +227,36 @@ export const SubscriptionScalarFieldEnum = {
 export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
+export const PaymentLinkScalarFieldEnum = {
+  id: 'id',
+  merchantId: 'merchantId',
+  customerId: 'customerId',
+  razorpayPaymentLinkId: 'razorpayPaymentLinkId',
+  razorpayOrderId: 'razorpayOrderId',
+  environment: 'environment',
+  amount: 'amount',
+  amountPaid: 'amountPaid',
+  currency: 'currency',
+  status: 'status',
+  acceptPartial: 'acceptPartial',
+  firstMinPartialAmount: 'firstMinPartialAmount',
+  referenceId: 'referenceId',
+  description: 'description',
+  shortUrl: 'shortUrl',
+  expireBy: 'expireBy',
+  expiredAt: 'expiredAt',
+  cancelledAt: 'cancelledAt',
+  reminderEnable: 'reminderEnable',
+  upiLink: 'upiLink',
+  whatsappLink: 'whatsappLink',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentLinkScalarFieldEnum = (typeof PaymentLinkScalarFieldEnum)[keyof typeof PaymentLinkScalarFieldEnum]
+
+
 export const InvoiceScalarFieldEnum = {
   id: 'id',
   merchantId: 'merchantId',
@@ -229,6 +282,7 @@ export const RecoveryCaseScalarFieldEnum = {
   paymentId: 'paymentId',
   subscriptionId: 'subscriptionId',
   invoiceId: 'invoiceId',
+  paymentLinkId: 'paymentLinkId',
   type: 'type',
   status: 'status',
   riskLevel: 'riskLevel',
@@ -348,6 +402,7 @@ export type PromiseToPayScalarFieldEnum = (typeof PromiseToPayScalarFieldEnum)[k
 export const WebhookEventScalarFieldEnum = {
   id: 'id',
   merchantId: 'merchantId',
+  subscriptionId: 'subscriptionId',
   razorpayEventId: 'razorpayEventId',
   eventType: 'eventType',
   environment: 'environment',
@@ -356,7 +411,8 @@ export const WebhookEventScalarFieldEnum = {
   receivedAt: 'receivedAt',
   processedAt: 'processedAt',
   errorMessage: 'errorMessage',
-  paymentId: 'paymentId'
+  paymentId: 'paymentId',
+  orderId: 'orderId'
 } as const
 
 export type WebhookEventScalarFieldEnum = (typeof WebhookEventScalarFieldEnum)[keyof typeof WebhookEventScalarFieldEnum]

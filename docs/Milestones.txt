@@ -14,9 +14,19 @@ Recovery lifecycle schema
 Now we proceed:
 
 Milestone	What we build
-M3	Backend foundation + Redis + BullMQ (In Progress at M3.16)
-M4	Razorpay Test/Live integration
-M5	Webhook ingestion + event synchronization
+M3	Backend foundation + Redis + BullMQ 
+M4	Razorpay Test/Live integration 
+M5	Webhook ingestion + event synchronization (In Progress M5.10)
+├── M5.1  Webhook Receiver                  ✅
+├── M5.2  HMAC Verification                 ✅
+├── M5.3  Merchant Mapping                  ✅
+├── M5.4  Webhook Idempotency               ✅
+├── M5.5  Payment Synchronization           ✅
+├── M5.6  RecoveryCase Creation             ✅
+├── M5.7  Payment Captured                  ✅
+├── M5.8  Order Synchronization             ✅
+├── M5.9  Subscription Synchronization      ✅
+└── M5.10 Payment-Link Synchronization      ⏭️
 M6	AI diagnosis/risk/decision engine
 M7	Recovery orchestration + bounded actions
 M8	Automatic agent loop + stopping rules

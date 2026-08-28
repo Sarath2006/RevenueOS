@@ -6,6 +6,9 @@ import {
 } from "./razorpay.config";
 
 export class RazorpayService {
+  /**
+   * Create Razorpay Order
+   */
   async createOrder(
     params: {
       amount: number;
@@ -13,10 +16,9 @@ export class RazorpayService {
       receipt: string;
       notes?: Record<string, string>;
     },
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
     return razorpay.orders.create({
       amount: params.amount,
@@ -26,86 +28,90 @@ export class RazorpayService {
     });
   }
 
+  /**
+   * Fetch Razorpay Order
+   */
   async fetchOrder(
     orderId: string,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
-    return razorpay.orders.fetch(
-      orderId
-    );
+    return razorpay.orders.fetch(orderId);
   }
 
+  /**
+   * Fetch Razorpay Payment
+   */
   async fetchPayment(
     paymentId: string,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
-    return razorpay.payments.fetch(
-      paymentId
-    );
+    return razorpay.payments.fetch(paymentId);
   }
 
+  /**
+   * Fetch payments belonging to an order
+   */
   async fetchPaymentsForOrder(
     orderId: string,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
-    return razorpay.orders.fetchPayments(
-      orderId
-    );
+    return razorpay.orders.fetchPayments(orderId);
   }
 
+  /**
+   * Create Razorpay Payment Link
+   */
   async createPaymentLink(
     params: any,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
-    return razorpay.paymentLink.create(
-      params
-    );
+    return razorpay.paymentLink.create(params);
   }
 
+  /**
+   * Fetch Payment Link
+   */
   async fetchPaymentLink(
     paymentLinkId: string,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
     return razorpay.paymentLink.fetch(
       paymentLinkId
     );
   }
 
+  /**
+   * Cancel Payment Link
+   */
   async cancelPaymentLink(
     paymentLinkId: string,
-    mode?: RazorpayMode
+    mode: RazorpayMode = "test"
   ) {
-    const razorpay =
-      getRazorpayClient(mode);
+    const razorpay = getRazorpayClient(mode);
 
     return razorpay.paymentLink.cancel(
       paymentLinkId
     );
   }
 
-   /**
+  /**
    * Verify Razorpay Checkout payment signature.
    *
-   * Razorpay creates the signature from:
+   * Razorpay Checkout signature:
    *
-   * order_id + "|" + payment_id
+   * order_id|payment_id
    *
-   * using the Razorpay Key Secret.
+   * HMAC-SHA256 using Razorpay Key Secret.
    */
   verifyPaymentSignature(
     params: {
@@ -131,7 +137,10 @@ export class RazorpayService {
 
     const expectedSignature =
       crypto
-        .createHmac("sha256", keySecret)
+        .createHmac(
+          "sha256",
+          keySecret
+        )
         .update(payload)
         .digest("hex");
 
