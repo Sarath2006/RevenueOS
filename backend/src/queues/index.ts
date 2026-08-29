@@ -2,6 +2,9 @@ import "../queues/events";
 
 export {
   aiQueue,
+  AI_QUEUE_NAME,
+  enqueueAIDecision,
+  buildAIDecisionJobId,
 } from "./ai.queue";
 
 export {
@@ -19,3 +22,9 @@ export {
 export {
   analyticsQueue,
 } from "./analytics.queue";
+
+export {
+  createQueueConnection,
+} from "./connection";
+
+export * from "./ai.types";

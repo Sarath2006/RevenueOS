@@ -1,13 +1,24 @@
-import IORedis from "ioredis";
+import { Redis } from "ioredis";
 
-export function createQueueConnection() {
-  return new IORedis(
-    process.env.REDIS_URL ??
-      "redis://localhost:6379",
-    {
-      maxRetriesPerRequest: null,
+import { env } from "../config/env";
 
-      enableReadyCheck: false,
-    }
-  );
+/**
+ * ============================================================
+ * BULLMQ REDIS CONNECTION
+ * ============================================================
+ *
+ * BullMQ requires a dedicated Redis connection.
+ *
+ * IMPORTANT:
+ * maxRetriesPerRequest MUST be null for BullMQ workers.
+ */
+
+export function createQueueConnection(): Redis {
+  return new Redis(env.REDIS_URL, {
+    maxRetriesPerRequest: null,
+
+    enableReadyCheck: true,
+
+    lazyConnect: false,
+  });
 }

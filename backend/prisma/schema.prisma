@@ -255,6 +255,7 @@ model Merchant {
   batches         RecoveryBatch[]
   webhookEvents   WebhookEvent[]
   auditLogs       AuditLog[]
+  aiAuditLogs     AIAuditLog[]
   promises        PromiseToPay[]
 }
 
@@ -638,28 +639,119 @@ model RecoveryCase {
 model AIDecision {
   id String @id @default(cuid())
 
+  decisionId String @unique
+
+  customerId     String
   merchantId     String
-  recoveryCaseId String
+  recoveryCaseId String?
 
-  decisionType DecisionType
+  currency String
 
-  confidence Decimal? @db.Decimal(5, 4)
+  probability           Float
+  probabilityPercent    Float
+  probabilityBand       String
+  probabilityConfidence Float
 
-  reasoning   String?
-  diagnosis   Json?
-  features    Json?
-  constraints Json?
+  priorityScore Float
+  priorityBand  String
 
-  modelName    String?
-  modelVersion String?
+  urgencyScore     Float
+  opportunityScore Float
+  riskScore        Float
+  amountScore      Float
+
+  strategy      String
+  channel       String
+  timing        String
+  strategyScore Float
+
+  decisionConfidence Float
+
+  decisionStatus String @default("CREATED")
+
+  decisionReason String
+
+  modelVersions Json
+
+  inputFeatures Json
+
+  positiveSignals Json
+  negativeSignals Json
+
+  alternatives Json
+
+  outcome           String?
+  outcomeAmount     Float?
+  outcomeRecordedAt DateTime?
+
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  merchant     Merchant      @relation(fields: [merchantId], references: [id])
+  recoveryCase RecoveryCase? @relation(fields: [recoveryCaseId], references: [id])
+
+  auditLogs AIAuditLog[]
+
+  @@index([customerId])
+  @@index([merchantId])
+  @@index([recoveryCaseId])
+  @@index([decisionStatus])
+  @@index([createdAt])
+  @@index([merchantId, createdAt])
+}
+
+/**
+ * =========================================================
+ * M6.12 — AI AUDIT LOG
+ * =========================================================
+ * Immutable lifecycle history for AI decisions.
+ * Every important AI decision event can be recorded here.
+ * This is intentionally separate from the generic AuditLog
+ * because AI decisions require model-specific metadata.
+ * =========================================================
+ */
+
+model AIAuditLog {
+  id String @id @default(cuid())
+
+  decisionId String
+
+  merchantId String
+
+  customerId String?
+
+  recoveryCaseId String?
+
+  eventType String
+
+  stage String
+
+  status String?
+
+  strategy String?
+
+  confidence Float?
+
+  fallbackRequired Boolean?
+
+  fallbackAction String?
+
+  fallbackReason String?
+
+  modelVersions Json?
+
+  metadata Json?
 
   createdAt DateTime @default(now())
 
-  merchant     Merchant     @relation(fields: [merchantId], references: [id], onDelete: Cascade)
-  recoveryCase RecoveryCase @relation(fields: [recoveryCaseId], references: [id], onDelete: Cascade)
+  decision AIDecision @relation(fields: [decisionId], references: [decisionId], onDelete: Cascade)
+  merchant Merchant   @relation(fields: [merchantId], references: [id], onDelete: Cascade)
 
-  @@index([merchantId])
-  @@index([recoveryCaseId])
+  @@index([decisionId, createdAt])
+  @@index([merchantId, createdAt])
+  @@index([customerId, createdAt])
+  @@index([recoveryCaseId, createdAt])
+  @@index([eventType])
+  @@index([stage])
 }
 
 /**

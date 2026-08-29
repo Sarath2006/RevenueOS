@@ -705,6 +705,10 @@ export type RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput = {
   deleteMany?: Prisma.RecoveryActionScalarWhereInput | Prisma.RecoveryActionScalarWhereInput[]
 }
 
+export type EnumDecisionTypeFieldUpdateOperationsInput = {
+  set?: $Enums.DecisionType
+}
+
 export type EnumActionStatusFieldUpdateOperationsInput = {
   set?: $Enums.ActionStatus
 }

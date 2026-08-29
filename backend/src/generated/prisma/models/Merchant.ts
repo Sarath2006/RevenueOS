@@ -229,6 +229,7 @@ export type MerchantWhereInput = {
   batches?: Prisma.RecoveryBatchListRelationFilter
   webhookEvents?: Prisma.WebhookEventListRelationFilter
   auditLogs?: Prisma.AuditLogListRelationFilter
+  aiAuditLogs?: Prisma.AIAuditLogListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
 }
 
@@ -257,6 +258,7 @@ export type MerchantOrderByWithRelationInput = {
   batches?: Prisma.RecoveryBatchOrderByRelationAggregateInput
   webhookEvents?: Prisma.WebhookEventOrderByRelationAggregateInput
   auditLogs?: Prisma.AuditLogOrderByRelationAggregateInput
+  aiAuditLogs?: Prisma.AIAuditLogOrderByRelationAggregateInput
   promises?: Prisma.PromiseToPayOrderByRelationAggregateInput
 }
 
@@ -288,6 +290,7 @@ export type MerchantWhereUniqueInput = Prisma.AtLeast<{
   batches?: Prisma.RecoveryBatchListRelationFilter
   webhookEvents?: Prisma.WebhookEventListRelationFilter
   auditLogs?: Prisma.AuditLogListRelationFilter
+  aiAuditLogs?: Prisma.AIAuditLogListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
 }, "id">
 
@@ -346,6 +349,7 @@ export type MerchantCreateInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -374,6 +378,7 @@ export type MerchantUncheckedCreateInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -402,6 +407,7 @@ export type MerchantUpdateInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -430,6 +436,7 @@ export type MerchantUncheckedUpdateInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -663,6 +670,20 @@ export type MerchantUpdateOneRequiredWithoutDecisionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutDecisionsInput, Prisma.MerchantUpdateWithoutDecisionsInput>, Prisma.MerchantUncheckedUpdateWithoutDecisionsInput>
 }
 
+export type MerchantCreateNestedOneWithoutAiAuditLogsInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedCreateWithoutAiAuditLogsInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutAiAuditLogsInput
+  connect?: Prisma.MerchantWhereUniqueInput
+}
+
+export type MerchantUpdateOneRequiredWithoutAiAuditLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.MerchantCreateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedCreateWithoutAiAuditLogsInput>
+  connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutAiAuditLogsInput
+  upsert?: Prisma.MerchantUpsertWithoutAiAuditLogsInput
+  connect?: Prisma.MerchantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MerchantUpdateToOneWithWhereWithoutAiAuditLogsInput, Prisma.MerchantUpdateWithoutAiAuditLogsInput>, Prisma.MerchantUncheckedUpdateWithoutAiAuditLogsInput>
+}
+
 export type MerchantCreateNestedOneWithoutRecoveryActionsInput = {
   create?: Prisma.XOR<Prisma.MerchantCreateWithoutRecoveryActionsInput, Prisma.MerchantUncheckedCreateWithoutRecoveryActionsInput>
   connectOrCreate?: Prisma.MerchantCreateOrConnectWithoutRecoveryActionsInput
@@ -773,6 +794,7 @@ export type MerchantCreateWithoutUsersInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -800,6 +822,7 @@ export type MerchantUncheckedCreateWithoutUsersInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -843,6 +866,7 @@ export type MerchantUpdateWithoutUsersInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -870,6 +894,7 @@ export type MerchantUncheckedUpdateWithoutUsersInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -897,6 +922,7 @@ export type MerchantCreateWithoutConnectionsInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -924,6 +950,7 @@ export type MerchantUncheckedCreateWithoutConnectionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -967,6 +994,7 @@ export type MerchantUpdateWithoutConnectionsInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -994,6 +1022,7 @@ export type MerchantUncheckedUpdateWithoutConnectionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1021,6 +1050,7 @@ export type MerchantCreateWithoutCustomersInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1048,6 +1078,7 @@ export type MerchantUncheckedCreateWithoutCustomersInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1091,6 +1122,7 @@ export type MerchantUpdateWithoutCustomersInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1118,6 +1150,7 @@ export type MerchantUncheckedUpdateWithoutCustomersInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1145,6 +1178,7 @@ export type MerchantCreateWithoutOrdersInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1172,6 +1206,7 @@ export type MerchantUncheckedCreateWithoutOrdersInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1215,6 +1250,7 @@ export type MerchantUpdateWithoutOrdersInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1242,6 +1278,7 @@ export type MerchantUncheckedUpdateWithoutOrdersInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1269,6 +1306,7 @@ export type MerchantCreateWithoutPaymentsInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1296,6 +1334,7 @@ export type MerchantUncheckedCreateWithoutPaymentsInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1339,6 +1378,7 @@ export type MerchantUpdateWithoutPaymentsInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1366,6 +1406,7 @@ export type MerchantUncheckedUpdateWithoutPaymentsInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1393,6 +1434,7 @@ export type MerchantCreateWithoutSubscriptionsInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1420,6 +1462,7 @@ export type MerchantUncheckedCreateWithoutSubscriptionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1463,6 +1506,7 @@ export type MerchantUpdateWithoutSubscriptionsInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1490,6 +1534,7 @@ export type MerchantUncheckedUpdateWithoutSubscriptionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1517,6 +1562,7 @@ export type MerchantCreateWithoutPaymentLinksInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1544,6 +1590,7 @@ export type MerchantUncheckedCreateWithoutPaymentLinksInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1587,6 +1634,7 @@ export type MerchantUpdateWithoutPaymentLinksInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1614,6 +1662,7 @@ export type MerchantUncheckedUpdateWithoutPaymentLinksInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1641,6 +1690,7 @@ export type MerchantCreateWithoutInvoicesInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1668,6 +1718,7 @@ export type MerchantUncheckedCreateWithoutInvoicesInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1711,6 +1762,7 @@ export type MerchantUpdateWithoutInvoicesInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1738,6 +1790,7 @@ export type MerchantUncheckedUpdateWithoutInvoicesInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1765,6 +1818,7 @@ export type MerchantCreateWithoutRecoveryCasesInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1792,6 +1846,7 @@ export type MerchantUncheckedCreateWithoutRecoveryCasesInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1835,6 +1890,7 @@ export type MerchantUpdateWithoutRecoveryCasesInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1862,6 +1918,7 @@ export type MerchantUncheckedUpdateWithoutRecoveryCasesInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1889,6 +1946,7 @@ export type MerchantCreateWithoutDecisionsInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -1916,6 +1974,7 @@ export type MerchantUncheckedCreateWithoutDecisionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -1959,6 +2018,7 @@ export type MerchantUpdateWithoutDecisionsInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -1982,6 +2042,135 @@ export type MerchantUncheckedUpdateWithoutDecisionsInput = {
   paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
   recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantCreateWithoutAiAuditLogsInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantUncheckedCreateWithoutAiAuditLogsInput = {
+  id?: string
+  name: string
+  email?: string | null
+  phone?: string | null
+  businessName?: string | null
+  agentStatus?: $Enums.AgentStatus
+  defaultEnvironment?: $Enums.Environment
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.MerchantUserUncheckedCreateNestedManyWithoutMerchantInput
+  connections?: Prisma.RazorpayConnectionUncheckedCreateNestedManyWithoutMerchantInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutMerchantInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutMerchantInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutMerchantInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutMerchantInput
+  invoices?: Prisma.InvoiceUncheckedCreateNestedManyWithoutMerchantInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedCreateNestedManyWithoutMerchantInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutMerchantInput
+  decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutMerchantInput
+  policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
+  batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
+  webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
+}
+
+export type MerchantCreateOrConnectWithoutAiAuditLogsInput = {
+  where: Prisma.MerchantWhereUniqueInput
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedCreateWithoutAiAuditLogsInput>
+}
+
+export type MerchantUpsertWithoutAiAuditLogsInput = {
+  update: Prisma.XOR<Prisma.MerchantUpdateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedUpdateWithoutAiAuditLogsInput>
+  create: Prisma.XOR<Prisma.MerchantCreateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedCreateWithoutAiAuditLogsInput>
+  where?: Prisma.MerchantWhereInput
+}
+
+export type MerchantUpdateToOneWithWhereWithoutAiAuditLogsInput = {
+  where?: Prisma.MerchantWhereInput
+  data: Prisma.XOR<Prisma.MerchantUpdateWithoutAiAuditLogsInput, Prisma.MerchantUncheckedUpdateWithoutAiAuditLogsInput>
+}
+
+export type MerchantUpdateWithoutAiAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUpdateManyWithoutMerchantNestedInput
+  policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
+  batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
+  webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
+}
+
+export type MerchantUncheckedUpdateWithoutAiAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  businessName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  agentStatus?: Prisma.EnumAgentStatusFieldUpdateOperationsInput | $Enums.AgentStatus
+  defaultEnvironment?: Prisma.EnumEnvironmentFieldUpdateOperationsInput | $Enums.Environment
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.MerchantUserUncheckedUpdateManyWithoutMerchantNestedInput
+  connections?: Prisma.RazorpayConnectionUncheckedUpdateManyWithoutMerchantNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutMerchantNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutMerchantNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutMerchantNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutMerchantNestedInput
+  invoices?: Prisma.InvoiceUncheckedUpdateManyWithoutMerchantNestedInput
+  paymentLinks?: Prisma.PaymentLinkUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryCases?: Prisma.RecoveryCaseUncheckedUpdateManyWithoutMerchantNestedInput
+  recoveryActions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutMerchantNestedInput
+  decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutMerchantNestedInput
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
@@ -2013,6 +2202,7 @@ export type MerchantCreateWithoutRecoveryActionsInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -2040,6 +2230,7 @@ export type MerchantUncheckedCreateWithoutRecoveryActionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -2083,6 +2274,7 @@ export type MerchantUpdateWithoutRecoveryActionsInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2110,6 +2302,7 @@ export type MerchantUncheckedUpdateWithoutRecoveryActionsInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2137,6 +2330,7 @@ export type MerchantCreateWithoutPoliciesInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -2164,6 +2358,7 @@ export type MerchantUncheckedCreateWithoutPoliciesInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -2207,6 +2402,7 @@ export type MerchantUpdateWithoutPoliciesInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2234,6 +2430,7 @@ export type MerchantUncheckedUpdateWithoutPoliciesInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2261,6 +2458,7 @@ export type MerchantCreateWithoutBatchesInput = {
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -2288,6 +2486,7 @@ export type MerchantUncheckedCreateWithoutBatchesInput = {
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -2331,6 +2530,7 @@ export type MerchantUpdateWithoutBatchesInput = {
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2358,6 +2558,7 @@ export type MerchantUncheckedUpdateWithoutBatchesInput = {
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2386,6 +2587,7 @@ export type MerchantCreateWithoutPromisesInput = {
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
 }
 
 export type MerchantUncheckedCreateWithoutPromisesInput = {
@@ -2413,6 +2615,7 @@ export type MerchantUncheckedCreateWithoutPromisesInput = {
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
 }
 
 export type MerchantCreateOrConnectWithoutPromisesInput = {
@@ -2456,6 +2659,7 @@ export type MerchantUpdateWithoutPromisesInput = {
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
 }
 
 export type MerchantUncheckedUpdateWithoutPromisesInput = {
@@ -2483,6 +2687,7 @@ export type MerchantUncheckedUpdateWithoutPromisesInput = {
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
 export type MerchantCreateWithoutWebhookEventsInput = {
@@ -2509,6 +2714,7 @@ export type MerchantCreateWithoutWebhookEventsInput = {
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -2536,6 +2742,7 @@ export type MerchantUncheckedCreateWithoutWebhookEventsInput = {
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -2579,6 +2786,7 @@ export type MerchantUpdateWithoutWebhookEventsInput = {
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2606,6 +2814,7 @@ export type MerchantUncheckedUpdateWithoutWebhookEventsInput = {
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2633,6 +2842,7 @@ export type MerchantCreateWithoutAuditLogsInput = {
   policies?: Prisma.RecoveryPolicyCreateNestedManyWithoutMerchantInput
   batches?: Prisma.RecoveryBatchCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutMerchantInput
 }
 
@@ -2660,6 +2870,7 @@ export type MerchantUncheckedCreateWithoutAuditLogsInput = {
   policies?: Prisma.RecoveryPolicyUncheckedCreateNestedManyWithoutMerchantInput
   batches?: Prisma.RecoveryBatchUncheckedCreateNestedManyWithoutMerchantInput
   webhookEvents?: Prisma.WebhookEventUncheckedCreateNestedManyWithoutMerchantInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutMerchantInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutMerchantInput
 }
 
@@ -2703,6 +2914,7 @@ export type MerchantUpdateWithoutAuditLogsInput = {
   policies?: Prisma.RecoveryPolicyUpdateManyWithoutMerchantNestedInput
   batches?: Prisma.RecoveryBatchUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2730,6 +2942,7 @@ export type MerchantUncheckedUpdateWithoutAuditLogsInput = {
   policies?: Prisma.RecoveryPolicyUncheckedUpdateManyWithoutMerchantNestedInput
   batches?: Prisma.RecoveryBatchUncheckedUpdateManyWithoutMerchantNestedInput
   webhookEvents?: Prisma.WebhookEventUncheckedUpdateManyWithoutMerchantNestedInput
+  aiAuditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutMerchantNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutMerchantNestedInput
 }
 
@@ -2754,6 +2967,7 @@ export type MerchantCountOutputType = {
   batches: number
   webhookEvents: number
   auditLogs: number
+  aiAuditLogs: number
   promises: number
 }
 
@@ -2773,6 +2987,7 @@ export type MerchantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   batches?: boolean | MerchantCountOutputTypeCountBatchesArgs
   webhookEvents?: boolean | MerchantCountOutputTypeCountWebhookEventsArgs
   auditLogs?: boolean | MerchantCountOutputTypeCountAuditLogsArgs
+  aiAuditLogs?: boolean | MerchantCountOutputTypeCountAiAuditLogsArgs
   promises?: boolean | MerchantCountOutputTypeCountPromisesArgs
 }
 
@@ -2894,6 +3109,13 @@ export type MerchantCountOutputTypeCountAuditLogsArgs<ExtArgs extends runtime.Ty
 /**
  * MerchantCountOutputType without action
  */
+export type MerchantCountOutputTypeCountAiAuditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AIAuditLogWhereInput
+}
+
+/**
+ * MerchantCountOutputType without action
+ */
 export type MerchantCountOutputTypeCountPromisesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.PromiseToPayWhereInput
 }
@@ -2924,6 +3146,7 @@ export type MerchantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   batches?: boolean | Prisma.Merchant$batchesArgs<ExtArgs>
   webhookEvents?: boolean | Prisma.Merchant$webhookEventsArgs<ExtArgs>
   auditLogs?: boolean | Prisma.Merchant$auditLogsArgs<ExtArgs>
+  aiAuditLogs?: boolean | Prisma.Merchant$aiAuditLogsArgs<ExtArgs>
   promises?: boolean | Prisma.Merchant$promisesArgs<ExtArgs>
   _count?: boolean | Prisma.MerchantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["merchant"]>
@@ -2981,6 +3204,7 @@ export type MerchantInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   batches?: boolean | Prisma.Merchant$batchesArgs<ExtArgs>
   webhookEvents?: boolean | Prisma.Merchant$webhookEventsArgs<ExtArgs>
   auditLogs?: boolean | Prisma.Merchant$auditLogsArgs<ExtArgs>
+  aiAuditLogs?: boolean | Prisma.Merchant$aiAuditLogsArgs<ExtArgs>
   promises?: boolean | Prisma.Merchant$promisesArgs<ExtArgs>
   _count?: boolean | Prisma.MerchantCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -3005,6 +3229,7 @@ export type $MerchantPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     batches: Prisma.$RecoveryBatchPayload<ExtArgs>[]
     webhookEvents: Prisma.$WebhookEventPayload<ExtArgs>[]
     auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
+    aiAuditLogs: Prisma.$AIAuditLogPayload<ExtArgs>[]
     promises: Prisma.$PromiseToPayPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -3426,6 +3651,7 @@ export interface Prisma__MerchantClient<T, Null = never, ExtArgs extends runtime
   batches<T extends Prisma.Merchant$batchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$batchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   webhookEvents<T extends Prisma.Merchant$webhookEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$webhookEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WebhookEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   auditLogs<T extends Prisma.Merchant$auditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  aiAuditLogs<T extends Prisma.Merchant$aiAuditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$aiAuditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AIAuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   promises<T extends Prisma.Merchant$promisesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Merchant$promisesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PromiseToPayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4215,6 +4441,30 @@ export type Merchant$auditLogsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.AuditLogScalarFieldEnum | Prisma.AuditLogScalarFieldEnum[]
+}
+
+/**
+ * Merchant.aiAuditLogs
+ */
+export type Merchant$aiAuditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AIAuditLog
+   */
+  select?: Prisma.AIAuditLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AIAuditLog
+   */
+  omit?: Prisma.AIAuditLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AIAuditLogInclude<ExtArgs> | null
+  where?: Prisma.AIAuditLogWhereInput
+  orderBy?: Prisma.AIAuditLogOrderByWithRelationInput | Prisma.AIAuditLogOrderByWithRelationInput[]
+  cursor?: Prisma.AIAuditLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AIAuditLogScalarFieldEnum | Prisma.AIAuditLogScalarFieldEnum[]
 }
 
 /**

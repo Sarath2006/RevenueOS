@@ -63,6 +63,7 @@ export const ModelName = {
   Invoice: 'Invoice',
   RecoveryCase: 'RecoveryCase',
   AIDecision: 'AIDecision',
+  AIAuditLog: 'AIAuditLog',
   RecoveryAction: 'RecoveryAction',
   RecoveryPolicy: 'RecoveryPolicy',
   RecoveryBatch: 'RecoveryBatch',
@@ -302,20 +303,63 @@ export type RecoveryCaseScalarFieldEnum = (typeof RecoveryCaseScalarFieldEnum)[k
 
 export const AIDecisionScalarFieldEnum = {
   id: 'id',
+  decisionId: 'decisionId',
+  customerId: 'customerId',
   merchantId: 'merchantId',
   recoveryCaseId: 'recoveryCaseId',
-  decisionType: 'decisionType',
-  confidence: 'confidence',
-  reasoning: 'reasoning',
-  diagnosis: 'diagnosis',
-  features: 'features',
-  constraints: 'constraints',
-  modelName: 'modelName',
-  modelVersion: 'modelVersion',
-  createdAt: 'createdAt'
+  currency: 'currency',
+  probability: 'probability',
+  probabilityPercent: 'probabilityPercent',
+  probabilityBand: 'probabilityBand',
+  probabilityConfidence: 'probabilityConfidence',
+  priorityScore: 'priorityScore',
+  priorityBand: 'priorityBand',
+  urgencyScore: 'urgencyScore',
+  opportunityScore: 'opportunityScore',
+  riskScore: 'riskScore',
+  amountScore: 'amountScore',
+  strategy: 'strategy',
+  channel: 'channel',
+  timing: 'timing',
+  strategyScore: 'strategyScore',
+  decisionConfidence: 'decisionConfidence',
+  decisionStatus: 'decisionStatus',
+  decisionReason: 'decisionReason',
+  modelVersions: 'modelVersions',
+  inputFeatures: 'inputFeatures',
+  positiveSignals: 'positiveSignals',
+  negativeSignals: 'negativeSignals',
+  alternatives: 'alternatives',
+  outcome: 'outcome',
+  outcomeAmount: 'outcomeAmount',
+  outcomeRecordedAt: 'outcomeRecordedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AIDecisionScalarFieldEnum = (typeof AIDecisionScalarFieldEnum)[keyof typeof AIDecisionScalarFieldEnum]
+
+
+export const AIAuditLogScalarFieldEnum = {
+  id: 'id',
+  decisionId: 'decisionId',
+  merchantId: 'merchantId',
+  customerId: 'customerId',
+  recoveryCaseId: 'recoveryCaseId',
+  eventType: 'eventType',
+  stage: 'stage',
+  status: 'status',
+  strategy: 'strategy',
+  confidence: 'confidence',
+  fallbackRequired: 'fallbackRequired',
+  fallbackAction: 'fallbackAction',
+  fallbackReason: 'fallbackReason',
+  modelVersions: 'modelVersions',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type AIAuditLogScalarFieldEnum = (typeof AIAuditLogScalarFieldEnum)[keyof typeof AIAuditLogScalarFieldEnum]
 
 
 export const RecoveryActionScalarFieldEnum = {

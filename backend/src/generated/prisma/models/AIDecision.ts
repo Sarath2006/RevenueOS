@@ -27,99 +27,257 @@ export type AggregateAIDecision = {
 }
 
 export type AIDecisionAvgAggregateOutputType = {
-  confidence: runtime.Decimal | null
+  probability: number | null
+  probabilityPercent: number | null
+  probabilityConfidence: number | null
+  priorityScore: number | null
+  urgencyScore: number | null
+  opportunityScore: number | null
+  riskScore: number | null
+  amountScore: number | null
+  strategyScore: number | null
+  decisionConfidence: number | null
+  outcomeAmount: number | null
 }
 
 export type AIDecisionSumAggregateOutputType = {
-  confidence: runtime.Decimal | null
+  probability: number | null
+  probabilityPercent: number | null
+  probabilityConfidence: number | null
+  priorityScore: number | null
+  urgencyScore: number | null
+  opportunityScore: number | null
+  riskScore: number | null
+  amountScore: number | null
+  strategyScore: number | null
+  decisionConfidence: number | null
+  outcomeAmount: number | null
 }
 
 export type AIDecisionMinAggregateOutputType = {
   id: string | null
+  decisionId: string | null
+  customerId: string | null
   merchantId: string | null
   recoveryCaseId: string | null
-  decisionType: $Enums.DecisionType | null
-  confidence: runtime.Decimal | null
-  reasoning: string | null
-  modelName: string | null
-  modelVersion: string | null
+  currency: string | null
+  probability: number | null
+  probabilityPercent: number | null
+  probabilityBand: string | null
+  probabilityConfidence: number | null
+  priorityScore: number | null
+  priorityBand: string | null
+  urgencyScore: number | null
+  opportunityScore: number | null
+  riskScore: number | null
+  amountScore: number | null
+  strategy: string | null
+  channel: string | null
+  timing: string | null
+  strategyScore: number | null
+  decisionConfidence: number | null
+  decisionStatus: string | null
+  decisionReason: string | null
+  outcome: string | null
+  outcomeAmount: number | null
+  outcomeRecordedAt: Date | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AIDecisionMaxAggregateOutputType = {
   id: string | null
+  decisionId: string | null
+  customerId: string | null
   merchantId: string | null
   recoveryCaseId: string | null
-  decisionType: $Enums.DecisionType | null
-  confidence: runtime.Decimal | null
-  reasoning: string | null
-  modelName: string | null
-  modelVersion: string | null
+  currency: string | null
+  probability: number | null
+  probabilityPercent: number | null
+  probabilityBand: string | null
+  probabilityConfidence: number | null
+  priorityScore: number | null
+  priorityBand: string | null
+  urgencyScore: number | null
+  opportunityScore: number | null
+  riskScore: number | null
+  amountScore: number | null
+  strategy: string | null
+  channel: string | null
+  timing: string | null
+  strategyScore: number | null
+  decisionConfidence: number | null
+  decisionStatus: string | null
+  decisionReason: string | null
+  outcome: string | null
+  outcomeAmount: number | null
+  outcomeRecordedAt: Date | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AIDecisionCountAggregateOutputType = {
   id: number
+  decisionId: number
+  customerId: number
   merchantId: number
   recoveryCaseId: number
-  decisionType: number
-  confidence: number
-  reasoning: number
-  diagnosis: number
-  features: number
-  constraints: number
-  modelName: number
-  modelVersion: number
+  currency: number
+  probability: number
+  probabilityPercent: number
+  probabilityBand: number
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: number
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: number
+  channel: number
+  timing: number
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus: number
+  decisionReason: number
+  modelVersions: number
+  inputFeatures: number
+  positiveSignals: number
+  negativeSignals: number
+  alternatives: number
+  outcome: number
+  outcomeAmount: number
+  outcomeRecordedAt: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type AIDecisionAvgAggregateInputType = {
-  confidence?: true
+  probability?: true
+  probabilityPercent?: true
+  probabilityConfidence?: true
+  priorityScore?: true
+  urgencyScore?: true
+  opportunityScore?: true
+  riskScore?: true
+  amountScore?: true
+  strategyScore?: true
+  decisionConfidence?: true
+  outcomeAmount?: true
 }
 
 export type AIDecisionSumAggregateInputType = {
-  confidence?: true
+  probability?: true
+  probabilityPercent?: true
+  probabilityConfidence?: true
+  priorityScore?: true
+  urgencyScore?: true
+  opportunityScore?: true
+  riskScore?: true
+  amountScore?: true
+  strategyScore?: true
+  decisionConfidence?: true
+  outcomeAmount?: true
 }
 
 export type AIDecisionMinAggregateInputType = {
   id?: true
+  decisionId?: true
+  customerId?: true
   merchantId?: true
   recoveryCaseId?: true
-  decisionType?: true
-  confidence?: true
-  reasoning?: true
-  modelName?: true
-  modelVersion?: true
+  currency?: true
+  probability?: true
+  probabilityPercent?: true
+  probabilityBand?: true
+  probabilityConfidence?: true
+  priorityScore?: true
+  priorityBand?: true
+  urgencyScore?: true
+  opportunityScore?: true
+  riskScore?: true
+  amountScore?: true
+  strategy?: true
+  channel?: true
+  timing?: true
+  strategyScore?: true
+  decisionConfidence?: true
+  decisionStatus?: true
+  decisionReason?: true
+  outcome?: true
+  outcomeAmount?: true
+  outcomeRecordedAt?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type AIDecisionMaxAggregateInputType = {
   id?: true
+  decisionId?: true
+  customerId?: true
   merchantId?: true
   recoveryCaseId?: true
-  decisionType?: true
-  confidence?: true
-  reasoning?: true
-  modelName?: true
-  modelVersion?: true
+  currency?: true
+  probability?: true
+  probabilityPercent?: true
+  probabilityBand?: true
+  probabilityConfidence?: true
+  priorityScore?: true
+  priorityBand?: true
+  urgencyScore?: true
+  opportunityScore?: true
+  riskScore?: true
+  amountScore?: true
+  strategy?: true
+  channel?: true
+  timing?: true
+  strategyScore?: true
+  decisionConfidence?: true
+  decisionStatus?: true
+  decisionReason?: true
+  outcome?: true
+  outcomeAmount?: true
+  outcomeRecordedAt?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type AIDecisionCountAggregateInputType = {
   id?: true
+  decisionId?: true
+  customerId?: true
   merchantId?: true
   recoveryCaseId?: true
-  decisionType?: true
-  confidence?: true
-  reasoning?: true
-  diagnosis?: true
-  features?: true
-  constraints?: true
-  modelName?: true
-  modelVersion?: true
+  currency?: true
+  probability?: true
+  probabilityPercent?: true
+  probabilityBand?: true
+  probabilityConfidence?: true
+  priorityScore?: true
+  priorityBand?: true
+  urgencyScore?: true
+  opportunityScore?: true
+  riskScore?: true
+  amountScore?: true
+  strategy?: true
+  channel?: true
+  timing?: true
+  strategyScore?: true
+  decisionConfidence?: true
+  decisionStatus?: true
+  decisionReason?: true
+  modelVersions?: true
+  inputFeatures?: true
+  positiveSignals?: true
+  negativeSignals?: true
+  alternatives?: true
+  outcome?: true
+  outcomeAmount?: true
+  outcomeRecordedAt?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -211,17 +369,38 @@ export type AIDecisionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 
 export type AIDecisionGroupByOutputType = {
   id: string
+  decisionId: string
+  customerId: string
   merchantId: string
-  recoveryCaseId: string
-  decisionType: $Enums.DecisionType
-  confidence: runtime.Decimal | null
-  reasoning: string | null
-  diagnosis: runtime.JsonValue | null
-  features: runtime.JsonValue | null
-  constraints: runtime.JsonValue | null
-  modelName: string | null
-  modelVersion: string | null
+  recoveryCaseId: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus: string
+  decisionReason: string
+  modelVersions: runtime.JsonValue
+  inputFeatures: runtime.JsonValue
+  positiveSignals: runtime.JsonValue
+  negativeSignals: runtime.JsonValue
+  alternatives: runtime.JsonValue
+  outcome: string | null
+  outcomeAmount: number | null
+  outcomeRecordedAt: Date | null
   createdAt: Date
+  updatedAt: Date
   _count: AIDecisionCountAggregateOutputType | null
   _avg: AIDecisionAvgAggregateOutputType | null
   _sum: AIDecisionSumAggregateOutputType | null
@@ -249,71 +428,158 @@ export type AIDecisionWhereInput = {
   OR?: Prisma.AIDecisionWhereInput[]
   NOT?: Prisma.AIDecisionWhereInput | Prisma.AIDecisionWhereInput[]
   id?: Prisma.StringFilter<"AIDecision"> | string
+  decisionId?: Prisma.StringFilter<"AIDecision"> | string
+  customerId?: Prisma.StringFilter<"AIDecision"> | string
   merchantId?: Prisma.StringFilter<"AIDecision"> | string
-  recoveryCaseId?: Prisma.StringFilter<"AIDecision"> | string
-  decisionType?: Prisma.EnumDecisionTypeFilter<"AIDecision"> | $Enums.DecisionType
-  confidence?: Prisma.DecimalNullableFilter<"AIDecision"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  diagnosis?: Prisma.JsonNullableFilter<"AIDecision">
-  features?: Prisma.JsonNullableFilter<"AIDecision">
-  constraints?: Prisma.JsonNullableFilter<"AIDecision">
-  modelName?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  modelVersion?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  recoveryCaseId?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  currency?: Prisma.StringFilter<"AIDecision"> | string
+  probability?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityPercent?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityBand?: Prisma.StringFilter<"AIDecision"> | string
+  probabilityConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityBand?: Prisma.StringFilter<"AIDecision"> | string
+  urgencyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  opportunityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  riskScore?: Prisma.FloatFilter<"AIDecision"> | number
+  amountScore?: Prisma.FloatFilter<"AIDecision"> | number
+  strategy?: Prisma.StringFilter<"AIDecision"> | string
+  channel?: Prisma.StringFilter<"AIDecision"> | string
+  timing?: Prisma.StringFilter<"AIDecision"> | string
+  strategyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionStatus?: Prisma.StringFilter<"AIDecision"> | string
+  decisionReason?: Prisma.StringFilter<"AIDecision"> | string
+  modelVersions?: Prisma.JsonFilter<"AIDecision">
+  inputFeatures?: Prisma.JsonFilter<"AIDecision">
+  positiveSignals?: Prisma.JsonFilter<"AIDecision">
+  negativeSignals?: Prisma.JsonFilter<"AIDecision">
+  alternatives?: Prisma.JsonFilter<"AIDecision">
+  outcome?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  outcomeAmount?: Prisma.FloatNullableFilter<"AIDecision"> | number | null
+  outcomeRecordedAt?: Prisma.DateTimeNullableFilter<"AIDecision"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
-  recoveryCase?: Prisma.XOR<Prisma.RecoveryCaseScalarRelationFilter, Prisma.RecoveryCaseWhereInput>
+  recoveryCase?: Prisma.XOR<Prisma.RecoveryCaseNullableScalarRelationFilter, Prisma.RecoveryCaseWhereInput> | null
+  auditLogs?: Prisma.AIAuditLogListRelationFilter
 }
 
 export type AIDecisionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  decisionId?: Prisma.SortOrder
+  customerId?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
-  recoveryCaseId?: Prisma.SortOrder
-  decisionType?: Prisma.SortOrder
-  confidence?: Prisma.SortOrderInput | Prisma.SortOrder
-  reasoning?: Prisma.SortOrderInput | Prisma.SortOrder
-  diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
-  features?: Prisma.SortOrderInput | Prisma.SortOrder
-  constraints?: Prisma.SortOrderInput | Prisma.SortOrder
-  modelName?: Prisma.SortOrderInput | Prisma.SortOrder
-  modelVersion?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveryCaseId?: Prisma.SortOrderInput | Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityBand?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  priorityBand?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategy?: Prisma.SortOrder
+  channel?: Prisma.SortOrder
+  timing?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  decisionStatus?: Prisma.SortOrder
+  decisionReason?: Prisma.SortOrder
+  modelVersions?: Prisma.SortOrder
+  inputFeatures?: Prisma.SortOrder
+  positiveSignals?: Prisma.SortOrder
+  negativeSignals?: Prisma.SortOrder
+  alternatives?: Prisma.SortOrder
+  outcome?: Prisma.SortOrderInput | Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  outcomeRecordedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   merchant?: Prisma.MerchantOrderByWithRelationInput
   recoveryCase?: Prisma.RecoveryCaseOrderByWithRelationInput
+  auditLogs?: Prisma.AIAuditLogOrderByRelationAggregateInput
 }
 
 export type AIDecisionWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  decisionId?: string
   AND?: Prisma.AIDecisionWhereInput | Prisma.AIDecisionWhereInput[]
   OR?: Prisma.AIDecisionWhereInput[]
   NOT?: Prisma.AIDecisionWhereInput | Prisma.AIDecisionWhereInput[]
+  customerId?: Prisma.StringFilter<"AIDecision"> | string
   merchantId?: Prisma.StringFilter<"AIDecision"> | string
-  recoveryCaseId?: Prisma.StringFilter<"AIDecision"> | string
-  decisionType?: Prisma.EnumDecisionTypeFilter<"AIDecision"> | $Enums.DecisionType
-  confidence?: Prisma.DecimalNullableFilter<"AIDecision"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  diagnosis?: Prisma.JsonNullableFilter<"AIDecision">
-  features?: Prisma.JsonNullableFilter<"AIDecision">
-  constraints?: Prisma.JsonNullableFilter<"AIDecision">
-  modelName?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  modelVersion?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  recoveryCaseId?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  currency?: Prisma.StringFilter<"AIDecision"> | string
+  probability?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityPercent?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityBand?: Prisma.StringFilter<"AIDecision"> | string
+  probabilityConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityBand?: Prisma.StringFilter<"AIDecision"> | string
+  urgencyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  opportunityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  riskScore?: Prisma.FloatFilter<"AIDecision"> | number
+  amountScore?: Prisma.FloatFilter<"AIDecision"> | number
+  strategy?: Prisma.StringFilter<"AIDecision"> | string
+  channel?: Prisma.StringFilter<"AIDecision"> | string
+  timing?: Prisma.StringFilter<"AIDecision"> | string
+  strategyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionStatus?: Prisma.StringFilter<"AIDecision"> | string
+  decisionReason?: Prisma.StringFilter<"AIDecision"> | string
+  modelVersions?: Prisma.JsonFilter<"AIDecision">
+  inputFeatures?: Prisma.JsonFilter<"AIDecision">
+  positiveSignals?: Prisma.JsonFilter<"AIDecision">
+  negativeSignals?: Prisma.JsonFilter<"AIDecision">
+  alternatives?: Prisma.JsonFilter<"AIDecision">
+  outcome?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  outcomeAmount?: Prisma.FloatNullableFilter<"AIDecision"> | number | null
+  outcomeRecordedAt?: Prisma.DateTimeNullableFilter<"AIDecision"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
   merchant?: Prisma.XOR<Prisma.MerchantScalarRelationFilter, Prisma.MerchantWhereInput>
-  recoveryCase?: Prisma.XOR<Prisma.RecoveryCaseScalarRelationFilter, Prisma.RecoveryCaseWhereInput>
-}, "id">
+  recoveryCase?: Prisma.XOR<Prisma.RecoveryCaseNullableScalarRelationFilter, Prisma.RecoveryCaseWhereInput> | null
+  auditLogs?: Prisma.AIAuditLogListRelationFilter
+}, "id" | "decisionId">
 
 export type AIDecisionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  decisionId?: Prisma.SortOrder
+  customerId?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
-  recoveryCaseId?: Prisma.SortOrder
-  decisionType?: Prisma.SortOrder
-  confidence?: Prisma.SortOrderInput | Prisma.SortOrder
-  reasoning?: Prisma.SortOrderInput | Prisma.SortOrder
-  diagnosis?: Prisma.SortOrderInput | Prisma.SortOrder
-  features?: Prisma.SortOrderInput | Prisma.SortOrder
-  constraints?: Prisma.SortOrderInput | Prisma.SortOrder
-  modelName?: Prisma.SortOrderInput | Prisma.SortOrder
-  modelVersion?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveryCaseId?: Prisma.SortOrderInput | Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityBand?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  priorityBand?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategy?: Prisma.SortOrder
+  channel?: Prisma.SortOrder
+  timing?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  decisionStatus?: Prisma.SortOrder
+  decisionReason?: Prisma.SortOrder
+  modelVersions?: Prisma.SortOrder
+  inputFeatures?: Prisma.SortOrder
+  positiveSignals?: Prisma.SortOrder
+  negativeSignals?: Prisma.SortOrder
+  alternatives?: Prisma.SortOrder
+  outcome?: Prisma.SortOrderInput | Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  outcomeRecordedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.AIDecisionCountOrderByAggregateInput
   _avg?: Prisma.AIDecisionAvgOrderByAggregateInput
   _max?: Prisma.AIDecisionMaxOrderByAggregateInput
@@ -326,120 +592,292 @@ export type AIDecisionScalarWhereWithAggregatesInput = {
   OR?: Prisma.AIDecisionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AIDecisionScalarWhereWithAggregatesInput | Prisma.AIDecisionScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  decisionId?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  customerId?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
   merchantId?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
-  recoveryCaseId?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
-  decisionType?: Prisma.EnumDecisionTypeWithAggregatesFilter<"AIDecision"> | $Enums.DecisionType
-  confidence?: Prisma.DecimalNullableWithAggregatesFilter<"AIDecision"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.StringNullableWithAggregatesFilter<"AIDecision"> | string | null
-  diagnosis?: Prisma.JsonNullableWithAggregatesFilter<"AIDecision">
-  features?: Prisma.JsonNullableWithAggregatesFilter<"AIDecision">
-  constraints?: Prisma.JsonNullableWithAggregatesFilter<"AIDecision">
-  modelName?: Prisma.StringNullableWithAggregatesFilter<"AIDecision"> | string | null
-  modelVersion?: Prisma.StringNullableWithAggregatesFilter<"AIDecision"> | string | null
+  recoveryCaseId?: Prisma.StringNullableWithAggregatesFilter<"AIDecision"> | string | null
+  currency?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  probability?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  probabilityPercent?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  probabilityBand?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  probabilityConfidence?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  priorityScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  priorityBand?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  urgencyScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  opportunityScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  riskScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  amountScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  strategy?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  channel?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  timing?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  strategyScore?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  decisionConfidence?: Prisma.FloatWithAggregatesFilter<"AIDecision"> | number
+  decisionStatus?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  decisionReason?: Prisma.StringWithAggregatesFilter<"AIDecision"> | string
+  modelVersions?: Prisma.JsonWithAggregatesFilter<"AIDecision">
+  inputFeatures?: Prisma.JsonWithAggregatesFilter<"AIDecision">
+  positiveSignals?: Prisma.JsonWithAggregatesFilter<"AIDecision">
+  negativeSignals?: Prisma.JsonWithAggregatesFilter<"AIDecision">
+  alternatives?: Prisma.JsonWithAggregatesFilter<"AIDecision">
+  outcome?: Prisma.StringNullableWithAggregatesFilter<"AIDecision"> | string | null
+  outcomeAmount?: Prisma.FloatNullableWithAggregatesFilter<"AIDecision"> | number | null
+  outcomeRecordedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"AIDecision"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"AIDecision"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"AIDecision"> | Date | string
 }
 
 export type AIDecisionCreateInput = {
   id?: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  decisionId: string
+  customerId: string
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   merchant: Prisma.MerchantCreateNestedOneWithoutDecisionsInput
-  recoveryCase: Prisma.RecoveryCaseCreateNestedOneWithoutDecisionsInput
+  recoveryCase?: Prisma.RecoveryCaseCreateNestedOneWithoutDecisionsInput
+  auditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionUncheckedCreateInput = {
   id?: string
+  decisionId: string
+  customerId: string
   merchantId: string
-  recoveryCaseId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  recoveryCaseId?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutDecisionsNestedInput
-  recoveryCase?: Prisma.RecoveryCaseUpdateOneRequiredWithoutDecisionsNestedInput
+  recoveryCase?: Prisma.RecoveryCaseUpdateOneWithoutDecisionsNestedInput
+  auditLogs?: Prisma.AIAuditLogUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
-  recoveryCaseId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCaseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionCreateManyInput = {
   id?: string
+  decisionId: string
+  customerId: string
   merchantId: string
-  recoveryCaseId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  recoveryCaseId?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AIDecisionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AIDecisionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
-  recoveryCaseId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCaseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AIDecisionListRelationFilter = {
@@ -454,49 +892,133 @@ export type AIDecisionOrderByRelationAggregateInput = {
 
 export type AIDecisionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  decisionId?: Prisma.SortOrder
+  customerId?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
   recoveryCaseId?: Prisma.SortOrder
-  decisionType?: Prisma.SortOrder
-  confidence?: Prisma.SortOrder
-  reasoning?: Prisma.SortOrder
-  diagnosis?: Prisma.SortOrder
-  features?: Prisma.SortOrder
-  constraints?: Prisma.SortOrder
-  modelName?: Prisma.SortOrder
-  modelVersion?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityBand?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  priorityBand?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategy?: Prisma.SortOrder
+  channel?: Prisma.SortOrder
+  timing?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  decisionStatus?: Prisma.SortOrder
+  decisionReason?: Prisma.SortOrder
+  modelVersions?: Prisma.SortOrder
+  inputFeatures?: Prisma.SortOrder
+  positiveSignals?: Prisma.SortOrder
+  negativeSignals?: Prisma.SortOrder
+  alternatives?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrder
+  outcomeRecordedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AIDecisionAvgOrderByAggregateInput = {
-  confidence?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrder
 }
 
 export type AIDecisionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  decisionId?: Prisma.SortOrder
+  customerId?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
   recoveryCaseId?: Prisma.SortOrder
-  decisionType?: Prisma.SortOrder
-  confidence?: Prisma.SortOrder
-  reasoning?: Prisma.SortOrder
-  modelName?: Prisma.SortOrder
-  modelVersion?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityBand?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  priorityBand?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategy?: Prisma.SortOrder
+  channel?: Prisma.SortOrder
+  timing?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  decisionStatus?: Prisma.SortOrder
+  decisionReason?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrder
+  outcomeRecordedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AIDecisionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  decisionId?: Prisma.SortOrder
+  customerId?: Prisma.SortOrder
   merchantId?: Prisma.SortOrder
   recoveryCaseId?: Prisma.SortOrder
-  decisionType?: Prisma.SortOrder
-  confidence?: Prisma.SortOrder
-  reasoning?: Prisma.SortOrder
-  modelName?: Prisma.SortOrder
-  modelVersion?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityBand?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  priorityBand?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategy?: Prisma.SortOrder
+  channel?: Prisma.SortOrder
+  timing?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  decisionStatus?: Prisma.SortOrder
+  decisionReason?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrder
+  outcomeRecordedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AIDecisionSumOrderByAggregateInput = {
-  confidence?: Prisma.SortOrder
+  probability?: Prisma.SortOrder
+  probabilityPercent?: Prisma.SortOrder
+  probabilityConfidence?: Prisma.SortOrder
+  priorityScore?: Prisma.SortOrder
+  urgencyScore?: Prisma.SortOrder
+  opportunityScore?: Prisma.SortOrder
+  riskScore?: Prisma.SortOrder
+  amountScore?: Prisma.SortOrder
+  strategyScore?: Prisma.SortOrder
+  decisionConfidence?: Prisma.SortOrder
+  outcomeAmount?: Prisma.SortOrder
+}
+
+export type AIDecisionScalarRelationFilter = {
+  is?: Prisma.AIDecisionWhereInput
+  isNot?: Prisma.AIDecisionWhereInput
 }
 
 export type AIDecisionCreateNestedManyWithoutMerchantInput = {
@@ -583,36 +1105,106 @@ export type AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput = {
   deleteMany?: Prisma.AIDecisionScalarWhereInput | Prisma.AIDecisionScalarWhereInput[]
 }
 
-export type EnumDecisionTypeFieldUpdateOperationsInput = {
-  set?: $Enums.DecisionType
+export type FloatFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type AIDecisionCreateNestedOneWithoutAuditLogsInput = {
+  create?: Prisma.XOR<Prisma.AIDecisionCreateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedCreateWithoutAuditLogsInput>
+  connectOrCreate?: Prisma.AIDecisionCreateOrConnectWithoutAuditLogsInput
+  connect?: Prisma.AIDecisionWhereUniqueInput
+}
+
+export type AIDecisionUpdateOneRequiredWithoutAuditLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.AIDecisionCreateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedCreateWithoutAuditLogsInput>
+  connectOrCreate?: Prisma.AIDecisionCreateOrConnectWithoutAuditLogsInput
+  upsert?: Prisma.AIDecisionUpsertWithoutAuditLogsInput
+  connect?: Prisma.AIDecisionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AIDecisionUpdateToOneWithWhereWithoutAuditLogsInput, Prisma.AIDecisionUpdateWithoutAuditLogsInput>, Prisma.AIDecisionUncheckedUpdateWithoutAuditLogsInput>
 }
 
 export type AIDecisionCreateWithoutMerchantInput = {
   id?: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  decisionId: string
+  customerId: string
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
-  recoveryCase: Prisma.RecoveryCaseCreateNestedOneWithoutDecisionsInput
+  updatedAt?: Date | string
+  recoveryCase?: Prisma.RecoveryCaseCreateNestedOneWithoutDecisionsInput
+  auditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionUncheckedCreateWithoutMerchantInput = {
   id?: string
-  recoveryCaseId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  decisionId: string
+  customerId: string
+  recoveryCaseId?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionCreateOrConnectWithoutMerchantInput = {
@@ -646,45 +1238,110 @@ export type AIDecisionScalarWhereInput = {
   OR?: Prisma.AIDecisionScalarWhereInput[]
   NOT?: Prisma.AIDecisionScalarWhereInput | Prisma.AIDecisionScalarWhereInput[]
   id?: Prisma.StringFilter<"AIDecision"> | string
+  decisionId?: Prisma.StringFilter<"AIDecision"> | string
+  customerId?: Prisma.StringFilter<"AIDecision"> | string
   merchantId?: Prisma.StringFilter<"AIDecision"> | string
-  recoveryCaseId?: Prisma.StringFilter<"AIDecision"> | string
-  decisionType?: Prisma.EnumDecisionTypeFilter<"AIDecision"> | $Enums.DecisionType
-  confidence?: Prisma.DecimalNullableFilter<"AIDecision"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  diagnosis?: Prisma.JsonNullableFilter<"AIDecision">
-  features?: Prisma.JsonNullableFilter<"AIDecision">
-  constraints?: Prisma.JsonNullableFilter<"AIDecision">
-  modelName?: Prisma.StringNullableFilter<"AIDecision"> | string | null
-  modelVersion?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  recoveryCaseId?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  currency?: Prisma.StringFilter<"AIDecision"> | string
+  probability?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityPercent?: Prisma.FloatFilter<"AIDecision"> | number
+  probabilityBand?: Prisma.StringFilter<"AIDecision"> | string
+  probabilityConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  priorityBand?: Prisma.StringFilter<"AIDecision"> | string
+  urgencyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  opportunityScore?: Prisma.FloatFilter<"AIDecision"> | number
+  riskScore?: Prisma.FloatFilter<"AIDecision"> | number
+  amountScore?: Prisma.FloatFilter<"AIDecision"> | number
+  strategy?: Prisma.StringFilter<"AIDecision"> | string
+  channel?: Prisma.StringFilter<"AIDecision"> | string
+  timing?: Prisma.StringFilter<"AIDecision"> | string
+  strategyScore?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionConfidence?: Prisma.FloatFilter<"AIDecision"> | number
+  decisionStatus?: Prisma.StringFilter<"AIDecision"> | string
+  decisionReason?: Prisma.StringFilter<"AIDecision"> | string
+  modelVersions?: Prisma.JsonFilter<"AIDecision">
+  inputFeatures?: Prisma.JsonFilter<"AIDecision">
+  positiveSignals?: Prisma.JsonFilter<"AIDecision">
+  negativeSignals?: Prisma.JsonFilter<"AIDecision">
+  alternatives?: Prisma.JsonFilter<"AIDecision">
+  outcome?: Prisma.StringNullableFilter<"AIDecision"> | string | null
+  outcomeAmount?: Prisma.FloatNullableFilter<"AIDecision"> | number | null
+  outcomeRecordedAt?: Prisma.DateTimeNullableFilter<"AIDecision"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AIDecision"> | Date | string
 }
 
 export type AIDecisionCreateWithoutRecoveryCaseInput = {
   id?: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  decisionId: string
+  customerId: string
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   merchant: Prisma.MerchantCreateNestedOneWithoutDecisionsInput
+  auditLogs?: Prisma.AIAuditLogCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionUncheckedCreateWithoutRecoveryCaseInput = {
   id?: string
+  decisionId: string
+  customerId: string
   merchantId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedCreateNestedManyWithoutDecisionInput
 }
 
 export type AIDecisionCreateOrConnectWithoutRecoveryCaseInput = {
@@ -713,219 +1370,690 @@ export type AIDecisionUpdateManyWithWhereWithoutRecoveryCaseInput = {
   data: Prisma.XOR<Prisma.AIDecisionUpdateManyMutationInput, Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseInput>
 }
 
+export type AIDecisionCreateWithoutAuditLogsInput = {
+  id?: string
+  decisionId: string
+  customerId: string
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  merchant: Prisma.MerchantCreateNestedOneWithoutDecisionsInput
+  recoveryCase?: Prisma.RecoveryCaseCreateNestedOneWithoutDecisionsInput
+}
+
+export type AIDecisionUncheckedCreateWithoutAuditLogsInput = {
+  id?: string
+  decisionId: string
+  customerId: string
+  merchantId: string
+  recoveryCaseId?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type AIDecisionCreateOrConnectWithoutAuditLogsInput = {
+  where: Prisma.AIDecisionWhereUniqueInput
+  create: Prisma.XOR<Prisma.AIDecisionCreateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedCreateWithoutAuditLogsInput>
+}
+
+export type AIDecisionUpsertWithoutAuditLogsInput = {
+  update: Prisma.XOR<Prisma.AIDecisionUpdateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedUpdateWithoutAuditLogsInput>
+  create: Prisma.XOR<Prisma.AIDecisionCreateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedCreateWithoutAuditLogsInput>
+  where?: Prisma.AIDecisionWhereInput
+}
+
+export type AIDecisionUpdateToOneWithWhereWithoutAuditLogsInput = {
+  where?: Prisma.AIDecisionWhereInput
+  data: Prisma.XOR<Prisma.AIDecisionUpdateWithoutAuditLogsInput, Prisma.AIDecisionUncheckedUpdateWithoutAuditLogsInput>
+}
+
+export type AIDecisionUpdateWithoutAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutDecisionsNestedInput
+  recoveryCase?: Prisma.RecoveryCaseUpdateOneWithoutDecisionsNestedInput
+}
+
+export type AIDecisionUncheckedUpdateWithoutAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  recoveryCaseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type AIDecisionCreateManyMerchantInput = {
   id?: string
-  recoveryCaseId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  decisionId: string
+  customerId: string
+  recoveryCaseId?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AIDecisionUpdateWithoutMerchantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  recoveryCase?: Prisma.RecoveryCaseUpdateOneRequiredWithoutDecisionsNestedInput
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  recoveryCase?: Prisma.RecoveryCaseUpdateOneWithoutDecisionsNestedInput
+  auditLogs?: Prisma.AIAuditLogUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionUncheckedUpdateWithoutMerchantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  recoveryCaseId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  recoveryCaseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionUncheckedUpdateManyWithoutMerchantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  recoveryCaseId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  recoveryCaseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AIDecisionCreateManyRecoveryCaseInput = {
   id?: string
+  decisionId: string
+  customerId: string
   merchantId: string
-  decisionType: $Enums.DecisionType
-  confidence?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: string | null
-  modelVersion?: string | null
+  currency: string
+  probability: number
+  probabilityPercent: number
+  probabilityBand: string
+  probabilityConfidence: number
+  priorityScore: number
+  priorityBand: string
+  urgencyScore: number
+  opportunityScore: number
+  riskScore: number
+  amountScore: number
+  strategy: string
+  channel: string
+  timing: string
+  strategyScore: number
+  decisionConfidence: number
+  decisionStatus?: string
+  decisionReason: string
+  modelVersions: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: string | null
+  outcomeAmount?: number | null
+  outcomeRecordedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AIDecisionUpdateWithoutRecoveryCaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   merchant?: Prisma.MerchantUpdateOneRequiredWithoutDecisionsNestedInput
+  auditLogs?: Prisma.AIAuditLogUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionUncheckedUpdateWithoutRecoveryCaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  auditLogs?: Prisma.AIAuditLogUncheckedUpdateManyWithoutDecisionNestedInput
 }
 
 export type AIDecisionUncheckedUpdateManyWithoutRecoveryCaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.StringFieldUpdateOperationsInput | string
   merchantId?: Prisma.StringFieldUpdateOperationsInput | string
-  decisionType?: Prisma.EnumDecisionTypeFieldUpdateOperationsInput | $Enums.DecisionType
-  confidence?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  reasoning?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  features?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  constraints?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  modelVersion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  probability?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  probabilityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  probabilityConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  priorityBand?: Prisma.StringFieldUpdateOperationsInput | string
+  urgencyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  opportunityScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  riskScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  amountScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  strategy?: Prisma.StringFieldUpdateOperationsInput | string
+  channel?: Prisma.StringFieldUpdateOperationsInput | string
+  timing?: Prisma.StringFieldUpdateOperationsInput | string
+  strategyScore?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionConfidence?: Prisma.FloatFieldUpdateOperationsInput | number
+  decisionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  decisionReason?: Prisma.StringFieldUpdateOperationsInput | string
+  modelVersions?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  inputFeatures?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  positiveSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  negativeSignals?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  alternatives?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  outcomeAmount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  outcomeRecordedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type AIDecisionCountOutputType
+ */
+
+export type AIDecisionCountOutputType = {
+  auditLogs: number
+}
+
+export type AIDecisionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  auditLogs?: boolean | AIDecisionCountOutputTypeCountAuditLogsArgs
+}
+
+/**
+ * AIDecisionCountOutputType without action
+ */
+export type AIDecisionCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AIDecisionCountOutputType
+   */
+  select?: Prisma.AIDecisionCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AIDecisionCountOutputType without action
+ */
+export type AIDecisionCountOutputTypeCountAuditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AIAuditLogWhereInput
+}
 
 
 export type AIDecisionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  decisionId?: boolean
+  customerId?: boolean
   merchantId?: boolean
   recoveryCaseId?: boolean
-  decisionType?: boolean
-  confidence?: boolean
-  reasoning?: boolean
-  diagnosis?: boolean
-  features?: boolean
-  constraints?: boolean
-  modelName?: boolean
-  modelVersion?: boolean
+  currency?: boolean
+  probability?: boolean
+  probabilityPercent?: boolean
+  probabilityBand?: boolean
+  probabilityConfidence?: boolean
+  priorityScore?: boolean
+  priorityBand?: boolean
+  urgencyScore?: boolean
+  opportunityScore?: boolean
+  riskScore?: boolean
+  amountScore?: boolean
+  strategy?: boolean
+  channel?: boolean
+  timing?: boolean
+  strategyScore?: boolean
+  decisionConfidence?: boolean
+  decisionStatus?: boolean
+  decisionReason?: boolean
+  modelVersions?: boolean
+  inputFeatures?: boolean
+  positiveSignals?: boolean
+  negativeSignals?: boolean
+  alternatives?: boolean
+  outcome?: boolean
+  outcomeAmount?: boolean
+  outcomeRecordedAt?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
+  auditLogs?: boolean | Prisma.AIDecision$auditLogsArgs<ExtArgs>
+  _count?: boolean | Prisma.AIDecisionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["aIDecision"]>
 
 export type AIDecisionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  decisionId?: boolean
+  customerId?: boolean
   merchantId?: boolean
   recoveryCaseId?: boolean
-  decisionType?: boolean
-  confidence?: boolean
-  reasoning?: boolean
-  diagnosis?: boolean
-  features?: boolean
-  constraints?: boolean
-  modelName?: boolean
-  modelVersion?: boolean
+  currency?: boolean
+  probability?: boolean
+  probabilityPercent?: boolean
+  probabilityBand?: boolean
+  probabilityConfidence?: boolean
+  priorityScore?: boolean
+  priorityBand?: boolean
+  urgencyScore?: boolean
+  opportunityScore?: boolean
+  riskScore?: boolean
+  amountScore?: boolean
+  strategy?: boolean
+  channel?: boolean
+  timing?: boolean
+  strategyScore?: boolean
+  decisionConfidence?: boolean
+  decisionStatus?: boolean
+  decisionReason?: boolean
+  modelVersions?: boolean
+  inputFeatures?: boolean
+  positiveSignals?: boolean
+  negativeSignals?: boolean
+  alternatives?: boolean
+  outcome?: boolean
+  outcomeAmount?: boolean
+  outcomeRecordedAt?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
 }, ExtArgs["result"]["aIDecision"]>
 
 export type AIDecisionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  decisionId?: boolean
+  customerId?: boolean
   merchantId?: boolean
   recoveryCaseId?: boolean
-  decisionType?: boolean
-  confidence?: boolean
-  reasoning?: boolean
-  diagnosis?: boolean
-  features?: boolean
-  constraints?: boolean
-  modelName?: boolean
-  modelVersion?: boolean
+  currency?: boolean
+  probability?: boolean
+  probabilityPercent?: boolean
+  probabilityBand?: boolean
+  probabilityConfidence?: boolean
+  priorityScore?: boolean
+  priorityBand?: boolean
+  urgencyScore?: boolean
+  opportunityScore?: boolean
+  riskScore?: boolean
+  amountScore?: boolean
+  strategy?: boolean
+  channel?: boolean
+  timing?: boolean
+  strategyScore?: boolean
+  decisionConfidence?: boolean
+  decisionStatus?: boolean
+  decisionReason?: boolean
+  modelVersions?: boolean
+  inputFeatures?: boolean
+  positiveSignals?: boolean
+  negativeSignals?: boolean
+  alternatives?: boolean
+  outcome?: boolean
+  outcomeAmount?: boolean
+  outcomeRecordedAt?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
 }, ExtArgs["result"]["aIDecision"]>
 
 export type AIDecisionSelectScalar = {
   id?: boolean
+  decisionId?: boolean
+  customerId?: boolean
   merchantId?: boolean
   recoveryCaseId?: boolean
-  decisionType?: boolean
-  confidence?: boolean
-  reasoning?: boolean
-  diagnosis?: boolean
-  features?: boolean
-  constraints?: boolean
-  modelName?: boolean
-  modelVersion?: boolean
+  currency?: boolean
+  probability?: boolean
+  probabilityPercent?: boolean
+  probabilityBand?: boolean
+  probabilityConfidence?: boolean
+  priorityScore?: boolean
+  priorityBand?: boolean
+  urgencyScore?: boolean
+  opportunityScore?: boolean
+  riskScore?: boolean
+  amountScore?: boolean
+  strategy?: boolean
+  channel?: boolean
+  timing?: boolean
+  strategyScore?: boolean
+  decisionConfidence?: boolean
+  decisionStatus?: boolean
+  decisionReason?: boolean
+  modelVersions?: boolean
+  inputFeatures?: boolean
+  positiveSignals?: boolean
+  negativeSignals?: boolean
+  alternatives?: boolean
+  outcome?: boolean
+  outcomeAmount?: boolean
+  outcomeRecordedAt?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type AIDecisionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "merchantId" | "recoveryCaseId" | "decisionType" | "confidence" | "reasoning" | "diagnosis" | "features" | "constraints" | "modelName" | "modelVersion" | "createdAt", ExtArgs["result"]["aIDecision"]>
+export type AIDecisionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "decisionId" | "customerId" | "merchantId" | "recoveryCaseId" | "currency" | "probability" | "probabilityPercent" | "probabilityBand" | "probabilityConfidence" | "priorityScore" | "priorityBand" | "urgencyScore" | "opportunityScore" | "riskScore" | "amountScore" | "strategy" | "channel" | "timing" | "strategyScore" | "decisionConfidence" | "decisionStatus" | "decisionReason" | "modelVersions" | "inputFeatures" | "positiveSignals" | "negativeSignals" | "alternatives" | "outcome" | "outcomeAmount" | "outcomeRecordedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["aIDecision"]>
 export type AIDecisionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
+  auditLogs?: boolean | Prisma.AIDecision$auditLogsArgs<ExtArgs>
+  _count?: boolean | Prisma.AIDecisionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AIDecisionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
 }
 export type AIDecisionIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   merchant?: boolean | Prisma.MerchantDefaultArgs<ExtArgs>
-  recoveryCase?: boolean | Prisma.RecoveryCaseDefaultArgs<ExtArgs>
+  recoveryCase?: boolean | Prisma.AIDecision$recoveryCaseArgs<ExtArgs>
 }
 
 export type $AIDecisionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "AIDecision"
   objects: {
     merchant: Prisma.$MerchantPayload<ExtArgs>
-    recoveryCase: Prisma.$RecoveryCasePayload<ExtArgs>
+    recoveryCase: Prisma.$RecoveryCasePayload<ExtArgs> | null
+    auditLogs: Prisma.$AIAuditLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    decisionId: string
+    customerId: string
     merchantId: string
-    recoveryCaseId: string
-    decisionType: $Enums.DecisionType
-    confidence: runtime.Decimal | null
-    reasoning: string | null
-    diagnosis: runtime.JsonValue | null
-    features: runtime.JsonValue | null
-    constraints: runtime.JsonValue | null
-    modelName: string | null
-    modelVersion: string | null
+    recoveryCaseId: string | null
+    currency: string
+    probability: number
+    probabilityPercent: number
+    probabilityBand: string
+    probabilityConfidence: number
+    priorityScore: number
+    priorityBand: string
+    urgencyScore: number
+    opportunityScore: number
+    riskScore: number
+    amountScore: number
+    strategy: string
+    channel: string
+    timing: string
+    strategyScore: number
+    decisionConfidence: number
+    decisionStatus: string
+    decisionReason: string
+    modelVersions: runtime.JsonValue
+    inputFeatures: runtime.JsonValue
+    positiveSignals: runtime.JsonValue
+    negativeSignals: runtime.JsonValue
+    alternatives: runtime.JsonValue
+    outcome: string | null
+    outcomeAmount: number | null
+    outcomeRecordedAt: Date | null
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["aIDecision"]>
   composites: {}
 }
@@ -1321,7 +2449,8 @@ readonly fields: AIDecisionFieldRefs;
 export interface Prisma__AIDecisionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   merchant<T extends Prisma.MerchantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.MerchantDefaultArgs<ExtArgs>>): Prisma.Prisma__MerchantClient<runtime.Types.Result.GetResult<Prisma.$MerchantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  recoveryCase<T extends Prisma.RecoveryCaseDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCaseDefaultArgs<ExtArgs>>): Prisma.Prisma__RecoveryCaseClient<runtime.Types.Result.GetResult<Prisma.$RecoveryCasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  recoveryCase<T extends Prisma.AIDecision$recoveryCaseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AIDecision$recoveryCaseArgs<ExtArgs>>): Prisma.Prisma__RecoveryCaseClient<runtime.Types.Result.GetResult<Prisma.$RecoveryCasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  auditLogs<T extends Prisma.AIDecision$auditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AIDecision$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AIAuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1352,17 +2481,38 @@ export interface Prisma__AIDecisionClient<T, Null = never, ExtArgs extends runti
  */
 export interface AIDecisionFieldRefs {
   readonly id: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly decisionId: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly customerId: Prisma.FieldRef<"AIDecision", 'String'>
   readonly merchantId: Prisma.FieldRef<"AIDecision", 'String'>
   readonly recoveryCaseId: Prisma.FieldRef<"AIDecision", 'String'>
-  readonly decisionType: Prisma.FieldRef<"AIDecision", 'DecisionType'>
-  readonly confidence: Prisma.FieldRef<"AIDecision", 'Decimal'>
-  readonly reasoning: Prisma.FieldRef<"AIDecision", 'String'>
-  readonly diagnosis: Prisma.FieldRef<"AIDecision", 'Json'>
-  readonly features: Prisma.FieldRef<"AIDecision", 'Json'>
-  readonly constraints: Prisma.FieldRef<"AIDecision", 'Json'>
-  readonly modelName: Prisma.FieldRef<"AIDecision", 'String'>
-  readonly modelVersion: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly currency: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly probability: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly probabilityPercent: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly probabilityBand: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly probabilityConfidence: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly priorityScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly priorityBand: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly urgencyScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly opportunityScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly riskScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly amountScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly strategy: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly channel: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly timing: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly strategyScore: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly decisionConfidence: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly decisionStatus: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly decisionReason: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly modelVersions: Prisma.FieldRef<"AIDecision", 'Json'>
+  readonly inputFeatures: Prisma.FieldRef<"AIDecision", 'Json'>
+  readonly positiveSignals: Prisma.FieldRef<"AIDecision", 'Json'>
+  readonly negativeSignals: Prisma.FieldRef<"AIDecision", 'Json'>
+  readonly alternatives: Prisma.FieldRef<"AIDecision", 'Json'>
+  readonly outcome: Prisma.FieldRef<"AIDecision", 'String'>
+  readonly outcomeAmount: Prisma.FieldRef<"AIDecision", 'Float'>
+  readonly outcomeRecordedAt: Prisma.FieldRef<"AIDecision", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"AIDecision", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"AIDecision", 'DateTime'>
 }
     
 
@@ -1761,6 +2911,49 @@ export type AIDecisionDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Limit how many AIDecisions to delete.
    */
   limit?: number
+}
+
+/**
+ * AIDecision.recoveryCase
+ */
+export type AIDecision$recoveryCaseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RecoveryCase
+   */
+  select?: Prisma.RecoveryCaseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RecoveryCase
+   */
+  omit?: Prisma.RecoveryCaseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RecoveryCaseInclude<ExtArgs> | null
+  where?: Prisma.RecoveryCaseWhereInput
+}
+
+/**
+ * AIDecision.auditLogs
+ */
+export type AIDecision$auditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AIAuditLog
+   */
+  select?: Prisma.AIAuditLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AIAuditLog
+   */
+  omit?: Prisma.AIAuditLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AIAuditLogInclude<ExtArgs> | null
+  where?: Prisma.AIAuditLogWhereInput
+  orderBy?: Prisma.AIAuditLogOrderByWithRelationInput | Prisma.AIAuditLogOrderByWithRelationInput[]
+  cursor?: Prisma.AIAuditLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AIAuditLogScalarFieldEnum | Prisma.AIAuditLogScalarFieldEnum[]
 }
 
 /**

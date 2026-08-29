@@ -78,6 +78,11 @@ export type RecoveryCase = Prisma.RecoveryCaseModel
  */
 export type AIDecision = Prisma.AIDecisionModel
 /**
+ * Model AIAuditLog
+ * 
+ */
+export type AIAuditLog = Prisma.AIAuditLogModel
+/**
  * Model RecoveryAction
  * 
  */

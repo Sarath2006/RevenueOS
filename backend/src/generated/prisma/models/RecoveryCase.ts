@@ -713,14 +713,14 @@ export type RecoveryCaseSumOrderByAggregateInput = {
   recoveryProbability?: Prisma.SortOrder
 }
 
-export type RecoveryCaseScalarRelationFilter = {
-  is?: Prisma.RecoveryCaseWhereInput
-  isNot?: Prisma.RecoveryCaseWhereInput
-}
-
 export type RecoveryCaseNullableScalarRelationFilter = {
   is?: Prisma.RecoveryCaseWhereInput | null
   isNot?: Prisma.RecoveryCaseWhereInput | null
+}
+
+export type RecoveryCaseScalarRelationFilter = {
+  is?: Prisma.RecoveryCaseWhereInput
+  isNot?: Prisma.RecoveryCaseWhereInput
 }
 
 export type RecoveryCaseCreateNestedManyWithoutMerchantInput = {
@@ -993,10 +993,12 @@ export type RecoveryCaseCreateNestedOneWithoutDecisionsInput = {
   connect?: Prisma.RecoveryCaseWhereUniqueInput
 }
 
-export type RecoveryCaseUpdateOneRequiredWithoutDecisionsNestedInput = {
+export type RecoveryCaseUpdateOneWithoutDecisionsNestedInput = {
   create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutDecisionsInput, Prisma.RecoveryCaseUncheckedCreateWithoutDecisionsInput>
   connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutDecisionsInput
   upsert?: Prisma.RecoveryCaseUpsertWithoutDecisionsInput
+  disconnect?: Prisma.RecoveryCaseWhereInput | boolean
+  delete?: Prisma.RecoveryCaseWhereInput | boolean
   connect?: Prisma.RecoveryCaseWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.RecoveryCaseUpdateToOneWithWhereWithoutDecisionsInput, Prisma.RecoveryCaseUpdateWithoutDecisionsInput>, Prisma.RecoveryCaseUncheckedUpdateWithoutDecisionsInput>
 }

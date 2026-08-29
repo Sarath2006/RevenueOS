@@ -409,6 +409,7 @@ export const ModelName = {
   Invoice: 'Invoice',
   RecoveryCase: 'RecoveryCase',
   AIDecision: 'AIDecision',
+  AIAuditLog: 'AIAuditLog',
   RecoveryAction: 'RecoveryAction',
   RecoveryPolicy: 'RecoveryPolicy',
   RecoveryBatch: 'RecoveryBatch',
@@ -431,7 +432,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "merchant" | "merchantUser" | "razorpayConnection" | "customer" | "order" | "payment" | "subscription" | "paymentLink" | "invoice" | "recoveryCase" | "aIDecision" | "recoveryAction" | "recoveryPolicy" | "recoveryBatch" | "promiseToPay" | "webhookEvent" | "auditLog" | "voiceRecovery"
+    modelProps: "user" | "merchant" | "merchantUser" | "razorpayConnection" | "customer" | "order" | "payment" | "subscription" | "paymentLink" | "invoice" | "recoveryCase" | "aIDecision" | "aIAuditLog" | "recoveryAction" | "recoveryPolicy" | "recoveryBatch" | "promiseToPay" | "webhookEvent" | "auditLog" | "voiceRecovery"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1323,6 +1324,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AIAuditLog: {
+      payload: Prisma.$AIAuditLogPayload<ExtArgs>
+      fields: Prisma.AIAuditLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AIAuditLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AIAuditLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        findFirst: {
+          args: Prisma.AIAuditLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AIAuditLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        findMany: {
+          args: Prisma.AIAuditLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>[]
+        }
+        create: {
+          args: Prisma.AIAuditLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        createMany: {
+          args: Prisma.AIAuditLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AIAuditLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>[]
+        }
+        delete: {
+          args: Prisma.AIAuditLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        update: {
+          args: Prisma.AIAuditLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.AIAuditLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AIAuditLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AIAuditLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>[]
+        }
+        upsert: {
+          args: Prisma.AIAuditLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AIAuditLogPayload>
+        }
+        aggregate: {
+          args: Prisma.AIAuditLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAIAuditLog>
+        }
+        groupBy: {
+          args: Prisma.AIAuditLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AIAuditLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AIAuditLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AIAuditLogCountAggregateOutputType> | number
+        }
+      }
+    }
     RecoveryAction: {
       payload: Prisma.$RecoveryActionPayload<ExtArgs>
       fields: Prisma.RecoveryActionFieldRefs
@@ -2094,20 +2169,63 @@ export type RecoveryCaseScalarFieldEnum = (typeof RecoveryCaseScalarFieldEnum)[k
 
 export const AIDecisionScalarFieldEnum = {
   id: 'id',
+  decisionId: 'decisionId',
+  customerId: 'customerId',
   merchantId: 'merchantId',
   recoveryCaseId: 'recoveryCaseId',
-  decisionType: 'decisionType',
-  confidence: 'confidence',
-  reasoning: 'reasoning',
-  diagnosis: 'diagnosis',
-  features: 'features',
-  constraints: 'constraints',
-  modelName: 'modelName',
-  modelVersion: 'modelVersion',
-  createdAt: 'createdAt'
+  currency: 'currency',
+  probability: 'probability',
+  probabilityPercent: 'probabilityPercent',
+  probabilityBand: 'probabilityBand',
+  probabilityConfidence: 'probabilityConfidence',
+  priorityScore: 'priorityScore',
+  priorityBand: 'priorityBand',
+  urgencyScore: 'urgencyScore',
+  opportunityScore: 'opportunityScore',
+  riskScore: 'riskScore',
+  amountScore: 'amountScore',
+  strategy: 'strategy',
+  channel: 'channel',
+  timing: 'timing',
+  strategyScore: 'strategyScore',
+  decisionConfidence: 'decisionConfidence',
+  decisionStatus: 'decisionStatus',
+  decisionReason: 'decisionReason',
+  modelVersions: 'modelVersions',
+  inputFeatures: 'inputFeatures',
+  positiveSignals: 'positiveSignals',
+  negativeSignals: 'negativeSignals',
+  alternatives: 'alternatives',
+  outcome: 'outcome',
+  outcomeAmount: 'outcomeAmount',
+  outcomeRecordedAt: 'outcomeRecordedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AIDecisionScalarFieldEnum = (typeof AIDecisionScalarFieldEnum)[keyof typeof AIDecisionScalarFieldEnum]
+
+
+export const AIAuditLogScalarFieldEnum = {
+  id: 'id',
+  decisionId: 'decisionId',
+  merchantId: 'merchantId',
+  customerId: 'customerId',
+  recoveryCaseId: 'recoveryCaseId',
+  eventType: 'eventType',
+  stage: 'stage',
+  status: 'status',
+  strategy: 'strategy',
+  confidence: 'confidence',
+  fallbackRequired: 'fallbackRequired',
+  fallbackAction: 'fallbackAction',
+  fallbackReason: 'fallbackReason',
+  modelVersions: 'modelVersions',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type AIAuditLogScalarFieldEnum = (typeof AIAuditLogScalarFieldEnum)[keyof typeof AIAuditLogScalarFieldEnum]
 
 
 export const RecoveryActionScalarFieldEnum = {
@@ -2543,6 +2661,20 @@ export type ListEnumRiskLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
 
 
 /**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
  * Reference to a field of type 'DecisionType'
  */
 export type EnumDecisionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DecisionType'>
@@ -2623,20 +2755,6 @@ export type EnumAuditActionFieldRefInput<$PrismaModel> = FieldRefInputType<$Pris
  * Reference to a field of type 'AuditAction[]'
  */
 export type ListEnumAuditActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuditAction[]'>
-    
-
-
-/**
- * Reference to a field of type 'Float'
- */
-export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-/**
- * Reference to a field of type 'Float[]'
- */
-export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -2802,6 +2920,7 @@ export type GlobalOmitConfig = {
   invoice?: Prisma.InvoiceOmit
   recoveryCase?: Prisma.RecoveryCaseOmit
   aIDecision?: Prisma.AIDecisionOmit
+  aIAuditLog?: Prisma.AIAuditLogOmit
   recoveryAction?: Prisma.RecoveryActionOmit
   recoveryPolicy?: Prisma.RecoveryPolicyOmit
   recoveryBatch?: Prisma.RecoveryBatchOmit

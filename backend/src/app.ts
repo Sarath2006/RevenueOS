@@ -23,6 +23,14 @@ import razorpayRoutes
 import razorpayWebhookRouter
   from "./modules/webhooks/razorpay/razorpay-webhook.routes";
 
+import probabilityRoutes from "./modules/ai/probability/probability.routes";
+
+import priorityRoutes
+  from "./modules/ai/priority/priority.routes";
+
+  import strategyRoutes from "./modules/ai/strategy/strategy.routes";
+
+import decisionRoutes from "./modules/ai/decision/decision.routes";
 
 const app = express();
 
@@ -141,6 +149,51 @@ app.use(
   razorpayRoutes
 );
 
+
+/*
+ * =====================================================
+ * AI RECOVERY PROBABILITY
+ * =====================================================
+ */
+
+app.use(
+  "/api/ai",
+  probabilityRoutes
+);
+
+/*
+ * =====================================================
+ * AI RECOVERY PRIORITY
+ * =====================================================
+ */
+
+app.use(
+  "/api/ai",
+  priorityRoutes
+);
+
+
+/*
+ * =====================================================
+ * AI RECOVERY STRATEGY
+ * =====================================================
+ */
+
+app.use(
+  "/api/ai",
+  strategyRoutes
+);
+
+/*
+ * =====================================================
+ * AI DECISION RECORD
+ * =====================================================
+ */
+
+app.use(
+  "/api/ai",
+  decisionRoutes
+);
 
 /*
  * =====================================================
