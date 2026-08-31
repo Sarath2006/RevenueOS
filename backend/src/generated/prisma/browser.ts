@@ -117,3 +117,8 @@ export type AuditLog = Prisma.AuditLogModel
  * 
  */
 export type VoiceRecovery = Prisma.VoiceRecoveryModel
+/**
+ * Model RecoveryAgentRun
+ * 
+ */
+export type RecoveryAgentRun = Prisma.RecoveryAgentRunModel

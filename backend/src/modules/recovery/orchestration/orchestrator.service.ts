@@ -248,9 +248,18 @@ export class RecoveryOrchestratorService {
         channel: decision.channel,
         timing: decision.timing,
         confidence: decision.decisionConfidence ?? 1.0,
-        safetyDecision: (decision as any).safetyDecision ?? "ALLOW",
-        safetyAllowed: (decision as any).safetyAllowed ?? true,
-        safetyRiskLevel: (decision as any).safetyRiskLevel ?? "LOW",
+        safetyDecision:
+          (decision as any).safetyDecision ??
+          (decision.inputFeatures as any)?.safety?.decision ??
+          "ALLOW",
+        safetyAllowed:
+          (decision as any).safetyAllowed ??
+          (decision.inputFeatures as any)?.safety?.allowed ??
+          true,
+        safetyRiskLevel:
+          (decision as any).safetyRiskLevel ??
+          (decision.inputFeatures as any)?.safety?.riskLevel ??
+          "LOW",
         decisionCreatedAt: decision.createdAt || new Date(),
         caseStatus: recoveryCase.status,
         caseOpenedAt: recoveryCase.openedAt,

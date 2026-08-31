@@ -72,7 +72,17 @@ M7	Recovery orchestration + bounded actions       ✅
 ├── M7.4  Idempotency + Action State             ✅
 │
 └── M7.5  M7 End-to-End Testing                  ✅
-M8	Automatic agent loop + stopping rules
+M8	Automatic agent loop + stopping rules          ✅
+│
+├── M8.1  Recovery Agent Controller              ✅
+│
+├── M8.2  Recovery State + Outcome Evaluator     ✅
+│
+├── M8.3  Next-Action Decision Engine            ✅
+│
+├── M8.4  Stopping Rules + Human Escalation      ✅
+│
+└── M8.5  M8 End-to-End Testing                  ✅
 
 M9	Hinglish voice recovery
 M10	Batch recovery + dynamic simulation

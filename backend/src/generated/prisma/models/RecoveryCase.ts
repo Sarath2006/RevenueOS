@@ -341,6 +341,7 @@ export type RecoveryCaseWhereInput = {
   decisions?: Prisma.AIDecisionListRelationFilter
   actions?: Prisma.RecoveryActionListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
+  agentRuns?: Prisma.RecoveryAgentRunListRelationFilter
   voiceRecoveries?: Prisma.VoiceRecoveryListRelationFilter
 }
 
@@ -373,6 +374,7 @@ export type RecoveryCaseOrderByWithRelationInput = {
   decisions?: Prisma.AIDecisionOrderByRelationAggregateInput
   actions?: Prisma.RecoveryActionOrderByRelationAggregateInput
   promises?: Prisma.PromiseToPayOrderByRelationAggregateInput
+  agentRuns?: Prisma.RecoveryAgentRunOrderByRelationAggregateInput
   voiceRecoveries?: Prisma.VoiceRecoveryOrderByRelationAggregateInput
 }
 
@@ -408,6 +410,7 @@ export type RecoveryCaseWhereUniqueInput = Prisma.AtLeast<{
   decisions?: Prisma.AIDecisionListRelationFilter
   actions?: Prisma.RecoveryActionListRelationFilter
   promises?: Prisma.PromiseToPayListRelationFilter
+  agentRuns?: Prisma.RecoveryAgentRunListRelationFilter
   voiceRecoveries?: Prisma.VoiceRecoveryListRelationFilter
 }, "id">
 
@@ -486,6 +489,7 @@ export type RecoveryCaseCreateInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -512,6 +516,7 @@ export type RecoveryCaseUncheckedCreateInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -538,6 +543,7 @@ export type RecoveryCaseUpdateInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -564,6 +570,7 @@ export type RecoveryCaseUncheckedUpdateInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1047,6 +1054,20 @@ export type RecoveryCaseUpdateOneRequiredWithoutVoiceRecoveriesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.RecoveryCaseUpdateToOneWithWhereWithoutVoiceRecoveriesInput, Prisma.RecoveryCaseUpdateWithoutVoiceRecoveriesInput>, Prisma.RecoveryCaseUncheckedUpdateWithoutVoiceRecoveriesInput>
 }
 
+export type RecoveryCaseCreateNestedOneWithoutAgentRunsInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedCreateWithoutAgentRunsInput>
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutAgentRunsInput
+  connect?: Prisma.RecoveryCaseWhereUniqueInput
+}
+
+export type RecoveryCaseUpdateOneRequiredWithoutAgentRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedCreateWithoutAgentRunsInput>
+  connectOrCreate?: Prisma.RecoveryCaseCreateOrConnectWithoutAgentRunsInput
+  upsert?: Prisma.RecoveryCaseUpsertWithoutAgentRunsInput
+  connect?: Prisma.RecoveryCaseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.RecoveryCaseUpdateToOneWithWhereWithoutAgentRunsInput, Prisma.RecoveryCaseUpdateWithoutAgentRunsInput>, Prisma.RecoveryCaseUncheckedUpdateWithoutAgentRunsInput>
+}
+
 export type RecoveryCaseCreateWithoutMerchantInput = {
   id?: string
   type: $Enums.RecoveryCaseType
@@ -1069,6 +1090,7 @@ export type RecoveryCaseCreateWithoutMerchantInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1094,6 +1116,7 @@ export type RecoveryCaseUncheckedCreateWithoutMerchantInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1170,6 +1193,7 @@ export type RecoveryCaseCreateWithoutCustomerInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1195,6 +1219,7 @@ export type RecoveryCaseUncheckedCreateWithoutCustomerInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1246,6 +1271,7 @@ export type RecoveryCaseCreateWithoutPaymentInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1271,6 +1297,7 @@ export type RecoveryCaseUncheckedCreateWithoutPaymentInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1322,6 +1349,7 @@ export type RecoveryCaseCreateWithoutSubscriptionInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1347,6 +1375,7 @@ export type RecoveryCaseUncheckedCreateWithoutSubscriptionInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1398,6 +1427,7 @@ export type RecoveryCaseCreateWithoutPaymentLinkInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1423,6 +1453,7 @@ export type RecoveryCaseUncheckedCreateWithoutPaymentLinkInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1474,6 +1505,7 @@ export type RecoveryCaseCreateWithoutInvoiceInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1499,6 +1531,7 @@ export type RecoveryCaseUncheckedCreateWithoutInvoiceInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1550,6 +1583,7 @@ export type RecoveryCaseCreateWithoutDecisionsInput = {
   paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1575,6 +1609,7 @@ export type RecoveryCaseUncheckedCreateWithoutDecisionsInput = {
   stoppedAt?: Date | string | null
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1616,6 +1651,7 @@ export type RecoveryCaseUpdateWithoutDecisionsInput = {
   paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1641,6 +1677,7 @@ export type RecoveryCaseUncheckedUpdateWithoutDecisionsInput = {
   stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1666,6 +1703,7 @@ export type RecoveryCaseCreateWithoutActionsInput = {
   paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1691,6 +1729,7 @@ export type RecoveryCaseUncheckedCreateWithoutActionsInput = {
   stoppedAt?: Date | string | null
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1732,6 +1771,7 @@ export type RecoveryCaseUpdateWithoutActionsInput = {
   paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1757,6 +1797,7 @@ export type RecoveryCaseUncheckedUpdateWithoutActionsInput = {
   stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1782,6 +1823,7 @@ export type RecoveryCaseCreateWithoutPromisesInput = {
   paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1807,6 +1849,7 @@ export type RecoveryCaseUncheckedCreateWithoutPromisesInput = {
   stoppedAt?: Date | string | null
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
@@ -1848,6 +1891,7 @@ export type RecoveryCaseUpdateWithoutPromisesInput = {
   paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1873,6 +1917,7 @@ export type RecoveryCaseUncheckedUpdateWithoutPromisesInput = {
   stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -1899,6 +1944,7 @@ export type RecoveryCaseCreateWithoutVoiceRecoveriesInput = {
   decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunCreateNestedManyWithoutRecoveryCaseInput
 }
 
 export type RecoveryCaseUncheckedCreateWithoutVoiceRecoveriesInput = {
@@ -1924,6 +1970,7 @@ export type RecoveryCaseUncheckedCreateWithoutVoiceRecoveriesInput = {
   decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
   promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedCreateNestedManyWithoutRecoveryCaseInput
 }
 
 export type RecoveryCaseCreateOrConnectWithoutVoiceRecoveriesInput = {
@@ -1965,6 +2012,7 @@ export type RecoveryCaseUpdateWithoutVoiceRecoveriesInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
 }
 
 export type RecoveryCaseUncheckedUpdateWithoutVoiceRecoveriesInput = {
@@ -1990,6 +2038,127 @@ export type RecoveryCaseUncheckedUpdateWithoutVoiceRecoveriesInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+}
+
+export type RecoveryCaseCreateWithoutAgentRunsInput = {
+  id?: string
+  type: $Enums.RecoveryCaseType
+  status?: $Enums.RecoveryCaseStatus
+  riskLevel?: $Enums.RiskLevel
+  amountAtRisk: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Date | string
+  lastActionAt?: Date | string | null
+  recoveredAt?: Date | string | null
+  stoppedAt?: Date | string | null
+  merchant: Prisma.MerchantCreateNestedOneWithoutRecoveryCasesInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutRecoveryCasesInput
+  payment?: Prisma.PaymentCreateNestedOneWithoutRecoveryCasesInput
+  subscription?: Prisma.SubscriptionCreateNestedOneWithoutRecoveryCasesInput
+  invoice?: Prisma.InvoiceCreateNestedOneWithoutRecoveryCasesInput
+  paymentLink?: Prisma.PaymentLinkCreateNestedOneWithoutRecoveryCasesInput
+  decisions?: Prisma.AIDecisionCreateNestedManyWithoutRecoveryCaseInput
+  actions?: Prisma.RecoveryActionCreateNestedManyWithoutRecoveryCaseInput
+  promises?: Prisma.PromiseToPayCreateNestedManyWithoutRecoveryCaseInput
+  voiceRecoveries?: Prisma.VoiceRecoveryCreateNestedManyWithoutRecoveryCaseInput
+}
+
+export type RecoveryCaseUncheckedCreateWithoutAgentRunsInput = {
+  id?: string
+  merchantId: string
+  customerId?: string | null
+  paymentId?: string | null
+  subscriptionId?: string | null
+  invoiceId?: string | null
+  paymentLinkId?: string | null
+  type: $Enums.RecoveryCaseType
+  status?: $Enums.RecoveryCaseStatus
+  riskLevel?: $Enums.RiskLevel
+  amountAtRisk: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Date | string
+  lastActionAt?: Date | string | null
+  recoveredAt?: Date | string | null
+  stoppedAt?: Date | string | null
+  decisions?: Prisma.AIDecisionUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  actions?: Prisma.RecoveryActionUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  promises?: Prisma.PromiseToPayUncheckedCreateNestedManyWithoutRecoveryCaseInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUncheckedCreateNestedManyWithoutRecoveryCaseInput
+}
+
+export type RecoveryCaseCreateOrConnectWithoutAgentRunsInput = {
+  where: Prisma.RecoveryCaseWhereUniqueInput
+  create: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedCreateWithoutAgentRunsInput>
+}
+
+export type RecoveryCaseUpsertWithoutAgentRunsInput = {
+  update: Prisma.XOR<Prisma.RecoveryCaseUpdateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedUpdateWithoutAgentRunsInput>
+  create: Prisma.XOR<Prisma.RecoveryCaseCreateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedCreateWithoutAgentRunsInput>
+  where?: Prisma.RecoveryCaseWhereInput
+}
+
+export type RecoveryCaseUpdateToOneWithWhereWithoutAgentRunsInput = {
+  where?: Prisma.RecoveryCaseWhereInput
+  data: Prisma.XOR<Prisma.RecoveryCaseUpdateWithoutAgentRunsInput, Prisma.RecoveryCaseUncheckedUpdateWithoutAgentRunsInput>
+}
+
+export type RecoveryCaseUpdateWithoutAgentRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
+  status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
+  riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+  amountAtRisk?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lastActionAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  merchant?: Prisma.MerchantUpdateOneRequiredWithoutRecoveryCasesNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutRecoveryCasesNestedInput
+  payment?: Prisma.PaymentUpdateOneWithoutRecoveryCasesNestedInput
+  subscription?: Prisma.SubscriptionUpdateOneWithoutRecoveryCasesNestedInput
+  invoice?: Prisma.InvoiceUpdateOneWithoutRecoveryCasesNestedInput
+  paymentLink?: Prisma.PaymentLinkUpdateOneWithoutRecoveryCasesNestedInput
+  decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
+  actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
+  promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
+}
+
+export type RecoveryCaseUncheckedUpdateWithoutAgentRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  merchantId?: Prisma.StringFieldUpdateOperationsInput | string
+  customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  paymentLinkId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.EnumRecoveryCaseTypeFieldUpdateOperationsInput | $Enums.RecoveryCaseType
+  status?: Prisma.EnumRecoveryCaseStatusFieldUpdateOperationsInput | $Enums.RecoveryCaseStatus
+  riskLevel?: Prisma.EnumRiskLevelFieldUpdateOperationsInput | $Enums.RiskLevel
+  amountAtRisk?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveredAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  recoveryProbability?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  diagnosis?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  openedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lastActionAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  stoppedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
 export type RecoveryCaseCreateManyMerchantInput = {
@@ -2035,6 +2204,7 @@ export type RecoveryCaseUpdateWithoutMerchantInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2060,6 +2230,7 @@ export type RecoveryCaseUncheckedUpdateWithoutMerchantInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2127,6 +2298,7 @@ export type RecoveryCaseUpdateWithoutCustomerInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2152,6 +2324,7 @@ export type RecoveryCaseUncheckedUpdateWithoutCustomerInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2219,6 +2392,7 @@ export type RecoveryCaseUpdateWithoutPaymentInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2244,6 +2418,7 @@ export type RecoveryCaseUncheckedUpdateWithoutPaymentInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2311,6 +2486,7 @@ export type RecoveryCaseUpdateWithoutSubscriptionInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2336,6 +2512,7 @@ export type RecoveryCaseUncheckedUpdateWithoutSubscriptionInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2403,6 +2580,7 @@ export type RecoveryCaseUpdateWithoutPaymentLinkInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2428,6 +2606,7 @@ export type RecoveryCaseUncheckedUpdateWithoutPaymentLinkInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2495,6 +2674,7 @@ export type RecoveryCaseUpdateWithoutInvoiceInput = {
   decisions?: Prisma.AIDecisionUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2520,6 +2700,7 @@ export type RecoveryCaseUncheckedUpdateWithoutInvoiceInput = {
   decisions?: Prisma.AIDecisionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   actions?: Prisma.RecoveryActionUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   promises?: Prisma.PromiseToPayUncheckedUpdateManyWithoutRecoveryCaseNestedInput
+  agentRuns?: Prisma.RecoveryAgentRunUncheckedUpdateManyWithoutRecoveryCaseNestedInput
   voiceRecoveries?: Prisma.VoiceRecoveryUncheckedUpdateManyWithoutRecoveryCaseNestedInput
 }
 
@@ -2553,6 +2734,7 @@ export type RecoveryCaseCountOutputType = {
   decisions: number
   actions: number
   promises: number
+  agentRuns: number
   voiceRecoveries: number
 }
 
@@ -2560,6 +2742,7 @@ export type RecoveryCaseCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   decisions?: boolean | RecoveryCaseCountOutputTypeCountDecisionsArgs
   actions?: boolean | RecoveryCaseCountOutputTypeCountActionsArgs
   promises?: boolean | RecoveryCaseCountOutputTypeCountPromisesArgs
+  agentRuns?: boolean | RecoveryCaseCountOutputTypeCountAgentRunsArgs
   voiceRecoveries?: boolean | RecoveryCaseCountOutputTypeCountVoiceRecoveriesArgs
 }
 
@@ -2592,6 +2775,13 @@ export type RecoveryCaseCountOutputTypeCountActionsArgs<ExtArgs extends runtime.
  */
 export type RecoveryCaseCountOutputTypeCountPromisesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.PromiseToPayWhereInput
+}
+
+/**
+ * RecoveryCaseCountOutputType without action
+ */
+export type RecoveryCaseCountOutputTypeCountAgentRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RecoveryAgentRunWhereInput
 }
 
 /**
@@ -2631,6 +2821,7 @@ export type RecoveryCaseSelect<ExtArgs extends runtime.Types.Extensions.Internal
   decisions?: boolean | Prisma.RecoveryCase$decisionsArgs<ExtArgs>
   actions?: boolean | Prisma.RecoveryCase$actionsArgs<ExtArgs>
   promises?: boolean | Prisma.RecoveryCase$promisesArgs<ExtArgs>
+  agentRuns?: boolean | Prisma.RecoveryCase$agentRunsArgs<ExtArgs>
   voiceRecoveries?: boolean | Prisma.RecoveryCase$voiceRecoveriesArgs<ExtArgs>
   _count?: boolean | Prisma.RecoveryCaseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["recoveryCase"]>
@@ -2724,6 +2915,7 @@ export type RecoveryCaseInclude<ExtArgs extends runtime.Types.Extensions.Interna
   decisions?: boolean | Prisma.RecoveryCase$decisionsArgs<ExtArgs>
   actions?: boolean | Prisma.RecoveryCase$actionsArgs<ExtArgs>
   promises?: boolean | Prisma.RecoveryCase$promisesArgs<ExtArgs>
+  agentRuns?: boolean | Prisma.RecoveryCase$agentRunsArgs<ExtArgs>
   voiceRecoveries?: boolean | Prisma.RecoveryCase$voiceRecoveriesArgs<ExtArgs>
   _count?: boolean | Prisma.RecoveryCaseCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -2756,6 +2948,7 @@ export type $RecoveryCasePayload<ExtArgs extends runtime.Types.Extensions.Intern
     decisions: Prisma.$AIDecisionPayload<ExtArgs>[]
     actions: Prisma.$RecoveryActionPayload<ExtArgs>[]
     promises: Prisma.$PromiseToPayPayload<ExtArgs>[]
+    agentRuns: Prisma.$RecoveryAgentRunPayload<ExtArgs>[]
     voiceRecoveries: Prisma.$VoiceRecoveryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -3181,6 +3374,7 @@ export interface Prisma__RecoveryCaseClient<T, Null = never, ExtArgs extends run
   decisions<T extends Prisma.RecoveryCase$decisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$decisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AIDecisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   actions<T extends Prisma.RecoveryCase$actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   promises<T extends Prisma.RecoveryCase$promisesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$promisesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PromiseToPayPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentRuns<T extends Prisma.RecoveryCase$agentRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$agentRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecoveryAgentRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   voiceRecoveries<T extends Prisma.RecoveryCase$voiceRecoveriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecoveryCase$voiceRecoveriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VoiceRecoveryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3795,6 +3989,30 @@ export type RecoveryCase$promisesArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.PromiseToPayScalarFieldEnum | Prisma.PromiseToPayScalarFieldEnum[]
+}
+
+/**
+ * RecoveryCase.agentRuns
+ */
+export type RecoveryCase$agentRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RecoveryAgentRun
+   */
+  select?: Prisma.RecoveryAgentRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RecoveryAgentRun
+   */
+  omit?: Prisma.RecoveryAgentRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RecoveryAgentRunInclude<ExtArgs> | null
+  where?: Prisma.RecoveryAgentRunWhereInput
+  orderBy?: Prisma.RecoveryAgentRunOrderByWithRelationInput | Prisma.RecoveryAgentRunOrderByWithRelationInput[]
+  cursor?: Prisma.RecoveryAgentRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecoveryAgentRunScalarFieldEnum | Prisma.RecoveryAgentRunScalarFieldEnum[]
 }
 
 /**

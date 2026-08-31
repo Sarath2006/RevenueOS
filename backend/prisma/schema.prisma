@@ -622,6 +622,7 @@ model RecoveryCase {
   decisions AIDecision[]
   actions   RecoveryAction[]
   promises  PromiseToPay[]
+  agentRuns RecoveryAgentRun[]
 
   voiceRecoveries VoiceRecovery[]
 
@@ -1002,4 +1003,46 @@ model VoiceRecovery {
   recoveryCase RecoveryCase @relation(fields: [recoveryCaseId], references: [id], onDelete: Cascade)
 
   @@index([recoveryCaseId])
+}
+
+/**
+ * =========================================================
+ * RECOVERY AGENT RUNS
+ * =========================================================
+ */
+
+model RecoveryAgentRun {
+  id String @id @default(cuid())
+
+  agentRunId String @unique
+
+  merchantId     String
+  customerId     String?
+  recoveryCaseId String
+
+  status       String   @default("RUNNING")
+  currentState String   @default("STARTING")
+
+  iteration     Int @default(1)
+  maxIterations Int @default(5)
+
+  currentDecisionId String?
+  lastActionId      String?
+
+  startedAt      DateTime  @default(now())
+  lastActivityAt DateTime  @default(now())
+  completedAt    DateTime?
+
+  stopReason    String?
+  failureReason String?
+
+  metadata Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  recoveryCase RecoveryCase @relation(fields: [recoveryCaseId], references: [id], onDelete: Cascade)
+
+  @@index([recoveryCaseId, status])
+  @@index([merchantId, status])
 }

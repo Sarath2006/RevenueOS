@@ -70,7 +70,8 @@ export const ModelName = {
   PromiseToPay: 'PromiseToPay',
   WebhookEvent: 'WebhookEvent',
   AuditLog: 'AuditLog',
-  VoiceRecovery: 'VoiceRecovery'
+  VoiceRecovery: 'VoiceRecovery',
+  RecoveryAgentRun: 'RecoveryAgentRun'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -493,6 +494,31 @@ export const VoiceRecoveryScalarFieldEnum = {
 } as const
 
 export type VoiceRecoveryScalarFieldEnum = (typeof VoiceRecoveryScalarFieldEnum)[keyof typeof VoiceRecoveryScalarFieldEnum]
+
+
+export const RecoveryAgentRunScalarFieldEnum = {
+  id: 'id',
+  agentRunId: 'agentRunId',
+  merchantId: 'merchantId',
+  customerId: 'customerId',
+  recoveryCaseId: 'recoveryCaseId',
+  status: 'status',
+  currentState: 'currentState',
+  iteration: 'iteration',
+  maxIterations: 'maxIterations',
+  currentDecisionId: 'currentDecisionId',
+  lastActionId: 'lastActionId',
+  startedAt: 'startedAt',
+  lastActivityAt: 'lastActivityAt',
+  completedAt: 'completedAt',
+  stopReason: 'stopReason',
+  failureReason: 'failureReason',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RecoveryAgentRunScalarFieldEnum = (typeof RecoveryAgentRunScalarFieldEnum)[keyof typeof RecoveryAgentRunScalarFieldEnum]
 
 
 export const SortOrder = {

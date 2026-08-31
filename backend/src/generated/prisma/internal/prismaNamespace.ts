@@ -416,7 +416,8 @@ export const ModelName = {
   PromiseToPay: 'PromiseToPay',
   WebhookEvent: 'WebhookEvent',
   AuditLog: 'AuditLog',
-  VoiceRecovery: 'VoiceRecovery'
+  VoiceRecovery: 'VoiceRecovery',
+  RecoveryAgentRun: 'RecoveryAgentRun'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -432,7 +433,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "merchant" | "merchantUser" | "razorpayConnection" | "customer" | "order" | "payment" | "subscription" | "paymentLink" | "invoice" | "recoveryCase" | "aIDecision" | "aIAuditLog" | "recoveryAction" | "recoveryPolicy" | "recoveryBatch" | "promiseToPay" | "webhookEvent" | "auditLog" | "voiceRecovery"
+    modelProps: "user" | "merchant" | "merchantUser" | "razorpayConnection" | "customer" | "order" | "payment" | "subscription" | "paymentLink" | "invoice" | "recoveryCase" | "aIDecision" | "aIAuditLog" | "recoveryAction" | "recoveryPolicy" | "recoveryBatch" | "promiseToPay" | "webhookEvent" | "auditLog" | "voiceRecovery" | "recoveryAgentRun"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1916,6 +1917,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    RecoveryAgentRun: {
+      payload: Prisma.$RecoveryAgentRunPayload<ExtArgs>
+      fields: Prisma.RecoveryAgentRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RecoveryAgentRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RecoveryAgentRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        findFirst: {
+          args: Prisma.RecoveryAgentRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RecoveryAgentRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        findMany: {
+          args: Prisma.RecoveryAgentRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>[]
+        }
+        create: {
+          args: Prisma.RecoveryAgentRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        createMany: {
+          args: Prisma.RecoveryAgentRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RecoveryAgentRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>[]
+        }
+        delete: {
+          args: Prisma.RecoveryAgentRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        update: {
+          args: Prisma.RecoveryAgentRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.RecoveryAgentRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RecoveryAgentRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RecoveryAgentRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.RecoveryAgentRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecoveryAgentRunPayload>
+        }
+        aggregate: {
+          args: Prisma.RecoveryAgentRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRecoveryAgentRun>
+        }
+        groupBy: {
+          args: Prisma.RecoveryAgentRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RecoveryAgentRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RecoveryAgentRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RecoveryAgentRunCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2359,6 +2434,31 @@ export const VoiceRecoveryScalarFieldEnum = {
 } as const
 
 export type VoiceRecoveryScalarFieldEnum = (typeof VoiceRecoveryScalarFieldEnum)[keyof typeof VoiceRecoveryScalarFieldEnum]
+
+
+export const RecoveryAgentRunScalarFieldEnum = {
+  id: 'id',
+  agentRunId: 'agentRunId',
+  merchantId: 'merchantId',
+  customerId: 'customerId',
+  recoveryCaseId: 'recoveryCaseId',
+  status: 'status',
+  currentState: 'currentState',
+  iteration: 'iteration',
+  maxIterations: 'maxIterations',
+  currentDecisionId: 'currentDecisionId',
+  lastActionId: 'lastActionId',
+  startedAt: 'startedAt',
+  lastActivityAt: 'lastActivityAt',
+  completedAt: 'completedAt',
+  stopReason: 'stopReason',
+  failureReason: 'failureReason',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RecoveryAgentRunScalarFieldEnum = (typeof RecoveryAgentRunScalarFieldEnum)[keyof typeof RecoveryAgentRunScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2928,6 +3028,7 @@ export type GlobalOmitConfig = {
   webhookEvent?: Prisma.WebhookEventOmit
   auditLog?: Prisma.AuditLogOmit
   voiceRecovery?: Prisma.VoiceRecoveryOmit
+  recoveryAgentRun?: Prisma.RecoveryAgentRunOmit
 }
 
 /* Types for Logging */
