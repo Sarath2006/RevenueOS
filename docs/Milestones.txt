@@ -60,8 +60,20 @@ M6	AI diagnosis/risk/decision engine      ✅
 ├── M6.15  AI Evaluation + Observability          ✅
 │
 └── M6.16  M6 End-to-End Testing                  ✅
-M7	Recovery orchestration + bounded actions
+
+M7	Recovery orchestration + bounded actions       ✅
+│
+├── M7.1  Recovery Orchestrator                  ✅
+│
+├── M7.2  Action Policy + Bounds                 ✅
+│
+├── M7.3  Action Executor                        ✅
+│
+├── M7.4  Idempotency + Action State             ✅
+│
+└── M7.5  M7 End-to-End Testing                  ✅
 M8	Automatic agent loop + stopping rules
+
 M9	Hinglish voice recovery
 M10	Batch recovery + dynamic simulation
 M11	Merchant dashboard
