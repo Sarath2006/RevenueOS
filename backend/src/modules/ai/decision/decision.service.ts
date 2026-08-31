@@ -70,7 +70,7 @@ export class AIDecisionService {
     if (
       Math.abs(
         expectedProbabilityPercent -
-          input.probabilityPercent
+        input.probabilityPercent
       ) > 0.01
     ) {
       throw new Error(
@@ -142,6 +142,57 @@ export class AIDecisionService {
       decisionId,
       {
         ...input,
+
+        modelVersions: {
+          ...input.modelVersions,
+
+          ...(input.safetyModelVersion
+            ? {
+              safety:
+                input.safetyModelVersion,
+            }
+            : {}),
+        },
+
+        inputFeatures: {
+          ...(typeof input.inputFeatures === "object"
+            && input.inputFeatures !== null
+            ? input.inputFeatures
+            : {}),
+
+          ...(input.safetyDecision
+            ? {
+              safety: {
+                decision:
+                  input.safetyDecision,
+
+                allowed:
+                  input.safetyAllowed ?? false,
+
+                riskLevel:
+                  input.safetyRiskLevel ?? "HIGH",
+
+                reason:
+                  input.safetyReason ??
+                  "Safety evaluation completed.",
+
+                blockingRules:
+                  input.safetyBlockingRules ?? [],
+
+                warnings:
+                  input.safetyWarnings ?? [],
+
+                modelVersion:
+                  input.safetyModelVersion ??
+                  "unknown",
+
+                evaluatedAt:
+                  input.safetyEvaluatedAt ??
+                  new Date(),
+              },
+            }
+            : {}),
+        },
 
         probability:
           this.round(

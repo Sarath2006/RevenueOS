@@ -73,6 +73,13 @@ import {
 } from "../modules/ai/confidence/confidence.service";
 
 /**
+ * M6.13 — AI Safety / Policy Boundary.
+ */
+import {
+  aiSafetyService,
+} from "../modules/ai/safety/safety.service";
+
+/**
  * M6.9 — AI Decision persistence.
  */
 import {
@@ -385,11 +392,14 @@ async function processAIDecisionJob(
   } = job.data;
 
 
-  /**
-   * ==========================================================
-   * JOB START
-   * ==========================================================
-   */
+  let persistedDecisionId: string | null = null;
+
+  try {
+    /**
+     * ==========================================================
+     * JOB START
+     * ==========================================================
+     */
 
   logger.info(
     {
@@ -726,7 +736,42 @@ async function processAIDecisionJob(
 
   /**
    * ==========================================================
-   * STEP 5 — M6.9 PERSIST AI DECISION
+   * STEP 5 — M6.13 AI SAFETY / POLICY BOUNDARY
+   * ==========================================================
+   */
+
+  const safety =
+    aiSafetyService.evaluate({
+      decisionId: null,
+      strategy: confidence.selectedStrategy,
+      confidence: confidence.confidence,
+      currentFailedAmount: normalizedFeatures.currentFailedAmount,
+      outstandingRecoveryAmount: normalizedFeatures.outstandingRecoveryAmount,
+      recoveryAttemptCount: normalizedFeatures.activeRecoveryCaseCount,
+      customerOptedOut: false,
+      alreadyPaid: false,
+      refundDetected: false,
+      caseStopped: false,
+      actionAllowed: true,
+    });
+
+  logger.info(
+    {
+      jobId: job.id,
+      recoveryCaseId,
+      safetyDecision: safety.decision,
+      safetyAllowed: safety.allowed,
+      safetyRiskLevel: safety.riskLevel,
+      safetyReason: safety.reason,
+      blockingRules: safety.blockingRules.map((r) => r.code),
+    },
+    "AI safety boundary evaluated",
+  );
+
+
+  /**
+   * ==========================================================
+   * STEP 6 — M6.9 PERSIST AI DECISION
    * ==========================================================
    *
    * The AIDecision is created BEFORE audit events.
@@ -821,6 +866,9 @@ async function processAIDecisionJob(
 
           confidence:
             confidence.modelVersion,
+
+          safety:
+            safety.modelVersion,
         },
 
         inputFeatures:
@@ -852,6 +900,37 @@ async function processAIDecisionJob(
 
         alternatives:
           strategy.alternatives,
+
+        /**
+         * M6.13 Safety
+         */
+        safetyDecision:
+          safety.decision,
+
+        safetyAllowed:
+          safety.allowed,
+
+        safetyRiskLevel:
+          safety.riskLevel,
+
+        safetyReason:
+          safety.reason,
+
+        safetyBlockingRules:
+          safety.blockingRules.map(
+            (r) => r.code,
+          ),
+
+        safetyWarnings:
+          safety.warnings.map(
+            (r) => r.code,
+          ),
+
+        safetyModelVersion:
+          safety.modelVersion,
+
+        safetyEvaluatedAt:
+          safety.generatedAt,
       },
     );
 
@@ -869,6 +948,9 @@ async function processAIDecisionJob(
   const decisionId =
     decision.decisionId;
 
+  persistedDecisionId =
+    decisionId;
+
 
   logger.info(
     {
@@ -884,10 +966,10 @@ async function processAIDecisionJob(
 
   /**
    * ==========================================================
-   * STEP 6 — M6.12 AUDIT TRAIL
+   * STEP 7 — M6.12 AUDIT TRAIL
    * ==========================================================
    *
-   * EXACTLY SEVEN EVENTS:
+   * EIGHT LIFECYCLE EVENTS:
    *
    * 1. AI_DECISION_STARTED
    * 2. PROBABILITY_CALCULATED
@@ -895,7 +977,8 @@ async function processAIDecisionJob(
    * 4. STRATEGY_RECOMMENDED
    * 5. CONFIDENCE_EVALUATED
    * 6. FALLBACK_EVALUATED
-   * 7. AI_DECISION_COMPLETED
+   * 7. SAFETY_EVALUATED
+   * 8. AI_DECISION_COMPLETED
    *
    * IMPORTANT:
    *
@@ -905,7 +988,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.1 — DECISION STARTED
+   * 7.1 — DECISION STARTED
    * ----------------------------------------------------------
    */
 
@@ -935,7 +1018,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.2 — PROBABILITY
+   * 7.2 — PROBABILITY
    * ----------------------------------------------------------
    */
 
@@ -965,7 +1048,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.3 — PRIORITY
+   * 7.3 — PRIORITY
    * ----------------------------------------------------------
    */
 
@@ -992,7 +1075,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.4 — STRATEGY
+   * 7.4 — STRATEGY
    * ----------------------------------------------------------
    */
 
@@ -1022,7 +1105,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.5 — CONFIDENCE
+   * 7.5 — CONFIDENCE
    * ----------------------------------------------------------
    */
 
@@ -1049,7 +1132,7 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.6 — FALLBACK
+   * 7.6 — FALLBACK
    * ----------------------------------------------------------
    *
    * Recorded even when fallback is NOT required.
@@ -1092,7 +1175,56 @@ async function processAIDecisionJob(
 
   /**
    * ----------------------------------------------------------
-   * 6.7 — DECISION COMPLETED
+   * 7.7 — SAFETY
+   * ----------------------------------------------------------
+   */
+
+  await aiAuditService.recordSafety({
+
+    decisionId,
+
+    merchantId,
+
+    customerId,
+
+    recoveryCaseId,
+
+    safetyDecision:
+      safety.decision,
+
+    safetyAllowed:
+      safety.allowed,
+
+    safetyRiskLevel:
+      safety.riskLevel,
+
+    safetyReason:
+      safety.reason,
+
+    safetyBlockingRules:
+      safety.blockingRules.map(
+        (r) => r.code,
+      ),
+
+    safetyWarnings:
+      safety.warnings.map(
+        (r) => r.code,
+      ),
+
+    safetyModelVersion:
+      safety.modelVersion,
+
+    strategy:
+      confidence.selectedStrategy,
+
+    confidence:
+      confidence.confidence,
+  });
+
+
+  /**
+   * ----------------------------------------------------------
+   * 7.8 — DECISION COMPLETED
    * ----------------------------------------------------------
    */
 
@@ -1140,6 +1272,12 @@ async function processAIDecisionJob(
 
       decisionChanged:
         confidence.decisionChanged,
+
+      safetyDecision:
+        safety.decision,
+
+      safetyRiskLevel:
+        safety.riskLevel,
     },
   });
 
@@ -1160,6 +1298,7 @@ async function processAIDecisionJob(
         "STRATEGY_RECOMMENDED",
         "CONFIDENCE_EVALUATED",
         "FALLBACK_EVALUATED",
+        "SAFETY_EVALUATED",
         "AI_DECISION_COMPLETED",
       ],
 
@@ -1168,6 +1307,9 @@ async function processAIDecisionJob(
 
       confidence:
         confidence.confidence,
+
+      safetyDecision:
+        safety.decision,
     },
     "AI audit trail completed",
   );
@@ -1175,7 +1317,7 @@ async function processAIDecisionJob(
 
   /**
    * ==========================================================
-   * STEP 7 — FINAL RESULT
+   * STEP 8 — FINAL RESULT
    * ==========================================================
    */
 
@@ -1201,6 +1343,8 @@ async function processAIDecisionJob(
     strategy,
 
     confidence,
+
+    safety,
 
     source,
 
@@ -1240,7 +1384,42 @@ async function processAIDecisionJob(
   );
 
 
-  return result;
+    return result;
+  } catch (error: any) {
+    logger.error(
+      {
+        jobId: job.id,
+        customerId,
+        merchantId,
+        recoveryCaseId,
+        error: error.message,
+        stack: error.stack,
+      },
+      "AI decision job execution failed",
+    );
+
+    if (persistedDecisionId && merchantId) {
+      try {
+        await aiAuditService.recordDecisionFailed({
+          decisionId: persistedDecisionId,
+          merchantId,
+          customerId,
+          recoveryCaseId,
+          error: error.message || "AI decision job failed",
+        });
+      } catch (auditError: any) {
+        logger.warn(
+          {
+            jobId: job.id,
+            auditError: auditError.message,
+          },
+          "Could not record AI_DECISION_FAILED audit event",
+        );
+      }
+    }
+
+    throw error;
+  }
 }
 
 

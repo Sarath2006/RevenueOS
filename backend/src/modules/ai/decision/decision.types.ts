@@ -84,7 +84,32 @@ export interface DecisionInput {
   negativeSignals: string[];
 
   alternatives: DecisionAlternative[];
+
+  /**
+   * M6.13 — AI Safety / Policy Boundary
+   */
+  safetyDecision?: "ALLOW" | "BLOCK" | "REQUIRE_HUMAN_REVIEW";
+
+  safetyAllowed?: boolean;
+
+  safetyRiskLevel?:
+    | "LOW"
+    | "MEDIUM"
+    | "HIGH"
+    | "CRITICAL";
+
+  safetyReason?: string;
+
+  safetyBlockingRules?: string[];
+
+  safetyWarnings?: string[];
+
+  safetyModelVersion?: string;
+
+  safetyEvaluatedAt?: Date;
 }
+
+
 
 export interface AIDecisionRecord {
   id: string;
@@ -137,3 +162,4 @@ export interface AIDecisionRecord {
   createdAt: Date;
   updatedAt: Date;
 }
+

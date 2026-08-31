@@ -28,7 +28,7 @@ M5	Webhook ingestion + event synchronization
 ├── M5.9  Subscription Synchronization      ✅
 └── M5.10 Payment-Link Synchronization      ✅
 
-M6	AI diagnosis/risk/decision engine (In Progress at M6.13)
+M6	AI diagnosis/risk/decision engine      ✅
 ├── M6.1   AI Module Architecture                 ✅
 │
 ├── M6.2   AI Provider Abstraction                ✅
@@ -53,13 +53,13 @@ M6	AI diagnosis/risk/decision engine (In Progress at M6.13)
 │
 ├── M6.12  AI Audit Trail                         ✅
 │
-├── M6.13  AI Safety / Policy Boundary            ⏭️
+├── M6.13  AI Safety / Policy Boundary            ✅
 │
-├── M6.14  Model Versioning                       ⏭️
+├── M6.14  Model Versioning                       ✅
 │
-├── M6.15  AI Evaluation + Observability          ⏭️
+├── M6.15  AI Evaluation + Observability          ✅
 │
-└── M6.16  M6 End-to-End Testing                 ⏭️
+└── M6.16  M6 End-to-End Testing                  ✅
 M7	Recovery orchestration + bounded actions
 M8	Automatic agent loop + stopping rules
 M9	Hinglish voice recovery

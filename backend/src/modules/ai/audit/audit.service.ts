@@ -459,6 +459,105 @@ export class AIAuditService {
   }
 
 
+    /**
+   * ----------------------------------------------------------
+   * M6.13 — Record AI safety evaluation
+   * ----------------------------------------------------------
+   */
+  async recordSafety(
+    input: {
+      decisionId: string;
+      merchantId: string;
+      customerId?: string | null;
+      recoveryCaseId?: string | null;
+
+      safetyDecision:
+        | "ALLOW"
+        | "BLOCK"
+        | "REQUIRE_HUMAN_REVIEW";
+
+      safetyAllowed: boolean;
+
+      safetyRiskLevel:
+        | "LOW"
+        | "MEDIUM"
+        | "HIGH"
+        | "CRITICAL";
+
+      safetyReason: string;
+
+      safetyBlockingRules: string[];
+
+      safetyWarnings: string[];
+
+      safetyModelVersion: string;
+
+      strategy?: string | null;
+
+      confidence?: number | null;
+    },
+  ) {
+
+    return this.record({
+
+      decisionId:
+        input.decisionId,
+
+      merchantId:
+        input.merchantId,
+
+      customerId:
+        input.customerId,
+
+      recoveryCaseId:
+        input.recoveryCaseId,
+
+      eventType:
+        "SAFETY_EVALUATED",
+
+      stage:
+        "SAFETY",
+
+      status:
+        "SUCCESS",
+
+      strategy:
+        input.strategy,
+
+      confidence:
+        input.confidence,
+
+      modelVersions: {
+        safety:
+          input.safetyModelVersion,
+      },
+
+      metadata: {
+
+        safetyDecision:
+          input.safetyDecision,
+
+        safetyAllowed:
+          input.safetyAllowed,
+
+        safetyRiskLevel:
+          input.safetyRiskLevel,
+
+        safetyReason:
+          input.safetyReason,
+
+        safetyBlockingRules:
+          input.safetyBlockingRules,
+
+        safetyWarnings:
+          input.safetyWarnings,
+
+        safetyModelVersion:
+          input.safetyModelVersion,
+      },
+    });
+  }
+
   /**
    * Record final successful decision.
    */

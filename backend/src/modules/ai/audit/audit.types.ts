@@ -26,6 +26,7 @@ export type AIAuditStage =
   | "STRATEGY"
   | "CONFIDENCE"
   | "FALLBACK"
+  | "SAFETY"
   | "DECISION"
   | "OUTCOME";
 
@@ -38,6 +39,7 @@ export type AIAuditEventType =
   | "STRATEGY_RECOMMENDED"
   | "CONFIDENCE_EVALUATED"
   | "FALLBACK_EVALUATED"
+  | "SAFETY_EVALUATED"
   | "AI_DECISION_COMPLETED"
   | "AI_DECISION_FAILED"
   | "DECISION_OUTCOME_RECORDED";
@@ -48,6 +50,8 @@ export type AIAuditStatus =
   | "SUCCESS"
   | "FAILED"
   | "SKIPPED";
+
+
 
 
 export interface AIAuditModelVersions {
@@ -88,6 +92,30 @@ export interface CreateAIAuditLogInput {
   modelVersions?: AIAuditModelVersions | null;
 
   metadata?: Record<string, unknown> | null;
+
+
+    safetyDecision?:
+    | "ALLOW"
+    | "BLOCK"
+    | "REQUIRE_HUMAN_REVIEW"
+    | null;
+
+  safetyAllowed?: boolean | null;
+
+  safetyRiskLevel?:
+    | "LOW"
+    | "MEDIUM"
+    | "HIGH"
+    | "CRITICAL"
+    | null;
+
+  safetyReason?: string | null;
+
+  safetyBlockingRules?: string[] | null;
+
+  safetyWarnings?: string[] | null;
+
+  safetyModelVersion?: string | null;
 }
 
 
